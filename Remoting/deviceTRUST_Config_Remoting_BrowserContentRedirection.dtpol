@@ -1,0 +1,292 @@
+{
+   "consoleVersion": "20.2.300.0",
+   "username": "DEMO.DEVICETRUST.LOCAL\\admin",
+   "timestamp": "2021-04-26T12:20:06.563Z",
+   "contexts": [
+      {
+         "id": "6986a6cc-3349-443c-bdbc-b32e507c72dd",
+         "key": "CONTEXT_WEBEX_VDI_PLUGIN_INSTALLED",
+         "name": "WebEx VDI Plugin installed",
+         "description": "Enter context description",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "True",
+               "conditions": [
+                  {
+                     "id": "a245ce40-c70a-41e8-a90d-205b08701597",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "branches": [
+                        {
+                           "state": "True",
+                           "conditions": [
+                              {
+                                 "id": "8132018b-158b-4793-b1d3-0577e78498b5",
+                                 "categoryName": "Windows Registry",
+                                 "propertyName": "Value",
+                                 "propertyValue": 3,
+                                 "underlyingPropertyName": "TARGET_WINDOWSREGISTRY_X_VALUE",
+                                 "operator": "Available",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       {
+                                          "path": "HKLM\\SOFTWARE\\Cisco Systems, Inc.\\Cisco Webex Meetings VDI",
+                                          "value": "Client",
+                                          "monitor": true,
+                                          "protectedOnly": false
+                                       }
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "Windows Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "0db9a400-c953-480a-959b-b8ab19ee1748",
+                                 "categoryName": "Windows Registry",
+                                 "propertyName": "Value",
+                                 "propertyValue": 3,
+                                 "underlyingPropertyName": "TARGET_WINDOWSREGISTRY_X_VALUE",
+                                 "operator": "Available",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       {
+                                          "path": "HKLM\\SOFTWARE\\Cisco Systems, Inc.\\Cisco Webex Meetings VDI",
+                                          "value": "InstallationID",
+                                          "monitor": true,
+                                          "protectedOnly": false
+                                       }
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "Windows Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "f7d5f7fd-9126-4306-9924-e79f4592d9b9",
+                                 "categoryName": "Windows Registry",
+                                 "propertyName": "Value",
+                                 "propertyValue": 3,
+                                 "underlyingPropertyName": "TARGET_WINDOWSREGISTRY_X_VALUE",
+                                 "operator": "Available",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       {
+                                          "path": "HKLM\\SOFTWARE\\Cisco Systems, Inc.\\Cisco Webex Meetings VDI",
+                                          "value": "InstallationPath",
+                                          "monitor": true,
+                                          "protectedOnly": false
+                                       }
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "Windows Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "False",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "ba5dca60-f37a-4711-9c58-f89242cf241c",
+                     "categoryName": "Windows Registry",
+                     "propertyName": "Value",
+                     "propertyValue": 3,
+                     "underlyingPropertyName": "TARGET_WINDOWSREGISTRY_X_VALUE",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "path": "HKLM\\SOFTWARE\\Cisco Systems, Inc.\\Cisco Webex Teams VDI",
+                              "value": "Client",
+                              "monitor": true,
+                              "protectedOnly": false
+                           }
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "Windows Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "89e723f3-8de8-4ac5-a143-26006c7af43b",
+                     "categoryName": "Windows Registry",
+                     "propertyName": "Value",
+                     "propertyValue": 3,
+                     "underlyingPropertyName": "TARGET_WINDOWSREGISTRY_X_VALUE",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "path": "HKLM\\SOFTWARE\\Cisco Systems, Inc.\\Cisco Webex Teams VDI",
+                              "value": "InstallationID",
+                              "monitor": true,
+                              "protectedOnly": false
+                           }
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "Windows Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "e1e44bf2-fc80-4e4a-9c70-4e7ce71f4e1b",
+                     "categoryName": "Windows Registry",
+                     "propertyName": "Value",
+                     "propertyValue": 3,
+                     "underlyingPropertyName": "TARGET_WINDOWSREGISTRY_X_VALUE",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "path": "HKLM\\SOFTWARE\\Cisco Systems, Inc.\\Cisco Webex Teams VDI",
+                              "value": "InstallationPath",
+                              "monitor": true,
+                              "protectedOnly": false
+                           }
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "Windows Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      }
+   ],
+   "actions": [
+      {
+         "id": "1d4e5589-3264-408e-ab55-64ca1a192080",
+         "key": "ACTION_CONFIGURE_CITRIX_BROWSER_CONTENT_REDIRECTION",
+         "name": "Configure Citrix Browser Content Redirection",
+         "description": "Enter action description",
+         "data": [
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_WEBEX_VDI_PLUGIN_INSTALLED",
+                     "contextName": "WebEx VDI Plugin installed",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "True"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "198eb161-58f7-4314-8fb2-e468bfd20b2f",
+                     "type": "Custom Process",
+                     "description": "Unset BCR entries",
+                     "runAs": "System",
+                     "hidden": true,
+                     "wait": true,
+                     "captureOutput": true,
+                     "timeout": 300,
+                     "failureDetection": "Exit Code",
+                     "runOnClient": false,
+                     "useEmbeddedScript": true,
+                     "embeddedScript": "[String]$USerSessionID = (Get-Process -PID $pid).SessionID\n\nRemove-ItemProperty -Path \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\MultimediaPolicies\" -Name WebBrowserRedirectionAuthenticationSites -Force\n\nRemove-ItemProperty -Path \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\MultimediaPolicies\" -Name WebBrowserRedirectionAcl -Force",
+                     "embeddedScriptTarget": "PowerShell",
+                     "powerShellExecutionPolicy": "NotSpecified",
+                     "bypassAppLockerPolicy": false
+                  }
+               ]
+            },
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_WEBEX_VDI_PLUGIN_INSTALLED",
+                     "contextName": "WebEx VDI Plugin installed",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False",
+                           "Unavailable"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "075255e1-2a13-423a-b7a4-c081a275b14a",
+                     "type": "Custom Process",
+                     "description": "Set BCR entries",
+                     "runAs": "System",
+                     "hidden": true,
+                     "wait": true,
+                     "captureOutput": true,
+                     "timeout": 300,
+                     "failureDetection": "Exit Code",
+                     "runOnClient": false,
+                     "useEmbeddedScript": true,
+                     "embeddedScript": "[String]$USerSessionID = (Get-Process -PID $pid).SessionID\n\n$AuthSiteEntries=@(\n    \"https://login.microsoftonline.com/login*\",\n    \"https://teams.microsoft.com/*\",\n    \"https://idbroker.webex.com/*\",\n    \"https://accounts.google.com/*\"\n)\n\nif (!(Test-Path \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\MultimediaPolicies\")){\n   New-Item \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\MultimediaPolicies\"\n}\n\nNew-ItemProperty -Path \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\MultimediaPolicies\" -PropertyType MultiString -Name WebBrowserRedirectionAuthenticationSites -Value $AuthSiteEntries -Force\n\n$ACLEntries=@(\n    \"https://teams.microsoft.com/*\",\n    \"https://login.microsoftonline.com/*teams*\",\n    \"https://go.webex.com/*\",\n    \"https://teams.webex.com/*\",\n    \"https://www.webex.com/*\",\n    \"https://hdx.my.webex.com/*\",\n    \"http://mysource.webex.com/*\",\n    \"https://youtube.com/*\",\n    \"https://www.youtube.com/*\"\n)\nNew-ItemProperty -Path \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\MultimediaPolicies\" -PropertyType MultiString -Name WebBrowserRedirectionAcl -Value $ACLEntries -Force",
+                     "embeddedScriptTarget": "PowerShell",
+                     "powerShellExecutionPolicy": "NotSpecified",
+                     "bypassAppLockerPolicy": false
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "Medium"
+      }
+   ],
+   "messages": [],
+   "settings": []
+}
