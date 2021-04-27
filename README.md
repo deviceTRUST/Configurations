@@ -1,6 +1,9 @@
 ![dt-logo-full-aot-space-w1280](https://user-images.githubusercontent.com/83282694/116271495-5219b100-a780-11eb-9e1a-f929d2e3cbdc.png)
 # Configurations
-This section contains a collection of deviceTRUST configurations. Configurations originate from customer scenarios as well as from testing processes and of course from the community. All configurations found here are af course anonymized. 
+This section contains a collection of deviceTRUST configurations. Configurations originate from customer scenarios as well as from testing processes and of course from the community. 
+
+# Privacy / Anonymization
+All configurations found here are anonymized. Please make sure there is no private data in the configs while sharing!
 
 # Contributing
 To contribute to the configurations, follow these steps:
