@@ -1,0 +1,467 @@
+{
+   "consoleVersion": "20.2.300.0",
+   "username": "SvenJansen",
+   "timestamp": "2021-04-28T07:48:47.422Z",
+   "contexts": [
+      {
+         "id": "e38b0846-a80c-4db2-b1c9-ecdc69caf52f",
+         "key": "CONTEXT_CLIENT_TYPE",
+         "name": "Client Type",
+         "description": "Defines the remote device client type.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "Client Type 1",
+               "conditions": [
+                  {
+                     "id": "3b7da2cc-521b-41f2-833a-cbf842b609d1",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Unmanaged Client",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "3c0aa321-9336-4028-b231-0fbfda078ff5",
+                     "categoryName": "OS",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_OS_NAME",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Windows"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "Windows Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "AZURE Client",
+                           "conditions": [
+                              {
+                                 "id": "87c8aa7a-1616-4a5c-8f98-e2c449bf4bf3",
+                                 "categoryName": "Domain",
+                                 "propertyName": "Join",
+                                 "propertyValue": 4,
+                                 "underlyingPropertyName": "TARGET_DOMAIN_JOIN",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "AzureAD"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "Windows Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "2a21b144-8369-4cb5-b591-6ae07fce6750",
+                                 "categoryName": "Domain",
+                                 "propertyName": "ID",
+                                 "propertyValue": 3,
+                                 "underlyingPropertyName": "TARGET_DOMAIN_ID",
+                                 "operator": "String Equals",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       "AZURE_AD_ID"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "Windows Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "id": "2aac89ab-a824-469e-bef2-6316f51249f5",
+                     "categoryName": "Domain",
+                     "propertyName": "Join",
+                     "propertyValue": 4,
+                     "underlyingPropertyName": "TARGET_DOMAIN_JOIN",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Domain"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "Windows Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "9abee6fc-243d-4246-b169-f689c65b5bb9",
+                     "categoryName": "Domain",
+                     "propertyName": "ID",
+                     "propertyValue": 3,
+                     "underlyingPropertyName": "TARGET_DOMAIN_ID",
+                     "operator": "String Equals",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "DOMAIN_SID"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "Windows Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Client Type 2",
+                           "conditions": [
+                              {
+                                 "id": "dbb51a48-d0e9-460c-8055-ddbd48a6471a",
+                                 "categoryName": "Name",
+                                 "propertyName": "Name",
+                                 "propertyValue": 1,
+                                 "underlyingPropertyName": "TARGET_NAME",
+                                 "operator": "String Wildcard",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       "ClientType2"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "Windows Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "id": "283726a4-55ff-4483-bf2d-1a92e9b5e0bf",
+                     "categoryName": "Name",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_NAME",
+                     "operator": "String Wildcard",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "ClientType1"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "Windows Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "19437eb5-7e13-4051-aa75-84968e485903",
+         "key": "CONTEXT_DPI_SETTINGS",
+         "name": "DPI Settings",
+         "description": "Defines the remote device DPI settings.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "%DEVICE_DISPLAY_X_DPI%",
+               "conditions": [
+                  {
+                     "id": "fc3b49a2-e0d0-46db-97d6-0e81d0184a1a",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "branches": [
+                        {
+                           "state": "%DEVICE_DISPLAY_X_DPI%",
+                           "conditions": [
+                              {
+                                 "id": "ca2a34df-6484-4e7b-adaf-562d17689f1d",
+                                 "categoryName": "Display",
+                                 "propertyName": "Monitor External",
+                                 "propertyValue": 10,
+                                 "underlyingPropertyName": "TARGET_DISPLAY_X_MONITOR_EXTERNAL",
+                                 "operator": "Boolean Equals",
+                                 "value": {
+                                    "type": "Boolean",
+                                    "data": [
+                                       false
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "All Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "7a910a04-8a7f-4927-b53f-668f44af89c5",
+                                 "categoryName": "Display",
+                                 "propertyName": "DPI",
+                                 "propertyValue": 6,
+                                 "underlyingPropertyName": "TARGET_DISPLAY_X_DPI",
+                                 "operator": "Available",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Device",
+                                 "filter": "All Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": true,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Unsupported OS",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "71bc147e-2bf3-4a6f-8cbf-69028c0179e8",
+                     "categoryName": "Display",
+                     "propertyName": "Monitor External",
+                     "propertyValue": 10,
+                     "underlyingPropertyName": "TARGET_DISPLAY_X_MONITOR_EXTERNAL",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "d0455f01-adda-4d00-a8b9-ec3b4218f48e",
+                     "categoryName": "Display",
+                     "propertyName": "DPI",
+                     "propertyValue": 6,
+                     "underlyingPropertyName": "TARGET_DISPLAY_X_DPI",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": true,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      }
+   ],
+   "actions": [
+      {
+         "id": "924fc517-adf7-441f-aa8f-855ea1add185",
+         "key": "ACTION_SET_SESSION_DPI_VALUE",
+         "name": "Set Session DPI Value",
+         "description": "Applies conditional session DPI configuration based on the supported remote device DPI settings.",
+         "data": [
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_CLIENT_TYPE",
+                     "contextName": "Client Type",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Unmanaged Client",
+                           "Unavailable",
+                           "AZURE Client"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "d1839622-c9b3-46da-9a7f-244b1e970d8d",
+                     "type": "Custom Process",
+                     "description": "Default DPI",
+                     "runAs": "User",
+                     "hidden": true,
+                     "wait": true,
+                     "captureOutput": false,
+                     "timeout": 10,
+                     "failureDetection": "Exit Code",
+                     "runOnClient": false,
+                     "useEmbeddedScript": false,
+                     "filename": "dtcmd.exe",
+                     "filenameTarget": "Executable",
+                     "args": "REG /name:\"DPISettings\" /path:\"HKCU\\Control Panel\\Desktop\" /update:\"LogPixels;96;REG_DWORD\" /update:\"Win8DpiScaling;1;REG_DWORD\"",
+                     "bypassAppLockerPolicy": false
+                  }
+               ]
+            },
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_CLIENT_TYPE",
+                     "contextName": "Client Type",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Client Type 1",
+                           "Client Type 2"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "27dd2a6b-8c2c-4d37-9b86-d2ec771e5a28",
+                     "type": "Custom Process",
+                     "description": "Custom DPI",
+                     "runAs": "User",
+                     "hidden": true,
+                     "wait": true,
+                     "captureOutput": true,
+                     "timeout": 10,
+                     "failureDetection": "Exit Code",
+                     "runOnClient": false,
+                     "useEmbeddedScript": true,
+                     "embeddedScript": "' ***********************************************************\n' Create global variables\n' ***********************************************************\nDim shell\nSet shell = CreateObject(\"WScript.Shell\")\n\n' ***********************************************************\n' Expands one or more environment variables within the text\n' ***********************************************************\nFunction ReadEnvironment(name)\n\n   Dim processEnvironment\n\n   ' Use the process's environment block\n   Set processEnvironment = shell.Environment(\"Process\")\n\n   ' Query environment variable\n   ReadEnvironment = processEnvironment(name)\n\n   ' Clean up\n   Set processEnvironment = Nothing\n\nEnd Function\n\n' ***********************************************************\n' Executes a process, waiting for it to finish\n' ***********************************************************\nFunction ExecuteCommand(command)\n\n   Dim exec, text\n\n   ' Launch process\n   Set exec = shell.Exec(command)\n\n   ' Read output\n   Do While Not exec.StdOut.AtEndOfStream\n      text = exec.StdOut.ReadLine()\n      WScript.Echo text\n   Loop\n\n   ' Read error\n   Do While Not exec.StdErr.AtEndOfStream\n      text = exec.StdErr.ReadLine()\n      WScript.Echo \"Error: \" & text\n   Loop\n\n   ' Return exit code\n   ExecuteCommand = exec.ExitCode\n\n   ' Clean up\n   Set exec = Nothing\n\nEnd Function\n\n' ***********************************************************\n' Finds the maximum numeric value within the array\n' ***********************************************************\nFunction MaxArrayValue(array)\n\n   Dim numeric, value\n   For Each value In array\n      numeric = CInt(value)\n      If Not IsNumeric(MaxArrayValue) Then\n         MaxArrayValue = numeric\n      ElseIf numeric > MaxArrayValue Then\n         MaxArrayValue = numeric\n      End If\n   Next\n\nEnd Function\n\n' ***********************************************************\n' Main entry point\n' ***********************************************************\nFunction Main\n\n   ' Calculate the max dpi\n   Dim dpiSettings, dpiArray, dpiMax\n   dpiSettings = ReadEnvironment(\"CONTEXT_DPI_SETTINGS\")\n   If not dpiSettings = \"Unavailable\" Then\n\n      dpiArray = Split(dpiSettings, \";\")\n      dpiMax = MaxArrayValue(dpiArray)\n\n      ' Save the DPI as a custom value\n      Dim command, exitCode\n      command = \"dtcmd.exe REG /name:DPISettings /path:\"\"HKCU\\Control Panel\\Desktop\"\" /update:\"\"LogPixels;\" & dpiMax & \";REG_DWORD\"\" /update:Win8DpiScaling;1;REG_DWORD\"\n      WScript.Echo \"Executing command: \" & command\n      exitCode = ExecuteCommand(command)\n      \n      If exitCode = 0 Then\n      \n         ' Display summary\n         WScript.Echo \"Set DPI to \" & dpiMax & \" from settings \" & dpiSettings\n         WScript.Quit(0)\n\n      Else\n      \n         ' Display error\n         WScript.Echo \"Failed to set DPI to \" & dpiMax & \" from settings \" & dpiSettings & \" with exit code \" & exitCode\n         WScript.Quit(exitCode)\n      \n      End If\n      \n   Else\n\n      ' Display why we didn't update DPI\n      WScript.Echo \"DPI settings was not defined\"\n      WScript.Quit(1)\n\n   End If\n\nEnd Function\n\n' Run Main function\nMain\n\n' Clean up\nSet shell = Nothing\nSet fileSystem = Nothing",
+                     "embeddedScriptTarget": "VBScript",
+                     "bypassAppLockerPolicy": false
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "Medium"
+      }
+   ],
+   "messages": [
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_BUTTON_DISCONNECT",
+         "value": "Disconnect"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_BUTTON_DISCONNECT",
+         "value": "Trennen",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_BUTTON_LOGOFF",
+         "value": "Logoff"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_BUTTON_LOGOFF",
+         "value": "Abmelden",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_ESTABLISHING_CONTEXT",
+         "value": "Establishing context with %DEVICE_NAME%"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_ESTABLISHING_CONTEXT",
+         "value": "Kontext mit %DEVICE_NAME% herstellen",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_EXECUTING_TRIGGER",
+         "value": "Applying contextual policies"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_EXECUTING_TRIGGER",
+         "value": "Kontext-Richtlinien anwenden",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_PLEASE_WAIT",
+         "value": "Please wait"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_PLEASE_WAIT",
+         "value": "Bitte warten",
+         "languageCode": "de"
+      }
+   ],
+   "settings": [
+      {
+         "type": "SystemMessages",
+         "enabled": true,
+         "establishingIdentity": "%MESSAGE_SYSTEM_MESSAGE_PLEASE_WAIT%",
+         "establishingContext": "%MESSAGE_SYSTEM_MESSAGE_ESTABLISHING_CONTEXT%",
+         "executingTrigger": "%MESSAGE_SYSTEM_MESSAGE_EXECUTING_TRIGGER%",
+         "trustedDeviceDeniedTitle": "Access Denied",
+         "trustedDeviceDeniedMessage": "To allow access to your session, please upgrade to the latest deviceTRUST client from https://devicetrust.com/download.%NEWLINE%For more details contact your IT help desk.",
+         "untrustedDeviceDeniedTitle": "Access Denied",
+         "untrustedDeviceDeniedMessage": "To allow access to your session, please install the deviceTRUST client from https://devicetrust.com/download.%NEWLINE%For more details contact your IT help desk.",
+         "signoutButton": "%MESSAGE_SYSTEM_MESSAGE_BUTTON_LOGOFF%",
+         "lockButton": "Lock",
+         "disconnectButton": "%MESSAGE_SYSTEM_MESSAGE_BUTTON_DISCONNECT%"
+      }
+   ]
+}

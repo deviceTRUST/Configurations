@@ -1,0 +1,76 @@
+{
+   "consoleVersion": "20.2.300.0",
+   "username": "SvenJansen",
+   "timestamp": "2021-04-29T12:36:30.055Z",
+   "contexts": [],
+   "actions": [
+      {
+         "id": "2959705e-d321-4e9d-9c22-c34cb7135de9",
+         "key": "ACTION_PRINTER_MANAGEMENT",
+         "name": "Printer Management",
+         "description": "Maps printers and sets the default printer",
+         "data": [
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [],
+               "tasks": [
+                  {
+                     "id": "2ce8036a-cfb7-48ad-b735-785dc8f4e64e",
+                     "type": "Map Printer",
+                     "description": "Maps %HOST_CUSTOM_PM_PRINTER%. Unmaps \\\\printserver\\*. Sets %HOST_CUSTOM_PM_DEFAULTPRINTER% as default",
+                     "mapNetworkPrinters": [
+                        {
+                           "primary": "%HOST_CUSTOM_PM_PRINTER%"
+                        }
+                     ],
+                     "unmapNetworkPrinters": [
+                        {
+                           "primary": "\\\\printserver\\*"
+                        }
+                     ],
+                     "setDefaultPrinter": {
+                        "primary": "%HOST_CUSTOM_PM_DEFAULTPRINTER%",
+                        "failover": [
+                           ""
+                        ]
+                     },
+                     "wait": true
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "Medium"
+      }
+   ],
+   "messages": [],
+   "settings": [
+      {
+         "type": "CustomProperties",
+         "enabled": true,
+         "runAs": "System",
+         "delayUntilPropertiesAvailable": true,
+         "captureOutput": true,
+         "timeout": 300,
+         "failureDetection": "Exit Code",
+         "embeddedScript": "# Define the path of the printer mapping file. Content should be in the format \"computer printer\".\n$MappingFile = \"\\\\domain\\Fileserver\\printers.txt\"\n\n# Empty the printers to connect variable\n$PrintersToConnect = \"\"\n\n# Import content of the mapping file as csv and add custom headers.\n$MappingFileContent = Import-Csv -Delimiter \"`t\" -Header \"pc\",\"printer\" -Path $MappingFile\n\n# Get printer mappings for each computer. Multiple printers can be mapped.\n# The last printer entry will be used as default printer.\n($MappingFileContent | Group-Object pc | Where-Object { $_.Name -eq $env:HOST_REMOTECONTROL_REMOTE_NAME } | Select -ExpandProperty Group | Select printer).printer | ForEach-Object{\n    $PrintersToConnect = $PrintersToConnect + \",\" + $_\n    $PrinterStandard = $_\n}\n\n# Remove invalid characters from the beginning of the $PrintersToConnect list\nif ($PrintersToConnect.StartsWith(\",\")) {\n    $PrintersToConnect = $PrintersToConnect.TrimStart(\",\")\n}\n\n# Remove invalid characters from the end of the $PrintersToConnect list\nif ($PrintersToConnect.EndsWith(\",\")) {\n    $PrintersToConnect = $PrintersToConnect.TrimEnd(\",\")\n}\n\n# Call dtcmd to set the HOST_CUSTOM_PM_PRINTER variable\n&dtcmd SET \"/update:HOST_CUSTOM_PM_PRINTER=$PrintersToConnect\"\nwrite-output \"&dtcmd SET /update:HOST_CUSTOM_PM_PRINTER=$PrintersToConnect\"\n\n# Call dtcmd to set the HOST_CUSTOM_PM_DEFAULTPRINTER variable\n&dtcmd SET \"/update:HOST_CUSTOM_PM_DEFAULTPRINTER=$PrinterStandard\"\nwrite-output \"&dtcmd SET /update:HOST_CUSTOM_PM_DEFAULTPRINTER=$PrinterStandard\"",
+         "embeddedScriptTarget": "PowerShell",
+         "powerShellExecutionPolicy": "Unrestricted",
+         "bypassAppLockerPolicy": true
+      },
+      {
+         "type": "Printer",
+         "enabled": true,
+         "maxNumberOfRetries": 10,
+         "retryIntervalInSeconds": 1,
+         "createDesktopPrinterIcon": true,
+         "letPrintSpoolerManageNetworkPrinters": false,
+         "letWindowsManageDefaultPrinter": false
+      }
+   ]
+}

@@ -1,0 +1,68 @@
+{
+   "consoleVersion": "20.2.300.0",
+   "username": "SvenJansen",
+   "timestamp": "2021-04-29T12:38:34.015Z",
+   "contexts": [],
+   "actions": [
+      {
+         "id": "ea1ad6ee-a347-46c7-b2a0-62339fd7a8aa",
+         "key": "ACTION_ACTION_CENTER_NOTIFICATION",
+         "name": "Action Center Notification",
+         "description": "Presents a notification in the Windows Action Center.",
+         "data": [
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect"
+               ],
+               "filters": [],
+               "tasks": [
+                  {
+                     "id": "c1d1f54c-bfcc-4930-a6ec-00f1efc99de1",
+                     "type": "Popup Message",
+                     "description": "It provides important information",
+                     "toast": true,
+                     "message": "It provides important information",
+                     "title": "This is a message",
+                     "triggerButtons": []
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "Medium"
+      },
+      {
+         "id": "589661c2-1c9e-4c0f-a068-49b1c3061629",
+         "key": "ACTION_POP_UP_NOTIFICATION",
+         "name": "Pop Up Notification",
+         "description": "Presents a notification as Pop Up.",
+         "data": [
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect"
+               ],
+               "filters": [],
+               "tasks": [
+                  {
+                     "id": "2c4a1355-9533-48f5-aa6a-e19632f211ae",
+                     "type": "Popup Message",
+                     "description": "It provides important information",
+                     "toast": false,
+                     "message": "It provides important information",
+                     "title": "This is a message",
+                     "triggerButtons": []
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "Medium"
+      }
+   ],
+   "messages": [],
+   "settings": []
+}

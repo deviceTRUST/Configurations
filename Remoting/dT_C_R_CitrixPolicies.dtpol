@@ -1,0 +1,512 @@
+{
+   "consoleVersion": "20.2.300.0",
+   "username": "SvenJansen",
+   "timestamp": "2021-04-29T11:55:14.761Z",
+   "contexts": [
+      {
+         "id": "ebf574ba-0431-4597-ac92-454b9745434e",
+         "key": "CONTEXT_ACCESS_MODE",
+         "name": "Access Mode",
+         "description": "Defines if the remote device is internal or external to the corporate network.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unknown",
+         "enabled": true,
+         "data": [
+            {
+               "state": "Internal",
+               "conditions": [
+                  {
+                     "id": "ba5fc5c6-4104-412b-ae69-81ee2b87df59",
+                     "categoryName": "Remote Control",
+                     "propertyName": "Protocol",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_REMOTECONTROL_PROTOCOL",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "ICA",
+                           "Blast"
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "External",
+                           "conditions": [
+                              {
+                                 "id": "87362b88-9e03-4a93-80ba-a6e9acf6a2c3",
+                                 "categoryName": "Remote Control",
+                                 "propertyName": "Gateway",
+                                 "propertyValue": 6,
+                                 "underlyingPropertyName": "TARGET_REMOTECONTROL_GATEWAY",
+                                 "operator": "Boolean Equals",
+                                 "value": {
+                                    "type": "Boolean",
+                                    "data": [
+                                       true
+                                    ]
+                                 },
+                                 "target": "Host",
+                                 "filter": "Host",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "id": "1a0d1c2d-2626-4c2b-a2c4-17d2c203d058",
+                     "categoryName": "Remote Control",
+                     "propertyName": "Gateway",
+                     "propertyValue": 6,
+                     "underlyingPropertyName": "TARGET_REMOTECONTROL_GATEWAY",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           false
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            },
+            {
+               "state": "Internal",
+               "conditions": [
+                  {
+                     "id": "fd106ee4-52ad-41c3-8e78-f7bf39d8a7ae",
+                     "categoryName": "Remote Control",
+                     "propertyName": "Protocol",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_REMOTECONTROL_PROTOCOL",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "RDP"
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "External",
+                           "conditions": [
+                              {
+                                 "id": "8394605f-0b94-4d5a-8e04-61cc81729db8",
+                                 "categoryName": "Remoting Client",
+                                 "propertyName": "Outbound DNS",
+                                 "propertyValue": 4,
+                                 "underlyingPropertyName": "TARGET_REMOTINGCLIENT_OUTBOUND_DNS",
+                                 "operator": "String Not Wildcard",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       "*.REMOTING_HOST_DNS_HERE:3389"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "All Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "id": "7ff915d9-ac1f-4a1e-a825-a65093693a79",
+                     "categoryName": "Remoting Client",
+                     "propertyName": "Outbound DNS",
+                     "propertyValue": 4,
+                     "underlyingPropertyName": "TARGET_REMOTINGCLIENT_OUTBOUND_DNS",
+                     "operator": "String Wildcard",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "*.REMOTING_HOST_DNS_HERE:3389"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "358438fd-f6d0-4bf0-b6f3-43d884ea58ed",
+         "key": "CONTEXT_CORPORATE_WINDOWS_DEVICE",
+         "name": "Corporate Windows Device",
+         "description": "Defines if the remote device is a corporate managed device.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "True",
+               "conditions": [
+                  {
+                     "id": "356efae6-2617-4a51-9f27-77bbb7b04b14",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "False",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "7de00ad9-0771-4f6b-805f-a635fc461bdc",
+                     "categoryName": "OS",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_OS_NAME",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Windows",
+                           "macOS"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "27629223-34b5-4208-bff3-e2c513e53d13",
+                     "categoryName": "Domain",
+                     "propertyName": "Join",
+                     "propertyValue": 4,
+                     "underlyingPropertyName": "TARGET_DOMAIN_JOIN",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Domain",
+                           "AzureAD"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "fc5567b4-e7d3-42b1-8ec2-69e14b51f7c0",
+                     "categoryName": "Domain",
+                     "propertyName": "ID",
+                     "propertyValue": 3,
+                     "underlyingPropertyName": "TARGET_DOMAIN_ID",
+                     "operator": "String Equals",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "DOMAIN_SID",
+                           "AZURE_TENANT_ID"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      }
+   ],
+   "actions": [
+      {
+         "id": "1068d75f-3a0b-4803-be76-3336da9ac91c",
+         "key": "ACTION_CITRIX_POLICY_REDIRECTION_SETTINGS_FOR_CORPORATE_WINDOWS_DEVICES",
+         "name": "Citrix policy redirection settings for corporate windows devices",
+         "description": "Enables client resource rediretion for corporate windows devices accessing externally. Disables client resource rediretion for unknown devices accessing externally.",
+         "data": [
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_CORPORATE_WINDOWS_DEVICE",
+                     "contextName": "Corporate Windows Device",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Not Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "True"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "8cff0289-f182-4981-ba68-47e03cf027af",
+                     "type": "Custom Process",
+                     "description": "Clear Citrix Policy Settings",
+                     "runAs": "System",
+                     "hidden": true,
+                     "wait": true,
+                     "captureOutput": false,
+                     "timeout": 10,
+                     "failureDetection": "Exit Code",
+                     "runOnClient": false,
+                     "useEmbeddedScript": false,
+                     "filename": "%SystemRoot%\\System32\\reg.exe",
+                     "filenameTarget": "Executable",
+                     "args": "DELETE \"HKLM\\SOFTWARE\\Policies\\Citrix\\%HOST_SESSION_ID%\" /f",
+                     "bypassAppLockerPolicy": false
+                  },
+                  {
+                     "id": "64cc5ba1-da0b-41e6-84af-47e3926d54cb",
+                     "type": "Citrix Policy",
+                     "description": "Disable Redirection",
+                     "drives": "Disable",
+                     "clipboard": "Disable",
+                     "usb": "Disable",
+                     "persistence": "Context",
+                     "clearPolicyOnLogon": true
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_CORPORATE_WINDOWS_DEVICE",
+                     "contextName": "Corporate Windows Device",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "True"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "aab0d06d-19f7-49da-8f55-2ddc2b4d4481",
+                     "type": "Custom Process",
+                     "description": "Clear Citrix Policy Settings",
+                     "runAs": "System",
+                     "hidden": true,
+                     "wait": true,
+                     "captureOutput": false,
+                     "timeout": 10,
+                     "failureDetection": "Exit Code",
+                     "runOnClient": false,
+                     "useEmbeddedScript": false,
+                     "filename": "%SystemRoot%\\System32\\reg.exe",
+                     "filenameTarget": "Executable",
+                     "args": "DELETE \"HKLM\\SOFTWARE\\Policies\\Citrix\\%HOST_SESSION_ID%\" /f",
+                     "bypassAppLockerPolicy": false
+                  },
+                  {
+                     "id": "5566e048-9cd1-4b08-b2f6-06d59de67912",
+                     "type": "Citrix Policy",
+                     "description": "Enable Redirection",
+                     "drives": "Enable",
+                     "clipboard": "Enable",
+                     "usb": "Enable",
+                     "persistence": "Context",
+                     "clearPolicyOnLogon": true
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Reconnect"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_CORPORATE_WINDOWS_DEVICE",
+                     "contextName": "Corporate Windows Device",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Not Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "True"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "7f3be055-e0dc-4ce5-878d-9640879ee342",
+                     "type": "Citrix Policy",
+                     "description": "Disable Redirection",
+                     "drives": "Disable",
+                     "clipboard": "Disable",
+                     "usb": "Disable",
+                     "persistence": "Context",
+                     "clearPolicyOnLogon": false
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Reconnect"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_CORPORATE_WINDOWS_DEVICE",
+                     "contextName": "Corporate Windows Device",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "True"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "866de8e1-9714-4901-90e3-286f25db38a7",
+                     "type": "Citrix Policy",
+                     "description": "Enable Redirection",
+                     "drives": "Enable",
+                     "clipboard": "Enable",
+                     "usb": "Enable",
+                     "persistence": "Context",
+                     "clearPolicyOnLogon": false
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "High"
+      }
+   ],
+   "messages": [],
+   "settings": [
+      {
+         "type": "Persistence",
+         "enabled": true,
+         "sessionSpecificData": false,
+         "registryPersistenceOption": "Enabled",
+         "customRegistryExclude": [],
+         "environmentPersistenceOption": "Disabled",
+         "customEnvironmentExclude": [],
+         "auditingPersistenceOption": "Enabled",
+         "customAuditingExclude": [],
+         "commandPromptPersistenceOption": "Disabled",
+         "customCommandPromptExclude": []
+      },
+      {
+         "type": "SystemMessages",
+         "enabled": true,
+         "establishingIdentity": "Bitte warten",
+         "establishingContext": "Kontext herstellen mit %DEVICE_NAME%",
+         "executingTrigger": "Anwendung kontextbezogener Richtlinien",
+         "trustedDeviceDeniedTitle": "Access Denied",
+         "trustedDeviceDeniedMessage": "To allow access to your session, please upgrade to the latest deviceTRUST client from https://devicetrust.com/download.%NEWLINE%For more details contact your IT help desk.",
+         "untrustedDeviceDeniedTitle": "Access Denied",
+         "untrustedDeviceDeniedMessage": "To allow access to your session, please install the deviceTRUST client from https://devicetrust.com/download.%NEWLINE%For more details contact your IT help desk.",
+         "signoutButton": "Abmelden",
+         "lockButton": "Sperren",
+         "disconnectButton": "Trennen"
+      }
+   ]
+}

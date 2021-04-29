@@ -1,0 +1,59 @@
+{
+   "consoleVersion": "20.2.300.0",
+   "username": "SvenJansen",
+   "timestamp": "2021-04-29T12:37:43.473Z",
+   "contexts": [],
+   "actions": [],
+   "messages": [],
+   "settings": [
+      {
+         "type": "AppLocker",
+         "enabled": true,
+         "rules": [
+            {
+               "id": "0db5c004-0ce5-495d-850e-e39d9bd76b4b",
+               "type": "Owner",
+               "enabled": true,
+               "target": "Executable",
+               "user": {
+                  "name": "Everyone",
+                  "sid": "S-1-1-0"
+               },
+               "folder": "%OSDRIVE%\\*",
+               "exceptions": []
+            }
+         ],
+         "startService": true,
+         "eventLogEnable": false,
+         "eventLogMaxLogSizeKb": 0,
+         "blockPowerShell": false,
+         "auditPowerShell": false,
+         "preferCsp": false,
+         "executableEnforcement": "Enforce",
+         "windowsInstallerEnforcement": "NotConfigured",
+         "scriptEnforcement": "NotConfigured",
+         "appxEnforcement": "NotConfigured",
+         "refreshEnabled": false,
+         "refreshUsers": [
+            {
+               "name": "BUILTIN\\Administrators",
+               "sid": "S-1-5-32-544"
+            }
+         ],
+         "owners": [
+            {
+               "name": "DEMO\\svc_sccm",
+               "sid": "S-1-5-21-1397108472-4176295369-1616608269-2269"
+            }
+         ],
+         "ownerPathExclusions": [
+            "%OSDRIVE%\\$Recycle.Bin",
+            "%OSDRIVE%\\ProgramData",
+            "%OSDRIVE%\\System Volume Information",
+            "%OSDRIVE%\\Users",
+            "%PROGRAMFILES%",
+            "%WINDIR%"
+         ]
+      }
+   ]
+}

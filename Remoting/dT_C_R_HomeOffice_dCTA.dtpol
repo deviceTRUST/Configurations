@@ -1,0 +1,3014 @@
+{
+   "consoleVersion": "20.2.300.0",
+   "username": "SvenJansen",
+   "timestamp": "2021-04-29T11:57:59.842Z",
+   "contexts": [
+      {
+         "id": "8846962d-2918-4340-b3b6-02f7c45ada41",
+         "key": "CONTEXT_ACCESS_MODE",
+         "name": "Access Mode",
+         "description": "Defines if the remote device is internal or external to the corporate network.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unknown",
+         "enabled": true,
+         "data": [
+            {
+               "state": "External",
+               "conditions": [
+                  {
+                     "id": "2fa16f13-f6a0-4a67-ab10-ab1778b5b398",
+                     "categoryName": "Remote Control",
+                     "propertyName": "Protocol",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_REMOTECONTROL_PROTOCOL",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "ICA",
+                           "Blast"
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Internal",
+                           "conditions": [
+                              {
+                                 "id": "b9928f6c-3b5f-4b32-b5ec-aa852be173a0",
+                                 "categoryName": "Remote Control",
+                                 "propertyName": "Gateway",
+                                 "propertyValue": 6,
+                                 "underlyingPropertyName": "TARGET_REMOTECONTROL_GATEWAY",
+                                 "operator": "Boolean Equals",
+                                 "value": {
+                                    "type": "Boolean",
+                                    "data": [
+                                       false
+                                    ]
+                                 },
+                                 "target": "Host",
+                                 "filter": "Host",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "id": "edcc79be-1bcb-4bb6-b08a-cbd33c94304e",
+                     "categoryName": "Remote Control",
+                     "propertyName": "Gateway",
+                     "propertyValue": 6,
+                     "underlyingPropertyName": "TARGET_REMOTECONTROL_GATEWAY",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "606318ad-6a26-4e47-b706-0d04f1653eda",
+                     "categoryName": "Remote Control",
+                     "propertyName": "Gateway IP",
+                     "propertyValue": 7,
+                     "underlyingPropertyName": "TARGET_REMOTECONTROL_GATEWAY_IP",
+                     "operator": "String Equals",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "10.10.10.12"
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "0261d76f-360c-4bc2-b049-4e9c40179923",
+         "key": "CONTEXT_CORPORATE_IGEL",
+         "name": "Corporate IGEL",
+         "description": "Defines if the remote device is a corporate managed device.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "True",
+               "conditions": [
+                  {
+                     "id": "6fbcdffe-22e7-485c-9953-5374f24f5025",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "False",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "0660c447-515b-4d93-aa76-f3477c16466e",
+                     "categoryName": "OS",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_OS_NAME",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "IGEL"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "34102879-f2fe-4700-9fdf-7a70d9c9593d",
+                     "categoryName": "IGEL",
+                     "propertyName": "UMS Server",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_IGEL_UMS_SERVER",
+                     "operator": "String Equals",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "dtldiu01.demo.devicetrust.local:30001"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "1c668527-00f8-409a-994d-9aff8e8b9623",
+                     "categoryName": "IGEL",
+                     "propertyName": "UMS Cert Serial",
+                     "propertyValue": 3,
+                     "underlyingPropertyName": "TARGET_IGEL_UMS_CERTIFICATE_SERIALNUMBER",
+                     "operator": "String Equals",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "0349F04B"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "13ec2eb9-983f-446c-b4b4-05f61bd2668a",
+         "key": "CONTEXT_COUNTRY",
+         "name": "Country",
+         "description": "Defines the country in which the remote device is located.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "%DEVICE_WHOIS_COUNTRY%",
+               "conditions": [
+                  {
+                     "id": "8e675267-6c17-4821-ac5c-4ac833ae8864",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Unknown",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "28c2eecb-f267-4672-b9ef-4ed4710dbf6a",
+                     "categoryName": "WHOIS",
+                     "propertyName": "Country",
+                     "propertyValue": 4,
+                     "underlyingPropertyName": "TARGET_WHOIS_COUNTRY",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "2a948efc-3704-45c2-86b4-70060f603b35",
+         "key": "CONTEXT_COUNTRY_PROVIDER",
+         "name": "Country Provider",
+         "description": "Defines the country provider that reports the country of the remote device.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "%DEVICE_LOCATION_PROVIDER% %DEVICE_LOCATION_SOURCE%",
+               "conditions": [
+                  {
+                     "id": "2b311070-15c8-4655-819b-5abf74942c26",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Cellular",
+                           "conditions": [
+                              {
+                                 "id": "2edfb3e3-f680-48ed-99bb-32939816ab5c",
+                                 "categoryName": "Cellular",
+                                 "propertyName": "Country",
+                                 "propertyValue": 5,
+                                 "underlyingPropertyName": "TARGET_CELLULAR_COUNTRY",
+                                 "operator": "Available",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Device",
+                                 "filter": "All Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Whois",
+                           "conditions": [
+                              {
+                                 "id": "2bd23c80-851b-44c5-afdc-188797993228",
+                                 "categoryName": "WHOIS",
+                                 "propertyName": "Country",
+                                 "propertyValue": 4,
+                                 "underlyingPropertyName": "TARGET_WHOIS_COUNTRY",
+                                 "operator": "Available",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Device",
+                                 "filter": "All Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Unknown",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "eb74ff63-72b5-45f1-b75d-b9c69455977f",
+                     "categoryName": "Location",
+                     "propertyName": "Country",
+                     "propertyValue": 6,
+                     "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "51f6715e-f287-4600-905b-e74cc719a3b7",
+                     "categoryName": "Location",
+                     "propertyName": "Country",
+                     "propertyValue": 6,
+                     "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+                     "operator": "Not Loading",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "a555c25b-00ee-4d5f-8c9a-20cef41945cb",
+         "key": "CONTEXT_DETECTED_HOME_OFFICE",
+         "name": "Detected Home Office",
+         "description": "Defines the detected home office of the users remote device.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "%DEVICE_NAME%/%DEVICE_HARDWARE_BIOS_SERIAL%/%DEVICE_LOGICALDISK_X_SERIALNUMBER%/%DEVICE_OS_ID%/%DEVICE_NETWORK_X_CATEGORY%/%DEVICE_NETWORK_X_DNS%/%DEVICE_NETWORK_X_GATEWAY%/%DEVICE_NETWORK_X_GATEWAY_MAC%",
+               "conditions": [
+                  {
+                     "id": "d1686038-8c02-48ea-b768-fa411a579a9f",
+                     "categoryName": "OS",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_OS_NAME",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Windows"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "84f1ff20-8490-462c-bf2e-fccfd109b8ba",
+                     "categoryName": "Name",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_NAME",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "4e422334-54f4-436a-a0a0-4bc45c3b7ed3",
+                     "categoryName": "Hardware",
+                     "propertyName": "BIOS Serial Number",
+                     "propertyValue": 7,
+                     "underlyingPropertyName": "TARGET_HARDWARE_BIOS_SERIAL",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "f0f9e3a5-d8a8-4645-ad68-7e9642f3c167",
+                     "categoryName": "Logical Disk",
+                     "propertyName": "System",
+                     "propertyValue": 18,
+                     "underlyingPropertyName": "TARGET_LOGICALDISK_X_SYSTEM",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "dff28372-c87f-4640-8752-024de0c64c89",
+                     "categoryName": "Logical Disk",
+                     "propertyName": "Serial Number",
+                     "propertyValue": 14,
+                     "underlyingPropertyName": "TARGET_LOGICALDISK_X_SERIALNUMBER",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": true,
+                     "isDelimitedArray": true
+                  },
+                  {
+                     "id": "c18a7318-286c-408e-8120-b8e471721de8",
+                     "categoryName": "OS",
+                     "propertyName": "Id",
+                     "propertyValue": 7,
+                     "underlyingPropertyName": "TARGET_OS_ID",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "%DEVICE_NAME%/%DEVICE_HARDWARE_BIOS_SERIAL%/%DEVICE_LOGICALDISK_X_SERIALNUMBER%/%DEVICE_OS_ID%/%DEVICE_NETWORK_X_CATEGORY%/%DEVICE_NETWORK_X_DNS%/%DEVICE_NETWORK_X_GATEWAY%/%DEVICE_NETWORK_X_GATEWAY_MAC%",
+                           "conditions": [
+                              {
+                                 "id": "a5242209-b4cf-4d29-99a5-173a8da160a6",
+                                 "categoryName": "Network",
+                                 "propertyName": "Type",
+                                 "propertyValue": 5,
+                                 "underlyingPropertyName": "TARGET_NETWORK_X_TYPE",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Ethernet"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "All Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "a45755e9-d739-4444-8235-c721f587f05c",
+                                 "categoryName": "Network",
+                                 "propertyName": "Category",
+                                 "propertyValue": 24,
+                                 "underlyingPropertyName": "TARGET_NETWORK_X_CATEGORY",
+                                 "operator": "Available",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Device",
+                                 "filter": "All Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": true,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "f948ff7f-74bc-4807-be7c-13afc1b94544",
+                                 "categoryName": "Network",
+                                 "propertyName": "DNS",
+                                 "propertyValue": 10,
+                                 "underlyingPropertyName": "TARGET_NETWORK_X_DNS",
+                                 "operator": "String Not Empty",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Device",
+                                 "filter": "All Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": true,
+                                 "isDelimitedArray": true
+                              },
+                              {
+                                 "id": "e05e7ff6-b563-4af3-84cd-d4e1513d5a16",
+                                 "categoryName": "Network",
+                                 "propertyName": "Gateway",
+                                 "propertyValue": 12,
+                                 "underlyingPropertyName": "TARGET_NETWORK_X_GATEWAY",
+                                 "operator": "String Not Empty",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Device",
+                                 "filter": "All Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": true,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "a0f050d2-3043-4f78-993f-9adce2f3b9af",
+                                 "categoryName": "Network",
+                                 "propertyName": "Gateway MAC",
+                                 "propertyValue": 13,
+                                 "underlyingPropertyName": "TARGET_NETWORK_X_GATEWAY_MAC",
+                                 "operator": "String Not Empty",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Device",
+                                 "filter": "All Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": true,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "id": "c548348a-54b3-4fd4-bea6-4d57dd4e0742",
+                     "categoryName": "Network",
+                     "propertyName": "Type",
+                     "propertyValue": 5,
+                     "underlyingPropertyName": "TARGET_NETWORK_X_TYPE",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "WiFi"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "0953946b-5b01-420a-a34a-c47334be3216",
+                     "categoryName": "Network",
+                     "propertyName": "Category",
+                     "propertyValue": 24,
+                     "underlyingPropertyName": "TARGET_NETWORK_X_CATEGORY",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": true,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "ba711f76-a7e9-48dd-9eb9-cad6b7633e09",
+                     "categoryName": "Network",
+                     "propertyName": "DNS",
+                     "propertyValue": 10,
+                     "underlyingPropertyName": "TARGET_NETWORK_X_DNS",
+                     "operator": "String Not Empty",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": true,
+                     "isDelimitedArray": true
+                  },
+                  {
+                     "id": "9b266ef5-ee97-4ae1-a047-f1b4e79420b4",
+                     "categoryName": "Network",
+                     "propertyName": "Gateway",
+                     "propertyValue": 12,
+                     "underlyingPropertyName": "TARGET_NETWORK_X_GATEWAY",
+                     "operator": "String Not Empty",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": true,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "d11b91b8-5714-4447-84a3-1d9e692097c8",
+                     "categoryName": "Network",
+                     "propertyName": "Gateway MAC",
+                     "propertyValue": 13,
+                     "underlyingPropertyName": "TARGET_NETWORK_X_GATEWAY_MAC",
+                     "operator": "String Not Empty",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": true,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "SHA256"
+      },
+      {
+         "id": "0fad7527-78e0-4ad6-9933-e7815c8a760b",
+         "key": "CONTEXT_DEVICETRUST_CLIENT",
+         "name": "deviceTRUST Client",
+         "description": "Defines the availability of the deviceTRUST Client on the remote device.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "Available",
+               "conditions": [
+                  {
+                     "id": "df41026a-d85c-4685-8be4-8ac2d80b6109",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "94b6df6b-b898-4e34-ae35-1f9a3d21589c",
+         "key": "CONTEXT_OPERATING_SYSTEM",
+         "name": "Operating System",
+         "description": "Defines if the operating system of the remote device is supported.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "Windows",
+               "conditions": [
+                  {
+                     "id": "02e60ac4-7416-426e-b0d9-5ca1f7e2bedf",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "IGEL OS",
+                           "conditions": [
+                              {
+                                 "id": "c8bae771-169e-467e-a2a4-e5303a994655",
+                                 "categoryName": "OS",
+                                 "propertyName": "Name",
+                                 "propertyValue": 1,
+                                 "underlyingPropertyName": "TARGET_OS_NAME",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "IGEL"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "All Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "eLux OS",
+                           "conditions": [
+                              {
+                                 "id": "9c1ea2bf-a5a7-46a9-b6b6-f934608bcb88",
+                                 "categoryName": "OS",
+                                 "propertyName": "Name",
+                                 "propertyValue": 1,
+                                 "underlyingPropertyName": "TARGET_OS_NAME",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "eLux"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "All Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Unknown OS",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "51addb20-d442-4165-aad3-ed9eca92299d",
+                     "categoryName": "OS",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_OS_NAME",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Windows"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "f3bd0be6-baf9-448a-941c-526242ec3370",
+         "key": "CONTEXT_OVERRIDE",
+         "name": "Override",
+         "description": "Defines if the session user is member of the override AD group.",
+         "mode": "Left-Most Path",
+         "defaultState": "False",
+         "enabled": true,
+         "data": [
+            {
+               "state": "True",
+               "conditions": [
+                  {
+                     "id": "abe10c6f-bf81-457f-b172-265d02e3651c",
+                     "categoryName": "User",
+                     "propertyName": "Groups",
+                     "propertyValue": 14,
+                     "underlyingPropertyName": "TARGET_USER_GROUPS",
+                     "operator": "String Equals",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "DEMO\\G_G_S_U_Override"
+                        ],
+                        "users": [
+                           {
+                              "name": "DEMO\\G_G_S_U_Override"
+                           }
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": true
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "abac9325-5d34-43c9-8ecb-fe0ebd280109",
+         "key": "CONTEXT_SECURITY_STATE",
+         "name": "Security State",
+         "description": "Defines the security status of the remote device.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "Protected",
+               "conditions": [
+                  {
+                     "id": "93911c85-e9c8-4c35-8355-8ed3d2bd17db",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Protected",
+                           "conditions": [
+                              {
+                                 "id": "56b0a9a4-05bc-47c4-b749-8f093e2b46ce",
+                                 "categoryName": "OS",
+                                 "propertyName": "Name",
+                                 "propertyValue": 1,
+                                 "underlyingPropertyName": "TARGET_OS_NAME",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "IGEL"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "All Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Protected",
+                           "conditions": [
+                              {
+                                 "id": "38929040-d5e3-4c8a-bddb-90c783cd985a",
+                                 "categoryName": "OS",
+                                 "propertyName": "Name",
+                                 "propertyValue": 1,
+                                 "underlyingPropertyName": "TARGET_OS_NAME",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Linux"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "All Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Unprotected",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "383353a9-eab3-4ecb-ae00-afc644228c9a",
+                     "categoryName": "OS",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_OS_NAME",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Windows"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Protected",
+                           "conditions": [
+                              {
+                                 "id": "4ed21863-489a-47cc-a39e-7b0f0e32b6e3",
+                                 "categoryName": "Security Product",
+                                 "propertyName": "Category",
+                                 "propertyValue": 11,
+                                 "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_CATEGORY",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "AntiVirus"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "Windows Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "820bd07d-0377-4e83-a0b8-eca7cd77d69c",
+                                 "categoryName": "Security Product",
+                                 "propertyName": "Status",
+                                 "propertyValue": 12,
+                                 "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_STATUS",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Active"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "Windows Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": true,
+                                 "isDelimitedArray": true
+                              },
+                              {
+                                 "id": "6920dd6a-94e7-4714-b219-fa12e495567e",
+                                 "categoryName": "Security Product",
+                                 "propertyName": "Category",
+                                 "propertyValue": 11,
+                                 "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_CATEGORY",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Firewall"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "Windows Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "11719bf3-2ad4-49bf-a798-8ea3f70fc669",
+                                 "categoryName": "Security Product",
+                                 "propertyName": "Status",
+                                 "propertyValue": 12,
+                                 "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_STATUS",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Active"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "Windows Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": true,
+                                 "isDelimitedArray": true
+                              }
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "id": "50c75b93-9d9e-4b8f-9339-75805ff1accf",
+                     "categoryName": "Windows Defender",
+                     "propertyName": "Status",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_WINDOWSDEFENDER_STATUS",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Active"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "Windows Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "aa728af3-35c4-4ad0-8e85-25abccdfe7a9",
+                     "categoryName": "Windows Defender",
+                     "propertyName": "Real-Time Protection",
+                     "propertyValue": 12,
+                     "underlyingPropertyName": "TARGET_WINDOWSDEFENDER_REALTIMEPROTECTION",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "Windows Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "62aa7e70-15bd-4212-a08f-2d3504e1343f",
+                     "categoryName": "Windows Firewall",
+                     "propertyName": "Active Profile Disabled",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_WINDOWSFIREWALL_ACTIVEPROFILES_DISABLED",
+                     "operator": "Enum Not Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Domain",
+                           "Public",
+                           "Private"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "Windows Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": true
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "c2dd8acd-b201-4499-8383-2ce9bcada528",
+         "key": "CONTEXT_VALIDATED_HOME_OFFICE",
+         "name": "Validated Home Office",
+         "description": "Defines the validated home office of the users remote device.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "%HOST_WINDOWSREGISTRY_X_DATA%",
+               "conditions": [
+                  {
+                     "id": "faa06403-57bd-401d-b1a8-6e3de544e04c",
+                     "categoryName": "Windows Registry",
+                     "propertyName": "Value",
+                     "propertyValue": 3,
+                     "underlyingPropertyName": "TARGET_WINDOWSREGISTRY_X_VALUE",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "path": "HKCU\\Home Office",
+                              "value": "Validation String",
+                              "monitor": false,
+                              "protectedOnly": false
+                           }
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": true,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "3e33592b-c2e6-4571-95c4-a78930285b52",
+         "key": "CONTEXT_WI_FI_SECURITY_MODE",
+         "name": "Wi-Fi Security Mode",
+         "description": "Defines if the remote device is connected to a secure Wi-Fi network.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "Insecure",
+               "conditions": [
+                  {
+                     "id": "9e3396be-bac7-406b-a2fe-dcebfd1440c5",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Unsupported OS",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "2d57ddbd-042f-4986-a757-ffff47c08bcf",
+                     "categoryName": "OS",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_OS_NAME",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Windows",
+                           "IGEL",
+                           "macOS",
+                           "eLux",
+                           "Linux"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "No Wi-Fi",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "eb883b3e-43ee-48ed-a1bb-aec7735c9243",
+                     "categoryName": "Network",
+                     "propertyName": "Type",
+                     "propertyValue": 5,
+                     "underlyingPropertyName": "TARGET_NETWORK_X_TYPE",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "WiFi"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Secure",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "711502f4-a2d9-4186-83e3-b641200273c9",
+                     "categoryName": "Network",
+                     "propertyName": "WiFi Security",
+                     "propertyValue": 23,
+                     "underlyingPropertyName": "TARGET_NETWORK_X_WIFI_SECURITY",
+                     "operator": "Enum Not Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "WPA2 Enterprise",
+                           "WPA3 Personal",
+                           "WPA2 Personal",
+                           "WPA3 Enterprise"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": true,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      }
+   ],
+   "actions": [
+      {
+         "id": "b33dc5d4-49af-4973-9692-b99dc169710f",
+         "key": "ACTION_COMPLIANCE_CHECK_CONDITIONAL_ACCESS_ENFORCEMENT",
+         "name": "Compliance Check - Conditional Access - Enforcement",
+         "description": "Denies access to the session if the external remoting device is not compliant.",
+         "data": [
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_DEVICETRUST_CLIENT",
+                     "contextName": "deviceTRUST Client",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Unavailable"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "d8cc810c-3535-4631-b9fa-f71ed09b454f",
+                     "type": "Deny Access",
+                     "description": "No deviceTRUST Client",
+                     "allowShellInteraction": false,
+                     "title": "%MESSAGE_ENFORCEMENT_TITLE%",
+                     "message": "%MESSAGE_ENFORCEMENT_NO_DEVICETRUST_CLIENT%",
+                     "triggerButtons": [
+                        {
+                           "triggerName": "Copy URL",
+                           "buttonText": "%MESSAGE_BUTTON_DEVICETRUST_DOWNLOAD_URL%"
+                        }
+                     ],
+                     "persistence": "Context",
+                     "timeout": 60,
+                     "alwaysShowSignoutButton": false
+                  },
+                  {
+                     "id": "dda3d225-f596-49be-8251-91213952f38d",
+                     "type": "Audit Event",
+                     "description": "No deviceTRUST Client",
+                     "target": "Application",
+                     "level": "Warning",
+                     "message": "%MESSAGE_EVENT_ENFORCEMENT_NO_DEVICETRUST_CLIENT%",
+                     "report": true
+                  }
+               ]
+            },
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_DEVICETRUST_CLIENT",
+                     "contextName": "deviceTRUST Client",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Available"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_COUNTRY",
+                     "contextName": "Country",
+                     "contextMode": "Left-Most Path",
+                     "operator": "String Not Equals",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "DE"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "4715ce5d-73ba-4134-8162-e9c1d290bbd5",
+                     "type": "Deny Access",
+                     "description": "Unauthorized Country",
+                     "allowShellInteraction": false,
+                     "title": "%MESSAGE_ENFORCEMENT_TITLE%",
+                     "message": "%MESSAGE_ENFORCEMENT_UNAUTHORIZED_COUNTRY%",
+                     "triggerButtons": [],
+                     "persistence": "Context",
+                     "timeout": 60,
+                     "alwaysShowSignoutButton": false
+                  },
+                  {
+                     "id": "57785ded-507c-4873-a55f-cb5de05a4e8f",
+                     "type": "Audit Event",
+                     "description": "Unauthorized Country",
+                     "target": "Application",
+                     "level": "Warning",
+                     "message": "%MESSAGE_EVENT_ENFORCEMENT_UNAUTHORIZED_COUNTRY%",
+                     "report": true
+                  }
+               ]
+            },
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External",
+                           "Internal",
+                           "Unknown"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_DEVICETRUST_CLIENT",
+                     "contextName": "deviceTRUST Client",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Available"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_SECURITY_STATE",
+                     "contextName": "Security State",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Unprotected"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "e4bfc17f-00e5-4a68-9279-191fcff4fd73",
+                     "type": "Deny Access",
+                     "description": "Unprotected",
+                     "allowShellInteraction": false,
+                     "title": "%MESSAGE_ENFORCEMENT_TITLE%",
+                     "message": "%MESSAGE_ENFORCEMENT_UNPROTECTED%",
+                     "triggerButtons": [],
+                     "persistence": "Context",
+                     "timeout": 60,
+                     "alwaysShowSignoutButton": false
+                  },
+                  {
+                     "id": "b341add2-94e9-4162-84cc-6296f35fe8e5",
+                     "type": "Audit Event",
+                     "description": "Unprotected",
+                     "target": "Application",
+                     "level": "Warning",
+                     "message": "%MESSAGE_EVENT_ENFORCEMENT_UNPROTECTED%",
+                     "report": true
+                  }
+               ]
+            },
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_DEVICETRUST_CLIENT",
+                     "contextName": "deviceTRUST Client",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Available"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_WI_FI_SECURITY_MODE",
+                     "contextName": "Wi-Fi Security Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Insecure"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "a0ce66da-1d8a-487c-8580-8c896fe080a2",
+                     "type": "Deny Access",
+                     "description": "Insecure Wi-Fi Network",
+                     "allowShellInteraction": false,
+                     "title": "%MESSAGE_ENFORCEMENT_TITLE%",
+                     "message": "%MESSAGE_ENFORCEMENT_INSECURE_WI_FI_NETWORK%",
+                     "triggerButtons": [],
+                     "persistence": "Context",
+                     "timeout": 60,
+                     "alwaysShowSignoutButton": false
+                  },
+                  {
+                     "id": "9690fbfe-7a15-4144-8b72-f22e91e49395",
+                     "type": "Audit Event",
+                     "description": "Insecure Wi-Fi Network",
+                     "target": "Application",
+                     "level": "Warning",
+                     "message": "%MESSAGE_EVENT_ENFORCEMENT_INSECURE_WI_FI_NETWORK%",
+                     "report": true
+                  }
+               ]
+            },
+            {
+               "type": "Custom",
+               "triggers": [
+                  "Custom"
+               ],
+               "filters": [],
+               "tasks": [
+                  {
+                     "id": "c33c8d52-ca63-4c10-ae68-e332c26ceede",
+                     "type": "Custom Process",
+                     "description": "Copy URL",
+                     "runAs": "User",
+                     "hidden": true,
+                     "wait": false,
+                     "captureOutput": false,
+                     "timeout": 300,
+                     "failureDetection": "Exit Code",
+                     "runOnClient": false,
+                     "useEmbeddedScript": false,
+                     "filename": "%SystemRoot%\\System32\\cmd.exe",
+                     "filenameTarget": "Executable",
+                     "args": "/C \"echo https://devicetrust.com/downloads | clip\"",
+                     "bypassAppLockerPolicy": false
+                  }
+               ],
+               "customName": "Copy URL"
+            }
+         ],
+         "enabled": false,
+         "priority": "Very High"
+      },
+      {
+         "id": "3492a2b8-9e63-4fe2-beae-2ef0bd7475f0",
+         "key": "ACTION_COMPLIANCE_CHECK_CONDITIONAL_ACCESS_NOTIFICATION",
+         "name": "Compliance Check - Conditional Access - Notification",
+         "description": "Displays a message in the session if the external remoting device is not compliant.",
+         "data": [
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_DEVICETRUST_CLIENT",
+                     "contextName": "deviceTRUST Client",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Unavailable"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "1c35e06b-143e-49f3-8b65-27ffb3d811fc",
+                     "type": "Popup Message",
+                     "description": "No deviceTRUST Client",
+                     "toast": false,
+                     "message": "%MESSAGE_NOTIFICATION_NO_DEVICETRUST_CLIENT%",
+                     "title": "%MESSAGE_NOTIFICATION_TITLE%",
+                     "triggerButtons": [
+                        {
+                           "triggerName": "Copy URL",
+                           "buttonText": "%MESSAGE_BUTTON_DEVICETRUST_DOWNLOAD_URL%"
+                        }
+                     ]
+                  },
+                  {
+                     "id": "e78fe143-1224-4f07-ba0d-3c22be413db2",
+                     "type": "Audit Event",
+                     "description": "No deviceTRUST Client",
+                     "target": "Application",
+                     "level": "Warning",
+                     "message": "%MESSAGE_EVENT_NOTIFICATION_NO_DEVICETRUST_CLIENT%",
+                     "report": true
+                  }
+               ]
+            },
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_DEVICETRUST_CLIENT",
+                     "contextName": "deviceTRUST Client",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Available"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_COUNTRY",
+                     "contextName": "Country",
+                     "contextMode": "Left-Most Path",
+                     "operator": "String Not Equals",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "DE"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "8cfe7e39-75c1-4e95-aef2-261c400ee4b0",
+                     "type": "Popup Message",
+                     "description": "Unauthorized Country",
+                     "toast": false,
+                     "message": "%MESSAGE_NOTIFICATION_UNAUTHORIZED_COUNTRY%",
+                     "title": "%MESSAGE_NOTIFICATION_TITLE%",
+                     "triggerButtons": []
+                  },
+                  {
+                     "id": "0428495d-841c-4089-8218-f6b97cb25c4b",
+                     "type": "Audit Event",
+                     "description": "Unauthorized Country",
+                     "target": "Application",
+                     "level": "Warning",
+                     "message": "%MESSAGE_EVENT_NOTIFICATION_UNAUTHORIZED_COUNTRY%",
+                     "report": true
+                  }
+               ]
+            },
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External",
+                           "Unknown",
+                           "Internal"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_DEVICETRUST_CLIENT",
+                     "contextName": "deviceTRUST Client",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Available"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_SECURITY_STATE",
+                     "contextName": "Security State",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Unprotected"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "2e67a612-07cd-4840-8125-05375153bb46",
+                     "type": "Popup Message",
+                     "description": "Unprotected",
+                     "toast": false,
+                     "message": "%MESSAGE_NOTIFICATION_UNPROTECTED%",
+                     "title": "%MESSAGE_NOTIFICATION_TITLE%",
+                     "triggerButtons": []
+                  },
+                  {
+                     "id": "f7e268ac-7b0d-40f3-9538-2b1928f34ed9",
+                     "type": "Audit Event",
+                     "description": "Unprotected",
+                     "target": "Application",
+                     "level": "Warning",
+                     "message": "%MESSAGE_EVENT_NOTIFICATION_UNPROTECTED%",
+                     "report": true
+                  }
+               ]
+            },
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_DEVICETRUST_CLIENT",
+                     "contextName": "deviceTRUST Client",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Available"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_WI_FI_SECURITY_MODE",
+                     "contextName": "Wi-Fi Security Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Insecure"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "89744dfa-ace8-4c0c-9412-2b15cc6f6347",
+                     "type": "Popup Message",
+                     "description": "Insecure Wi-Fi Network",
+                     "toast": false,
+                     "message": "%MESSAGE_NOTIFICATION_INSECURE_WI_FI_NETWORK%",
+                     "title": "%MESSAGE_NOTIFICATION_TITLE%",
+                     "triggerButtons": []
+                  },
+                  {
+                     "id": "e5c871f5-e898-4040-b203-fc621810de5c",
+                     "type": "Audit Event",
+                     "description": "Insecure Wi-Fi Network",
+                     "target": "Application",
+                     "level": "Warning",
+                     "message": "%MESSAGE_EVENT_NOTIFICATION_INSECURE_WI_FI_NETWORK%",
+                     "report": true
+                  }
+               ]
+            },
+            {
+               "type": "Custom",
+               "triggers": [
+                  "Custom"
+               ],
+               "filters": [],
+               "tasks": [
+                  {
+                     "id": "ae827960-c716-4a3e-80e0-335bfbcb8793",
+                     "type": "Custom Process",
+                     "description": "Copy URL",
+                     "runAs": "User",
+                     "hidden": true,
+                     "wait": false,
+                     "captureOutput": false,
+                     "timeout": 300,
+                     "failureDetection": "Exit Code",
+                     "runOnClient": false,
+                     "useEmbeddedScript": false,
+                     "filename": "%SystemRoot%\\System32\\cmd.exe",
+                     "filenameTarget": "Executable",
+                     "args": "/C \"echo https://devicetrust.com/downloads | clip\"",
+                     "bypassAppLockerPolicy": false
+                  }
+               ],
+               "customName": "Copy URL"
+            }
+         ],
+         "enabled": true,
+         "priority": "High"
+      },
+      {
+         "id": "500c86fe-0c87-48d1-b213-978a6e1e3bd8",
+         "key": "ACTION_CORPORATE_IGEL_CONDITIONAL_ACCESS_ENFORCEMENT",
+         "name": "Corporate IGEL - Conditional Access - Enforcement",
+         "description": "Hides applications with FSLogix App Masking within the session if the remote device is not a corporate managed device.",
+         "data": [
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_OPERATING_SYSTEM",
+                     "contextName": "Operating System",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "IGEL OS"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_CORPORATE_IGEL",
+                     "contextName": "Corporate IGEL",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False",
+                           "Unavailable"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "ca5f45cf-5841-403d-bb39-49c2d305e0fb",
+                     "type": "Deny Access",
+                     "description": "%MESSAGE_ENFORCEMENT_TITLE%",
+                     "allowShellInteraction": false,
+                     "title": "%MESSAGE_ENFORCEMENT_TITLE%",
+                     "message": "%MESSAGE_ENFORCEMENT_CORPORATE_IGEL%",
+                     "triggerButtons": [],
+                     "persistence": "Context",
+                     "alwaysShowSignoutButton": false
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "Low"
+      },
+      {
+         "id": "7ec3606d-2eca-4a19-8805-04e94128dafc",
+         "key": "ACTION_HOME_OFFICE_VALIDATION",
+         "name": "Home Office Validation",
+         "description": "Validates the home office context for external remoting devices.",
+         "data": [
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_VALIDATED_HOME_OFFICE",
+                     "contextName": "Validated Home Office",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Unavailable"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "bbf12027-d6ba-4b6d-af99-59ba7d00b286",
+                     "type": "Popup Message",
+                     "description": "Home Office Validation",
+                     "toast": false,
+                     "message": "%MESSAGE_NOTIFICATION_VALIDATE_HOME_OFFICE%",
+                     "title": "%MESSAGE_VALIDATION_TITLE%",
+                     "triggerButtons": [
+                        {
+                           "triggerName": "Privacy Policy",
+                           "buttonText": "%MESSAGE_BUTTON_PRIVACY_POLICY%"
+                        },
+                        {
+                           "triggerName": "Validate",
+                           "buttonText": "%MESSAGE_BUTTON_VALIDATE%"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "type": "Custom",
+               "triggers": [
+                  "Custom"
+               ],
+               "filters": [],
+               "tasks": [
+                  {
+                     "id": "63fe5a0e-012f-49ca-8693-0e00d3face79",
+                     "type": "Custom Process",
+                     "description": "Show Privacy Policy",
+                     "runAs": "User",
+                     "hidden": true,
+                     "wait": false,
+                     "captureOutput": false,
+                     "timeout": 300,
+                     "failureDetection": "Exit Code",
+                     "runOnClient": true,
+                     "useEmbeddedScript": false,
+                     "filename": "https://devicetrust.com/privacy-policy/",
+                     "filenameTarget": "Run",
+                     "bypassAppLockerPolicy": false
+                  }
+               ],
+               "customName": "Privacy Policy"
+            },
+            {
+               "type": "Custom",
+               "triggers": [
+                  "Custom"
+               ],
+               "filters": [],
+               "tasks": [
+                  {
+                     "id": "aaaa6cdc-4ada-4a77-a420-812d6ea4a388",
+                     "type": "Windows Registry",
+                     "description": "Store Validation",
+                     "persistence": "Permanent",
+                     "operations": [
+                        {
+                           "command": "Update",
+                           "path": "HKCU\\Home Office",
+                           "name": "Validation String",
+                           "value": "%CONTEXT_DETECTED_HOME_OFFICE%",
+                           "dataType": "REG_SZ",
+                           "protect": false
+                        }
+                     ]
+                  }
+               ],
+               "customName": "Validate"
+            }
+         ],
+         "enabled": false,
+         "priority": "Medium"
+      },
+      {
+         "id": "9b831212-e720-4866-802b-6328e1d222cc",
+         "key": "ACTION_HOME_OFFICE_VALIDATION_CONDITIONAL_APPLICATION_ACCESS_ENFORCEMENT_FSLOGIX_APP_MASKING",
+         "name": "Home Office Validation - Conditional Application Access - Enforcement - FSLogix App Masking",
+         "description": "Validates the home office context and controls application access for external remoting devices.",
+         "data": [
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_VALIDATED_HOME_OFFICE",
+                     "contextName": "Validated Home Office",
+                     "contextMode": "Left-Most Path",
+                     "operator": "String Not Equals",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "%CONTEXT_DETECTED_HOME_OFFICE%"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "da67f8d7-b004-49da-a12e-bcbe0ecffb88",
+                     "type": "FSLogix App Masking",
+                     "description": "Application",
+                     "command": "HideApplication",
+                     "path": "C:\\Program Files\\FSLogix\\Apps\\Rules\\AdobeReaderDC.fxa",
+                     "persistence": "Context"
+                  },
+                  {
+                     "id": "f1bdc59b-575b-478b-ad68-98c1f721e516",
+                     "type": "Terminate App",
+                     "description": "Application",
+                     "autoclose": false,
+                     "identifyByPolicy": false,
+                     "timeout": 60,
+                     "message": "%MESSAGE_APPLICATION_TERMINATION%",
+                     "title": "%MESSAGE_ENFORCEMENT_TITLE%",
+                     "processes": [
+                        "AcroRd32.exe"
+                     ]
+                  }
+               ]
+            },
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_VALIDATED_HOME_OFFICE",
+                     "contextName": "Validated Home Office",
+                     "contextMode": "Left-Most Path",
+                     "operator": "String Equals",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "%CONTEXT_DETECTED_HOME_OFFICE%"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "4fa6b6d3-5e1b-45ce-b035-5932e22955f3",
+                     "type": "Shortcut",
+                     "description": "Targets AcroRd32.exe",
+                     "createOnlyIfTargetExists": true,
+                     "shortcutDirectories": [
+                        "%USERPROFILE%\\Desktop",
+                        "%AppData%\\Microsoft\\Windows\\Start Menu\\Programs"
+                     ],
+                     "shortcutName": "Adobe Reader DC",
+                     "target": "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe",
+                     "targetType": "File Path",
+                     "persistence": "Context"
+                  }
+               ]
+            },
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False",
+                           "True"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Internal"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "4f931e75-5176-4812-86b4-e3f55a417145",
+                     "type": "Shortcut",
+                     "description": "Targets AcroRd32.exe",
+                     "createOnlyIfTargetExists": true,
+                     "shortcutDirectories": [
+                        "%USERPROFILE%\\Desktop",
+                        "%AppData%\\Microsoft\\Windows\\Start Menu\\Programs"
+                     ],
+                     "shortcutName": "Adobe Reader DC",
+                     "target": "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe",
+                     "targetType": "File Path",
+                     "persistence": "Context"
+                  }
+               ]
+            }
+         ],
+         "enabled": false,
+         "priority": "Medium"
+      },
+      {
+         "id": "1eaf1143-1bb8-4653-a4ce-7be6018819f8",
+         "key": "ACTION_HOME_OFFICE_VALIDATION_CONDITIONAL_APPLICATION_ACCESS_ENFORCEMENT_MICROSOFT_APPLOCKER",
+         "name": "Home Office Validation - Conditional Application Access - Enforcement - Microsoft AppLocker",
+         "description": "Validates the home office context and controls application access for external remoting devices.",
+         "data": [
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_VALIDATED_HOME_OFFICE",
+                     "contextName": "Validated Home Office",
+                     "contextMode": "Left-Most Path",
+                     "operator": "String Not Equals",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "%CONTEXT_DETECTED_HOME_OFFICE%"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "fb9e17f7-f9f5-425f-a7b1-70ea0b3b2973",
+                     "type": "Microsoft AppLocker",
+                     "description": "Application",
+                     "persistence": "Context",
+                     "wait": false,
+                     "timeout": 60,
+                     "rule": {
+                        "type": "Path",
+                        "target": "Executable",
+                        "action": "Allow",
+                        "path": "C:\\Program Files\\Notepad++",
+                        "exceptions": []
+                     }
+                  },
+                  {
+                     "id": "229bc37f-9364-4a12-9dd1-4516a94844b8",
+                     "type": "Terminate App",
+                     "description": "Application",
+                     "autoclose": false,
+                     "identifyByPolicy": true,
+                     "timeout": 60,
+                     "message": "%MESSAGE_APPLICATION_TERMINATION%",
+                     "title": "%MESSAGE_ENFORCEMENT_TITLE%"
+                  }
+               ]
+            },
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_VALIDATED_HOME_OFFICE",
+                     "contextName": "Validated Home Office",
+                     "contextMode": "Left-Most Path",
+                     "operator": "String Equals",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "%CONTEXT_DETECTED_HOME_OFFICE%"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "3c7a8909-421b-47ce-b5ac-9614df5c82bb",
+                     "type": "Shortcut",
+                     "description": "Targets notepad++.exe",
+                     "createOnlyIfTargetExists": true,
+                     "shortcutDirectories": [
+                        "%USERPROFILE%\\Desktop",
+                        "%AppData%\\Microsoft\\Windows\\Start Menu\\Programs"
+                     ],
+                     "shortcutName": "Notepad++",
+                     "target": "\"C:\\Program Files\\Notepad++\\notepad++.exe\"",
+                     "targetType": "File Path",
+                     "persistence": "Context"
+                  }
+               ]
+            },
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_OVERRIDE",
+                     "contextName": "Override",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False",
+                           "True"
+                        ]
+                     }
+                  },
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Internal"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "0edb1ed7-f662-4acc-96e9-67fc485a0b0a",
+                     "type": "Shortcut",
+                     "description": "Targets notepad++.exe",
+                     "createOnlyIfTargetExists": true,
+                     "shortcutDirectories": [
+                        "%USERPROFILE%\\Desktop",
+                        "%AppData%\\Microsoft\\Windows\\Start Menu\\Programs"
+                     ],
+                     "shortcutName": "Notepad++",
+                     "target": "\"C:\\Program Files\\Notepad++\\notepad++.exe\"",
+                     "targetType": "File Path",
+                     "persistence": "Context"
+                  }
+               ]
+            }
+         ],
+         "enabled": false,
+         "priority": "Medium"
+      }
+   ],
+   "messages": [
+      {
+         "key": "MESSAGE_APPLICATION_TERMINATION",
+         "value": "You are not licensed to use these applications from your device. Applications will be closed and access will be denied."
+      },
+      {
+         "key": "MESSAGE_APPLICATION_TERMINATION",
+         "value": "Sie sind nicht lizenziert, diese Anwendungen von Ihrem Gerät aus zu verwenden. Bitte speichern Sie Ihre Arbeit. Die Anwendungen werden geschlossen und der Zugriff wird verweigert.",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BUTTON_DEVICETRUST_DOWNLOAD_URL",
+         "value": "URL kopieren",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BUTTON_DEVICETRUST_DOWNLOAD_URL",
+         "value": "Copy URL"
+      },
+      {
+         "key": "MESSAGE_BUTTON_PRIVACY_POLICY",
+         "value": "Datenschutzbestimmungen",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BUTTON_PRIVACY_POLICY",
+         "value": "Privacy Policy"
+      },
+      {
+         "key": "MESSAGE_BUTTON_VALIDATE",
+         "value": "Validieren",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BUTTON_VALIDATE",
+         "value": "Validate"
+      },
+      {
+         "key": "MESSAGE_ENFORCEMENT_CORPORATE_IGEL",
+         "value": "You are accessing from an IGEL thin client that is not corporate managed.%NEWLINE%Access is prohibited."
+      },
+      {
+         "key": "MESSAGE_ENFORCEMENT_CORPORATE_IGEL",
+         "value": "Sie greifen mit einem unternehmensfremden IGEL zu.%NEWLINE%Der Zugriff auf die Sitzung ist blockiert.",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_ENFORCEMENT_INSECURE_WI_FI_NETWORK",
+         "value": "Die Wi-Fi-Verbindung Ihres Gerätes entspricht nicht unseren Anforderungen. Der Zugriff auf die Sitzung wird verweigert.%NEWLINE%Wenden Sie sich für weitere Informationen an Ihren IT-Helpdesk.",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_ENFORCEMENT_INSECURE_WI_FI_NETWORK",
+         "value": "Your device's Wi-Fi connection does not meet our requirements. Access to the session is denied.%NEWLINE%For more details, contact your IT help desk."
+      },
+      {
+         "key": "MESSAGE_ENFORCEMENT_NO_DEVICETRUST_CLIENT",
+         "value": "To allow access to your session, please install the deviceTRUST Client (https://devicetrust.com/downloads).%NEWLINE%For more details, contact your IT help desk."
+      },
+      {
+         "key": "MESSAGE_ENFORCEMENT_NO_DEVICETRUST_CLIENT",
+         "value": "Um den Zugriff auf Ihre Sitzung zu ermöglichen, installieren Sie bitte den deviceTRUST Client (https://devicetrust.com/downloads).%NEWLINE%Wenden Sie sich für weitere Informationen an Ihren IT-Helpdesk.",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_ENFORCEMENT_TITLE",
+         "value": "Zugriff verweigert",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_ENFORCEMENT_TITLE",
+         "value": "Access Denied"
+      },
+      {
+         "key": "MESSAGE_ENFORCEMENT_UNAUTHORIZED_COUNTRY",
+         "value": "Your device does not meet our country requirements. Access to the session is denied.%NEWLINE%For more details, contact your IT help desk."
+      },
+      {
+         "key": "MESSAGE_ENFORCEMENT_UNAUTHORIZED_COUNTRY",
+         "value": "Ihr Gerät entspricht nicht unseren Länderanforderungen. Der Zugriff auf die Sitzung wird verweigert.%NEWLINE%Wenden Sie sich für weitere Informationen an Ihren IT-Helpdesk.",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_ENFORCEMENT_UNPROTECTED",
+         "value": "Ihr Gerät entspricht nicht unseren Sicherheitsanforderungen. Der Zugriff auf die Sitzung wird verweigert.%NEWLINE%Wenden Sie sich für weitere Informationen an Ihren IT-Helpdesk.",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_ENFORCEMENT_UNPROTECTED",
+         "value": "Your device does not meet our security requirements. Access to the session is denied.%NEWLINE%For more details, contact your IT help desk."
+      },
+      {
+         "key": "MESSAGE_EVENT_ENFORCEMENT_INSECURE_WI_FI_NETWORK",
+         "value": "The following user has been denied access to the session. Reason: Their device does not meet the Wi-Fi requirements."
+      },
+      {
+         "key": "MESSAGE_EVENT_ENFORCEMENT_NO_DEVICETRUST_CLIENT",
+         "value": "The following user has been denied access to the session. Reason: There is no deviceTRUST Client installed on their device."
+      },
+      {
+         "key": "MESSAGE_EVENT_ENFORCEMENT_UNAUTHORIZED_COUNTRY",
+         "value": "The following user has been denied access to the session. Reason: Their device does not meet the country requirements."
+      },
+      {
+         "key": "MESSAGE_EVENT_ENFORCEMENT_UNPROTECTED",
+         "value": "The following user has been denied access to the session. Reason: Their device does not meet the security requirements."
+      },
+      {
+         "key": "MESSAGE_EVENT_NOTIFICATION_INSECURE_WI_FI_NETWORK",
+         "value": "The following user was given a notification within the session. Message: Your device does not meet the Wi-Fi requirements."
+      },
+      {
+         "key": "MESSAGE_EVENT_NOTIFICATION_NO_DEVICETRUST_CLIENT",
+         "value": "The following user was given a notification within the session. Message: The deviceTRUST Client has to be installed on your device."
+      },
+      {
+         "key": "MESSAGE_EVENT_NOTIFICATION_UNAUTHORIZED_COUNTRY",
+         "value": "The following user was given a notification within the session. Message: Your device does not meet the country requirements."
+      },
+      {
+         "key": "MESSAGE_EVENT_NOTIFICATION_UNPROTECTED",
+         "value": "The following user was given a notification within the session. Message: Your device does not meet the security requirements."
+      },
+      {
+         "key": "MESSAGE_NOTIFICATION_INSECURE_WI_FI_NETWORK",
+         "value": "Die Wi-Fi-Verbindung Ihres Gerätes entspricht nicht unseren Anforderungen. Der Zugriff auf die Sitzung wird zukünftig verweigert.%NEWLINE%Wenden Sie sich für weitere Informationen an Ihren IT-Helpdesk.",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_NOTIFICATION_INSECURE_WI_FI_NETWORK",
+         "value": "Your device's Wi-Fi connection does not meet our requirements. Access to the session will be denied soon.%NEWLINE%For more details, contact your IT help desk."
+      },
+      {
+         "key": "MESSAGE_NOTIFICATION_NO_DEVICETRUST_CLIENT",
+         "value": "Bitte installieren Sie den deviceTRUST Client (https://devicetrust.com/downloads), um weiterhin auf die Sitzung zugreifen zu können.%NEWLINE%Wenden Sie sich für weitere Informationen an Ihren IT-Helpdesk.",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_NOTIFICATION_NO_DEVICETRUST_CLIENT",
+         "value": "Please install the deviceTRUST Client (https://devicetrust.com/downloads) to continue accessing the session.%NEWLINE%For more details, contact your IT help desk."
+      },
+      {
+         "key": "MESSAGE_NOTIFICATION_TITLE",
+         "value": "Konformitätsprüfung",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_NOTIFICATION_TITLE",
+         "value": "Compliance Check"
+      },
+      {
+         "key": "MESSAGE_NOTIFICATION_UNAUTHORIZED_COUNTRY",
+         "value": "Ihr Gerät entspricht nicht unseren Länderanforderungen. Der Zugriff auf die Sitzung wird zukünftig verweigert.%NEWLINE%Wenden Sie sich für weitere Informationen an Ihren IT-Helpdesk.",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_NOTIFICATION_UNAUTHORIZED_COUNTRY",
+         "value": "Your device does not meet our country requirements. Access to the session will be denied soon.%NEWLINE%For more details, contact your IT help desk."
+      },
+      {
+         "key": "MESSAGE_NOTIFICATION_UNPROTECTED",
+         "value": "Ihr Gerät entspricht nicht unseren Sicherheitsanforderungen. Der Zugriff auf die Sitzung wird zukünftig verweigert.%NEWLINE%Wenden Sie sich für weitere Informationen an Ihren IT-Helpdesk.",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_NOTIFICATION_UNPROTECTED",
+         "value": "Your device does not meet our security requirements. Access to the session will be denied soon.%NEWLINE%For more details, contact your IT help desk."
+      },
+      {
+         "key": "MESSAGE_NOTIFICATION_VALIDATE_HOME_OFFICE",
+         "value": "Sie greifen zum ersten Mal von Ihrem Homeoffice aus auf Ihre Sitzung zu.%NEWLINE%Klicken Sie auf 'Validieren', um den Zugriff auf Ihre Sitzung von Ihrem aktuellen Homeoffice aus zu autorisieren.%NEWLINE%Wenden Sie sich für weitere Informationen an Ihren IT-Helpdesk.\n\n",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_NOTIFICATION_VALIDATE_HOME_OFFICE",
+         "value": "You are accessing your session from your home office for the first time.%NEWLINE%Click 'Validate' to authorize access to your session from your current home office.%NEWLINE%For more details, contact your IT help desk."
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_BUTTON_DISCONNECT",
+         "value": "Trennen",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_BUTTON_DISCONNECT",
+         "value": "Disconnect"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_BUTTON_LOCK",
+         "value": "Sperren",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_BUTTON_LOCK",
+         "value": "Lock"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_BUTTON_SIGN_OUT",
+         "value": "Abmelden",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_BUTTON_SIGN_OUT",
+         "value": "Sign out"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_ESTABLISHING_CONTEXT",
+         "value": "Kontext wird hergestellt mit %DEVICE_NAME%",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_ESTABLISHING_CONTEXT",
+         "value": "Establishing context with %DEVICE_NAME%"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_ESTABLISHING_IDENTITY",
+         "value": "Please wait"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_ESTABLISHING_IDENTITY",
+         "value": "Bitte warten",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_EXECUTING_TRIGGER",
+         "value": "Applying contextual policies"
+      },
+      {
+         "key": "MESSAGE_SYSTEM_MESSAGE_EXECUTING_TRIGGER",
+         "value": "Kontextrichtlinien werden angewendet",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_VALIDATION_TITLE",
+         "value": "Validation Process"
+      },
+      {
+         "key": "MESSAGE_VALIDATION_TITLE",
+         "value": "Validierungsprozess",
+         "languageCode": "de"
+      }
+   ],
+   "settings": [
+      {
+         "type": "AppLocker",
+         "enabled": true,
+         "rules": [
+            {
+               "id": "0db5c001-0ce5-495d-850e-e39d9bd76b4b",
+               "type": "Path",
+               "enabled": true,
+               "target": "Executable",
+               "action": "Allow",
+               "user": {
+                  "name": "Everyone",
+                  "sid": "S-1-1-0"
+               },
+               "path": "%WINDIR%\\*",
+               "exceptions": []
+            },
+            {
+               "id": "0db5c002-0ce5-495d-850e-e39d9bd76b4b",
+               "type": "Path",
+               "enabled": true,
+               "target": "Executable",
+               "action": "Allow",
+               "user": {
+                  "name": "Everyone",
+                  "sid": "S-1-1-0"
+               },
+               "path": "%PROGRAMFILES%\\*",
+               "exceptions": []
+            },
+            {
+               "id": "0db5c003-0ce5-495d-850e-e39d9bd76b4b",
+               "type": "Path",
+               "enabled": true,
+               "target": "Executable",
+               "action": "Allow",
+               "user": {
+                  "name": "BUILTIN\\Administrators",
+                  "sid": "S-1-5-32-544"
+               },
+               "path": "*",
+               "exceptions": []
+            },
+            {
+               "id": "0db5c004-0ce5-495d-850e-e39d9bd76b4b",
+               "type": "Owner",
+               "enabled": true,
+               "target": "Executable",
+               "user": {
+                  "name": "Everyone",
+                  "sid": "S-1-1-0"
+               },
+               "folder": "%OSDRIVE%\\*",
+               "exceptions": []
+            },
+            {
+               "id": "0db5c005-0ce5-495d-850e-e39d9bd76b4b",
+               "type": "Publisher",
+               "enabled": true,
+               "target": "WindowsInstaller",
+               "action": "Allow",
+               "user": {
+                  "name": "Everyone",
+                  "sid": "S-1-1-0"
+               },
+               "publisherName": "*",
+               "productName": "*",
+               "binaryName": "*",
+               "binaryVersion": "*",
+               "binaryVersionComparison": "AndAbove",
+               "exceptions": []
+            },
+            {
+               "id": "0db5c006-0ce5-495d-850e-e39d9bd76b4b",
+               "type": "Path",
+               "enabled": true,
+               "target": "WindowsInstaller",
+               "action": "Allow",
+               "user": {
+                  "name": "Everyone",
+                  "sid": "S-1-1-0"
+               },
+               "path": "%WINDIR%\\Installer\\*",
+               "exceptions": []
+            },
+            {
+               "id": "0db5c007-0ce5-495d-850e-e39d9bd76b4b",
+               "type": "Path",
+               "enabled": true,
+               "target": "WindowsInstaller",
+               "action": "Allow",
+               "user": {
+                  "name": "BUILTIN\\Administrators",
+                  "sid": "S-1-5-32-544"
+               },
+               "path": "*.*",
+               "exceptions": []
+            },
+            {
+               "id": "0db5c008-0ce5-495d-850e-e39d9bd76b4b",
+               "type": "Path",
+               "enabled": true,
+               "target": "Script",
+               "action": "Allow",
+               "user": {
+                  "name": "Everyone",
+                  "sid": "S-1-1-0"
+               },
+               "path": "%WINDIR%\\*",
+               "exceptions": []
+            },
+            {
+               "id": "0db5c009-0ce5-495d-850e-e39d9bd76b4b",
+               "type": "Path",
+               "enabled": true,
+               "target": "Script",
+               "action": "Allow",
+               "user": {
+                  "name": "Everyone",
+                  "sid": "S-1-1-0"
+               },
+               "path": "%PROGRAMFILES%\\*",
+               "exceptions": []
+            },
+            {
+               "id": "0db5c010-0ce5-495d-850e-e39d9bd76b4b",
+               "type": "Path",
+               "enabled": true,
+               "target": "Script",
+               "action": "Allow",
+               "user": {
+                  "name": "BUILTIN\\Administrators",
+                  "sid": "S-1-5-32-544"
+               },
+               "path": "*",
+               "exceptions": []
+            },
+            {
+               "id": "0db5c011-0ce5-495d-850e-e39d9bd76b4b",
+               "type": "Publisher",
+               "enabled": true,
+               "target": "AppX",
+               "action": "Allow",
+               "user": {
+                  "name": "Everyone",
+                  "sid": "S-1-1-0"
+               },
+               "publisherName": "*",
+               "productName": "*",
+               "binaryName": "*",
+               "binaryVersion": "*",
+               "binaryVersionComparison": "AndAbove",
+               "exceptions": []
+            }
+         ],
+         "startService": true,
+         "eventLogEnable": false,
+         "eventLogMaxLogSizeKb": 0,
+         "blockPowerShell": false,
+         "auditPowerShell": false,
+         "preferCsp": false,
+         "executableEnforcement": "Enforce",
+         "windowsInstallerEnforcement": "Enforce",
+         "scriptEnforcement": "Enforce",
+         "appxEnforcement": "Enforce",
+         "refreshEnabled": false,
+         "refreshUsers": [
+            {
+               "name": "BUILTIN\\Administrators",
+               "sid": "S-1-5-32-544"
+            }
+         ],
+         "owners": [
+            {
+               "name": "DEMO\\svc_sccm",
+               "sid": "S-1-5-21-1397108472-4176295369-1616608269-2269"
+            }
+         ],
+         "ownerPathExclusions": [
+            "%OSDRIVE%\\$Recycle.Bin",
+            "%OSDRIVE%\\ProgramData",
+            "%OSDRIVE%\\System Volume Information",
+            "%OSDRIVE%\\Users",
+            "%PROGRAMFILES%",
+            "%WINDIR%"
+         ]
+      },
+      {
+         "type": "SystemMessages",
+         "enabled": true,
+         "establishingIdentity": "%MESSAGE_SYSTEM_MESSAGE_ESTABLISHING_IDENTITY%",
+         "establishingContext": "%MESSAGE_SYSTEM_MESSAGE_ESTABLISHING_CONTEXT%",
+         "executingTrigger": "%MESSAGE_SYSTEM_MESSAGE_EXECUTING_TRIGGER%",
+         "trustedDeviceDeniedTitle": "Access Denied",
+         "trustedDeviceDeniedMessage": "To allow access to your session, please upgrade to the latest deviceTRUST client from https://devicetrust.com/download.%NEWLINE%For more details contact your IT help desk.",
+         "untrustedDeviceDeniedTitle": "Access Denied",
+         "untrustedDeviceDeniedMessage": "To allow access to your session, please install the deviceTRUST client from https://devicetrust.com/download.%NEWLINE%For more details contact your IT help desk.",
+         "signoutButton": "%MESSAGE_SYSTEM_MESSAGE_BUTTON_SIGN_OUT%",
+         "lockButton": "%MESSAGE_SYSTEM_MESSAGE_BUTTON_LOCK%",
+         "disconnectButton": "%MESSAGE_SYSTEM_MESSAGE_BUTTON_DISCONNECT%"
+      }
+   ]
+}

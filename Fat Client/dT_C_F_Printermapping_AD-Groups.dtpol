@@ -1,0 +1,584 @@
+{
+   "consoleVersion": "20.2.300.0",
+   "username": "SvenJansen",
+   "timestamp": "2021-04-29T12:36:56.830Z",
+   "contexts": [
+      {
+         "id": "22ace224-e6f9-446e-99f4-6bd5a794d17a",
+         "key": "CONTEXT_PRINTER_DEFAULT",
+         "name": "Printer Default",
+         "description": "Defines the default printer based on the printer management group.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "%HOST_CUSTOM_PRINTER_DEFAULT%",
+               "conditions": [
+                  {
+                     "id": "a0f7fc92-182f-4402-9115-b777f1fb330f",
+                     "categoryName": "Custom",
+                     "propertyName": "Condition",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_CUSTOM_CONDITION",
+                     "operator": "String Not Empty",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "property": "%HOST_CUSTOM_PRINTER_DEFAULT%"
+                           }
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": true
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "a801526a-117d-4df1-90a6-7d3d93efa303",
+         "key": "CONTEXT_PRINTER_DEFAULT_FAILOVER",
+         "name": "Printer Default Failover",
+         "description": "Defines the failover default printer based on the printer management group.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "%HOST_CUSTOM_PRINTER_DEFAULT_FAILOVER%",
+               "conditions": [
+                  {
+                     "id": "cdbd1a9b-cb65-421d-82aa-31374de2aaa2",
+                     "categoryName": "Custom",
+                     "propertyName": "Condition",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_CUSTOM_CONDITION",
+                     "operator": "String Not Empty",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "property": "%HOST_CUSTOM_PRINTER_DEFAULT_FAILOVER%"
+                           }
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": true
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "2161d1ff-cc3c-4951-a09e-1ccd12b07032",
+         "key": "CONTEXT_PRINTER_ERROR",
+         "name": "Printer Error",
+         "description": "Defines errors if the printer management process is failing.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unknown",
+         "enabled": true,
+         "data": [
+            {
+               "state": "False",
+               "conditions": [
+                  {
+                     "id": "6516a42d-43b5-4f74-a139-cf4cf3f210e6",
+                     "categoryName": "Custom",
+                     "propertyName": "Condition",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_CUSTOM_CONDITION",
+                     "operator": "String Equals",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "property": "%HOST_CUSTOM_PRINTER_ERROR%",
+                              "data": [
+                                 "False"
+                              ]
+                           }
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": true
+                  }
+               ]
+            },
+            {
+               "state": "Description",
+               "conditions": [
+                  {
+                     "id": "235af215-0ff0-448e-b1f5-2341851bd74a",
+                     "categoryName": "Custom",
+                     "propertyName": "Condition",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_CUSTOM_CONDITION",
+                     "operator": "String Wildcard",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "property": "%HOST_CUSTOM_PRINTER_ERROR%",
+                              "data": [
+                                 "Description*"
+                              ]
+                           }
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": true
+                  }
+               ]
+            },
+            {
+               "state": "Groups",
+               "conditions": [
+                  {
+                     "id": "49edfdf5-2ec4-466b-a217-64cf5d71bf86",
+                     "categoryName": "Custom",
+                     "propertyName": "Condition",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_CUSTOM_CONDITION",
+                     "operator": "String Wildcard",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "property": "%HOST_CUSTOM_PRINTER_ERROR%",
+                              "data": [
+                                 "Groups*"
+                              ]
+                           }
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": true
+                  }
+               ]
+            },
+            {
+               "state": "No Group",
+               "conditions": [
+                  {
+                     "id": "8f22d449-1f9b-4b7b-bcde-a58af94a0fda",
+                     "categoryName": "Custom",
+                     "propertyName": "Condition",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_CUSTOM_CONDITION",
+                     "operator": "String Wildcard",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "property": "%HOST_CUSTOM_PRINTER_ERROR%",
+                              "data": [
+                                 "No Group*"
+                              ]
+                           }
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": true
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "861e91c3-50f9-4f37-a330-d2a385d9a607",
+         "key": "CONTEXT_PRINTER_MANAGEMENT_GROUP",
+         "name": "Printer Management Group",
+         "description": "Defines the used printer management group.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "%HOST_CUSTOM_PRINTER_MANAGEMENT_GROUP%",
+               "conditions": [
+                  {
+                     "id": "7f4cb511-5e87-4b93-b276-2239e9ffab22",
+                     "categoryName": "Custom",
+                     "propertyName": "Condition",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_CUSTOM_CONDITION",
+                     "operator": "String Not Empty",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "property": "%HOST_CUSTOM_PRINTER_MANAGEMENT_GROUP%"
+                           }
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": true
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "f83b52cd-860c-4e6a-9c51-3be4ee47b7cb",
+         "key": "CONTEXT_PRINTERS",
+         "name": "Printers",
+         "description": "Defines the printers based on the printer management group.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "%HOST_CUSTOM_PRINTERS%",
+               "conditions": [
+                  {
+                     "id": "bceb561f-898e-4c3a-a7d6-af8a11f6676d",
+                     "categoryName": "Custom",
+                     "propertyName": "Condition",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_CUSTOM_CONDITION",
+                     "operator": "String Not Empty",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "property": "%HOST_CUSTOM_PRINTERS%"
+                           }
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": true
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      }
+   ],
+   "actions": [
+      {
+         "id": "ec9119f8-64f5-4dca-9dc8-7d0b17dd52b8",
+         "key": "ACTION_PRINTER_MANAGEMENT",
+         "name": "Printer Management",
+         "description": "Apply a printer management policy based on the local computer's membership in a printer management group.",
+         "data": [
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_PRINTER_ERROR",
+                     "contextName": "Printer Error",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "False"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "e3140bd0-1120-4d99-89c5-d1bc1ac34c3c",
+                     "type": "Map Printer",
+                     "description": "Based on AD printer management group.",
+                     "mapNetworkPrinters": [
+                        {
+                           "primary": "%HOST_CUSTOM_PRINTERS%"
+                        }
+                     ],
+                     "unmapNetworkPrinters": [
+                        {
+                           "primary": "\\\\printserver\\*"
+                        }
+                     ],
+                     "setDefaultPrinter": {
+                        "primary": "%HOST_CUSTOM_PRINTER_DEFAULT%",
+                        "failover": [
+                           "%HOST_CUSTOM_PRINTER_DEFAULT_FAILOVER%"
+                        ]
+                     },
+                     "wait": false
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_PRINTER_ERROR",
+                     "contextName": "Printer Error",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Description"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "244ec7b1-93ad-4ef7-a4b3-b20cffe23910",
+                     "type": "Popup Message",
+                     "description": "No printers defined",
+                     "toast": false,
+                     "message": "Please contact the Help-Desk.",
+                     "title": "No printers defined",
+                     "triggerButtons": []
+                  },
+                  {
+                     "id": "442e84b8-98df-42ed-87bc-cdb7b0e7acb6",
+                     "type": "Audit Event",
+                     "description": "No printers defined",
+                     "target": "Default",
+                     "level": "Error",
+                     "message": "%HOST_CUSTOM_PRINTER_ERROR%",
+                     "report": false
+                  },
+                  {
+                     "id": "2ca61e41-0d4b-443d-b75e-948fcdf6de13",
+                     "type": "Send Mail",
+                     "description": "No printers defined",
+                     "to": "address@company.org",
+                     "cc": "",
+                     "subject": "Printer Management: The printer management group has no definied printers",
+                     "message": "%HOST_CUSTOM_PRINTER_ERROR%",
+                     "importance": "Medium",
+                     "wait": false,
+                     "report": false,
+                     "reportLanguage": "en",
+                     "reportContextEvaluations": false
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_PRINTER_ERROR",
+                     "contextName": "Printer Error",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Groups"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "803a867f-89f8-4485-8fd0-3e015524d5ed",
+                     "type": "Popup Message",
+                     "description": "Multiple printer management groups",
+                     "toast": false,
+                     "message": "Please contact the Help-Desk.",
+                     "title": "Multiple printer management groups",
+                     "triggerButtons": []
+                  },
+                  {
+                     "id": "e7e66873-7a18-45ea-a053-773e35299cea",
+                     "type": "Audit Event",
+                     "description": "Multiple printer management groups",
+                     "target": "Default",
+                     "level": "Error",
+                     "message": "%HOST_CUSTOM_PRINTER_ERROR%",
+                     "report": false
+                  },
+                  {
+                     "id": "d336a7dc-c669-4925-9682-1b18b5d97aa8",
+                     "type": "Send Mail",
+                     "description": "Multiple printer management groups",
+                     "to": "address@company.org",
+                     "cc": "",
+                     "subject": "Printer Management: The PC is a member of multiple printer management groups",
+                     "message": "Error:\n%HOST_CUSTOM_PRINTER_ERROR%\n\nPrinter Management Groups:\n%HOST_CUSTOM_PRINTER_MANAGEMENT_GROUP%",
+                     "importance": "Medium",
+                     "wait": false,
+                     "report": false,
+                     "reportLanguage": "en",
+                     "reportContextEvaluations": false
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_PRINTER_ERROR",
+                     "contextName": "Printer Error",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "No Group"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "7b232fd4-8a18-414d-b148-ade7ed63d8ae",
+                     "type": "Popup Message",
+                     "description": "No printer management group",
+                     "toast": false,
+                     "message": "Please contact the Help-Desk.",
+                     "title": "No printer management group",
+                     "triggerButtons": []
+                  },
+                  {
+                     "id": "d3859350-2695-4c23-8b48-dc39d1ab3f1a",
+                     "type": "Audit Event",
+                     "description": "No printer management group",
+                     "target": "Default",
+                     "level": "Error",
+                     "message": "%HOST_CUSTOM_PRINTER_ERROR%",
+                     "report": false
+                  },
+                  {
+                     "id": "25b93dcf-e537-409f-9f8a-18b98aa1dc56",
+                     "type": "Send Mail",
+                     "description": "No printer management group",
+                     "to": "address@company.org",
+                     "cc": "",
+                     "subject": "Printer Management: The PC is not a member of any printer management group",
+                     "message": "Error:\n%HOST_CUSTOM_PRINTER_ERROR%",
+                     "importance": "Medium",
+                     "wait": false,
+                     "report": false,
+                     "reportLanguage": "en",
+                     "reportContextEvaluations": false
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_PRINTER_ERROR",
+                     "contextName": "Printer Error",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Unknown"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "91038d8b-042a-4ef6-bba5-c09260d467b0",
+                     "type": "Popup Message",
+                     "description": "Unknown Error",
+                     "toast": false,
+                     "message": "Please contact the Help-Desk.",
+                     "title": "Unknown Error",
+                     "triggerButtons": []
+                  },
+                  {
+                     "id": "fafe61fd-a004-4b86-922a-d75868a2fd85",
+                     "type": "Audit Event",
+                     "description": "Unknown Error",
+                     "target": "Default",
+                     "level": "Error",
+                     "message": "An unknown printer management error has occurred based on the local computer's membership in a printer management group.",
+                     "report": false
+                  },
+                  {
+                     "id": "d6ef81f4-6294-48d2-bb83-75056c8a3429",
+                     "type": "Send Mail",
+                     "description": "Unknown Error",
+                     "to": "address@company.org",
+                     "cc": "",
+                     "subject": "Printer Management: Unknown Error Occurred",
+                     "message": "An unknown error occured.\n\nPC = %COMPUTERNAME%",
+                     "importance": "Medium",
+                     "wait": false,
+                     "report": false,
+                     "reportLanguage": "en",
+                     "reportContextEvaluations": false
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "Medium"
+      }
+   ],
+   "messages": [],
+   "settings": [
+      {
+         "type": "CustomProperties",
+         "enabled": true,
+         "runAs": "System",
+         "delayUntilPropertiesAvailable": true,
+         "captureOutput": true,
+         "timeout": 300,
+         "failureDetection": "Exit Code",
+         "embeddedScript": "[string]$PrinterGroupPrefix = \"PrinterMap_*\" # AD printer management group\n[string]$PrinterGroupPrefix = \"CN=\" + $PrinterGroupPrefix  # AD printer management group CN\n[string]$PrintersToConnect = \"\"  # Clear the printers to connect variable\n\n# Create a searcher which binds to the root of the directory\n$root = [ADSI]\"LDAP://RootDSE\"\n$searchRoot = [ADSI]('LDAP://' + $root.rootDomainNamingContext)\n$searcher = [adsisearcher]$searchRoot\n\n# Find the local computer\n$searcher.Filter = \"(&(objectclass=computer)(cn=$env:COMPUTERNAME))\"\n$computerObject = $searcher.FindOne()\n$computer = $computerObject.GetDirectoryEntry()\n\n# Find the groups distinguished names which match the printer wildcard\n$allGroupDns = $computer.memberOf\n$printerGroupDns = $allGroupDns -match $PrinterGroupPrefix\n\nif($printerGroupDns -ne $null){\n    if($printerGroupDns.length -eq 1){\n\n        # Lookup the printer group in AD\n        $printerGroup = [adsi]\"LDAP://$printerGroupDns\"\n        $printerGroupDescription = $printerGroup.Description\n\n        if ($PrinterGroupDescription.Length -gt 0) {\n\n            [array]$PrintersToConnectRaw = $PrinterGroupDescription.Split(\",\")\n\n            foreach ($Printer in $PrintersToConnectRaw) {\n\n                if ($Printer.StartsWith(\"!\\\\\")) {\n\n                    [string]$PRINTER_DEFAULT = $Printer.TrimStart(\"!\")\n                    &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_DEFAULT=$PRINTER_DEFAULT\"\n                    $PrintersToConnect = $PrintersToConnect + \",\" + $PRINTER_DEFAULT\n\n                }\n\n                if ($Printer.StartsWith(\"!!\\\\\")) {\n\n                    [string]$PRINTER_DEFAULT_FAILOVER = $Printer.TrimStart(\"!!\")\n                    &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_DEFAULT_FAILOVER=$PRINTER_DEFAULT_FAILOVER\"\n                    $PrintersToConnect = $PrintersToConnect + \",\" + $PRINTER_DEFAULT_FAILOVER\n\n                }\n\n                if ($Printer.StartsWith(\"\\\\\")) {\n\n                    $PrintersToConnect = $PrintersToConnect + \",\" + $Printer\n                }\n\n            }\n\n            if ($PrintersToConnect.StartsWith(\",\")) {\n\n                $PrintersToConnect = $PrintersToConnect.TrimStart(\",\")\n\n            }\n\n            if ($PrintersToConnect.EndsWith(\",\")) {\n\n                $PrintersToConnect = $PrintersToConnect.TrimEnd(\",\")\n\n            }\n        \n            &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_ERROR=False\"\n\n            &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_MANAGEMENT_GROUP=$PrinterManagementGroup\"\n\n            &dtcmd SET \"/update:HOST_CUSTOM_PRINTERS=$PrintersToConnect\"\n\n        } else {\n\n            &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_MANAGEMENT_GROUP=$PrinterManagementGroup\"\n            \n            [string]$PrintersToConnectGroup = (Get-ADPrincipalGroupMembership (Get-ADComputer $env:COMPUTERNAME) | Where-Object name -Match \"PrinterMap_*\").name    \n            [string]$PrintersToConnectError = \"Description: The printer management group '$PrintersToConnectGroup' has no definied printers.\"\n            \n            &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_ERROR=$PrintersToConnectError\"\n        }\n\n    } else {\n\n        &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_MANAGEMENT_GROUP=$PrinterManagementGroup\"\n        \n        [string]$PrintersToConnectError = \"Groups: The PC '$env:COMPUTERNAME' is a member of multiple printer management groups.\"\n        \n        &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_ERROR=$PrintersToConnectError\"\n\n    }\n\n} else {\n\n    &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_MANAGEMENT_GROUP=No Printer Management Group\"\n        \n    [string]$PrintersToConnectError = \"No Group: The PC '$env:COMPUTERNAME' is not a member of any printer management group.\"\n        \n    &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_ERROR=$PrintersToConnectError\"\n\n}",
+         "embeddedScriptTarget": "PowerShell",
+         "powerShellExecutionPolicy": "Unrestricted",
+         "bypassAppLockerPolicy": true
+      },
+      {
+         "type": "Printer",
+         "enabled": true,
+         "maxNumberOfRetries": 5,
+         "retryIntervalInSeconds": 1,
+         "createDesktopPrinterIcon": true,
+         "letPrintSpoolerManageNetworkPrinters": false,
+         "letWindowsManageDefaultPrinter": false
+      }
+   ]
+}
