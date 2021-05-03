@@ -1,0 +1,120 @@
+{
+   "consoleVersion": "20.2.300.0",
+   "username": "DEMO.DEVICETRUST.LOCAL\\admin",
+   "timestamp": "2021-05-03T10:32:40.936Z",
+   "contexts": [
+      {
+         "id": "fa577b9f-2da1-448b-ae73-cb9394627e75",
+         "key": "CONTEXT_CITRRIX_WORKSPACE_APP_VERSION_STATUS",
+         "name": "Citrrix Workspace App Version Status",
+         "description": "Checks the status of the Citrix Workspace App installed on the client device",
+         "mode": "Left-Most Path",
+         "defaultState": "Session incompatible",
+         "enabled": true,
+         "data": [
+            {
+               "state": "Version up to date (Workspace App)",
+               "conditions": [
+                  {
+                     "id": "b52f27d3-747d-4479-94f3-323c2595ccad",
+                     "categoryName": "Remote Control",
+                     "propertyName": "Protocol",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_REMOTECONTROL_PROTOCOL",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "ICA"
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Version outdated (Workspace App)",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "cb6ca600-7527-49dd-88a0-b6b0dd802065",
+                     "categoryName": "Remote Control",
+                     "propertyName": "Remote Version",
+                     "propertyValue": 8,
+                     "underlyingPropertyName": "TARGET_REMOTECONTROL_REMOTE_VERSION",
+                     "operator": "Version Greater Than",
+                     "value": {
+                        "type": "Version",
+                        "data": [
+                           "21"
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            },
+            {
+               "state": "Version up to date (HTML5)",
+               "conditions": [
+                  {
+                     "id": "f0d397f0-0042-451b-8c05-a3d96e2bbd92",
+                     "categoryName": "Remote Control",
+                     "propertyName": "Remote Name",
+                     "propertyValue": 4,
+                     "underlyingPropertyName": "TARGET_REMOTECONTROL_REMOTE_NAME",
+                     "operator": "String Wildcard",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "HTML*"
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Version outdated (HTML5)",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "794080bc-3578-406e-a2b8-8a621588caa6",
+                     "categoryName": "Remote Control",
+                     "propertyName": "Remote Version",
+                     "propertyValue": 8,
+                     "underlyingPropertyName": "TARGET_REMOTECONTROL_REMOTE_VERSION",
+                     "operator": "Version Greater Than",
+                     "value": {
+                        "type": "Version",
+                        "data": [
+                           "20"
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      }
+   ],
+   "actions": [],
+   "messages": [],
+   "settings": []
+}

@@ -1,0 +1,519 @@
+{
+   "consoleVersion": "20.2.300.0",
+   "username": "DEMO.DEVICETRUST.LOCAL\\admin",
+   "timestamp": "2021-05-03T10:02:36.028Z",
+   "contexts": [
+      {
+         "id": "29060410-2b04-4fc2-bdb6-07aca0170378",
+         "key": "CONTEXT_BATTERY_LEVEL",
+         "name": "Battery Level",
+         "description": "Checks the device's battery level.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "High",
+               "conditions": [
+                  {
+                     "id": "ddff438d-28bc-4b48-a041-617fcb1f0f83",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "branches": [
+                        {
+                           "state": "Medium",
+                           "conditions": [
+                              {
+                                 "id": "9f8c0026-89d6-4b45-984c-22cfb7c05e03",
+                                 "categoryName": "Power",
+                                 "propertyName": "Battery",
+                                 "propertyValue": 2,
+                                 "underlyingPropertyName": "TARGET_POWER_BATTERY",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Medium"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "Windows Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Low",
+                           "conditions": [
+                              {
+                                 "id": "482c5774-6c75-4916-8518-94c39f8d82f1",
+                                 "categoryName": "Power",
+                                 "propertyName": "Battery",
+                                 "propertyValue": 2,
+                                 "underlyingPropertyName": "TARGET_POWER_BATTERY",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Low"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "Windows Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Critical",
+                           "conditions": [
+                              {
+                                 "id": "594d4edc-916f-40b4-8b84-82bae6d4f7d3",
+                                 "categoryName": "Power",
+                                 "propertyName": "Battery",
+                                 "propertyValue": 2,
+                                 "underlyingPropertyName": "TARGET_POWER_BATTERY",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Critical"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "Windows Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "None",
+                           "conditions": [
+                              {
+                                 "id": "ec522ea2-51cd-41af-8e6d-b89286bf9d07",
+                                 "categoryName": "Power",
+                                 "propertyName": "Battery",
+                                 "propertyValue": 2,
+                                 "underlyingPropertyName": "TARGET_POWER_BATTERY",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "None"
+                                    ]
+                                 },
+                                 "target": "Device",
+                                 "filter": "Windows Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "id": "2f37b987-9c52-408b-901e-e369e3878b8e",
+                     "categoryName": "Power",
+                     "propertyName": "Battery",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_POWER_BATTERY",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "High"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "Windows Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      }
+   ],
+   "actions": [
+      {
+         "id": "94baeaee-be7c-45a2-b76a-50e9961316fe",
+         "key": "ACTION_BATTERY_LEVEL_NOTIFICATION",
+         "name": "Battery level notification",
+         "description": "Displays a notification showing the device's battery level in the remote session.",
+         "data": [
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_BATTERY_LEVEL",
+                     "contextName": "Battery Level",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Unavailable"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "e17848e0-1826-4f4d-af60-ed9784651484",
+                     "type": "Popup Message",
+                     "description": "Battery level: unavailable",
+                     "toast": false,
+                     "message": "%MESSAGE_BATTERY_LEVEL_UNAVAILABLE%",
+                     "title": "%MESSAGE_BATTERY_LEVEL_UNAVAILABLE_TITLE%",
+                     "triggerButtons": [
+                        {
+                           "triggerName": "Copy URL",
+                           "buttonText": "Copy URL"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_BATTERY_LEVEL",
+                     "contextName": "Battery Level",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "High"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "efff6630-9d7c-45d6-8b9c-8de4edc2469d",
+                     "type": "Popup Message",
+                     "description": "Battery level: high",
+                     "toast": false,
+                     "message": "%MESSAGE_BATTERY_LEVEL_HIGH%",
+                     "title": "%MESSAGE_BATTERY_LEVEL_HIGH_TITLE%",
+                     "triggerButtons": []
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_BATTERY_LEVEL",
+                     "contextName": "Battery Level",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Medium"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "b1120107-9c5f-4b65-9e9d-2a523b7abc10",
+                     "type": "Popup Message",
+                     "description": "Battery level: medium",
+                     "toast": false,
+                     "message": "%MESSAGE_BATTERY_LEVEL_MEDIUM%",
+                     "title": "%MESSAGE_BATTERY_LEVEL_MEDIUM_TITLE%",
+                     "triggerButtons": []
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_BATTERY_LEVEL",
+                     "contextName": "Battery Level",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Low"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "295136a4-982f-4f3b-b972-3fcbc2a1e1f4",
+                     "type": "Popup Message",
+                     "description": "Battery level: low",
+                     "toast": false,
+                     "message": "%MESSAGE_BATTERY_LEVEL_LOW%",
+                     "title": "%MESSAGE_BATTERY_LEVEL_LOW_TITLE%",
+                     "triggerButtons": []
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_BATTERY_LEVEL",
+                     "contextName": "Battery Level",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Critical"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "b6f3927c-65e8-4773-a7fe-bac6dcf5dbdb",
+                     "type": "Popup Message",
+                     "description": "Battery level: critical",
+                     "toast": false,
+                     "message": "%MESSAGE_BATTERY_LEVEL_CRITICAL%",
+                     "title": "%MESSAGE_BATTERY_LEVEL_CRITICAL_TITLE%",
+                     "triggerButtons": []
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_BATTERY_LEVEL",
+                     "contextName": "Battery Level",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "None"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "86306e2c-ce91-44b6-8880-b89e0a68c14a",
+                     "type": "Popup Message",
+                     "description": "Battery level: none",
+                     "toast": false,
+                     "message": "%MESSAGE_BATTERY_LEVEL_NONE%",
+                     "title": "%MESSAGE_BATTERY_LEVEL_NONE_TITLE%",
+                     "triggerButtons": []
+                  }
+               ]
+            },
+            {
+               "type": "Custom",
+               "triggers": [
+                  "Custom"
+               ],
+               "filters": [],
+               "tasks": [
+                  {
+                     "id": "0ecd9191-5af0-4503-aa22-ef6c2b561891",
+                     "type": "Custom Process",
+                     "description": "Run cmd.exe as User",
+                     "runAs": "User",
+                     "hidden": true,
+                     "wait": false,
+                     "captureOutput": false,
+                     "timeout": 300,
+                     "failureDetection": "Exit Code",
+                     "runOnClient": false,
+                     "useEmbeddedScript": false,
+                     "filename": "%SystemRoot%\\System32\\cmd.exe",
+                     "filenameTarget": "Executable",
+                     "args": "/C \"echo https://devicetrust.com/downloads | clip\"",
+                     "bypassAppLockerPolicy": false
+                  }
+               ],
+               "customName": "Copy URL"
+            }
+         ],
+         "enabled": true,
+         "priority": "Medium"
+      }
+   ],
+   "messages": [
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_CRITICAL",
+         "value": "Your battery level is critical. Please plug in your charger now!"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_CRITICAL",
+         "value": "Der Akku-Stand Ihres Clients ist kritisch. Bitte sofort ein Ladegrät anstecken!",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_CRITICAL_TITLE",
+         "value": "Akku-Stand: Kritisch",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_CRITICAL_TITLE",
+         "value": "Battery level: critical"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_HIGH",
+         "value": "Der Akku-Stand Ihres Clients ist hoch. Genießen Sie Ihre Sitzung!",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_HIGH",
+         "value": "Your battery level is high. Enjoy your session!"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_HIGH_TITLE",
+         "value": "Akku-Stand: Hoch",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_HIGH_TITLE",
+         "value": "Battery level: high"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_LOW",
+         "value": "Der Akku-Stand Ihres Clients ist niedrig. Bitte ein Ladegrät anstecken!",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_LOW",
+         "value": "Your battery level is low. Please plug in your charger!"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_LOW_TITLE",
+         "value": "Akku-Stand: Niedrig",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_LOW_TITLE",
+         "value": "Battery level: low"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_MEDIUM",
+         "value": "Der Akku-Stand Ihres Clients ist mittel. Genießen Sie Ihre Sitzung!",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_MEDIUM",
+         "value": "Your battery level is medium. Enjoy your session!"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_MEDIUM_TITLE",
+         "value": "Battery level: medium"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_MEDIUM_TITLE",
+         "value": "Akku-Stand: Mittel",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_NONE",
+         "value": "Der Akku-Stand Ihres Clients ist \"none\". Vermutlich wurde Ihre Sitzung getrennt.",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_NONE",
+         "value": "Your battery level is none. Preassumably, your session has been disconnected."
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_NONE_TITLE",
+         "value": "Battery level: none"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_NONE_TITLE",
+         "value": "Akku-Stand: \"none\"",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_UNAVAILABLE",
+         "value": "We cannot check your device's battery level. Please install the deviceTRUST client to make sure, the data can be evaluated."
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_UNAVAILABLE",
+         "value": "Wir können den Akku-Stand Ihres Clients nicht überprüfen. Bitte installieren Sie den deviceTRUST Client, um sicherzustallen, dass die Informationen abgefragt werden können.",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_UNAVAILABLE_TITLE",
+         "value": "Battery level: unavailable"
+      },
+      {
+         "key": "MESSAGE_BATTERY_LEVEL_UNAVAILABLE_TITLE",
+         "value": "Akku-Stand: Nicht verfügbar",
+         "languageCode": "de"
+      },
+      {
+         "key": "MESSAGE_BUTTON_COPY_URL",
+         "value": "Copy URL"
+      },
+      {
+         "key": "MESSAGE_BUTTON_COPY_URL",
+         "value": "URL kopieren",
+         "languageCode": "de"
+      }
+   ],
+   "settings": []
+}
