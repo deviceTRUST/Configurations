@@ -12,6 +12,14 @@ The action will sent and unsed BCR registry entries for the user in her Citrix r
 
 
 - dT_C_R_CitrixPolicies.dtpol
+
+The Citrix Policies configuration checks accessing devices for external or internal access. Additionally, devices will be checked for being a company device.
+![image](https://user-images.githubusercontent.com/83282694/116855501-c4afe400-abf9-11eb-9e40-3c9377c41428.png)
+
+The action enables or disabled certain redirection options (USB, drive, clipboard).
+![image](https://user-images.githubusercontent.com/83282694/116855566-e4dfa300-abf9-11eb-95d2-b5ba6c6d73c1.png)
+
+
 - dT_C_R_DPI-Scaling.dtpol
 - dT_C_R_HomeOffice_dCTA.dtpol
 - dT_C_R_Printermapping_AD-Groups.dtpol
