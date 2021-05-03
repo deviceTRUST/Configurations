@@ -2,11 +2,4 @@
 # Configurations for Fat Clients
 This section contains a collection of deviceTRUST configurations for Fat Clients. Desriptions for each configuration can be found below.
 
-- lala
-hjhj
-
-- lolo
-hjhj
-
-- lele
-hjhj
+- dT_C_F_Printermapping_AD-Groups.dtpol / 
