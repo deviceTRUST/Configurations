@@ -1,0 +1,268 @@
+{
+   "consoleVersion": "20.2.300.0",
+   "username": "SvenJansen",
+   "timestamp": "2021-05-07T07:35:23.543Z",
+   "contexts": [
+      {
+         "id": "56eafabb-bb4d-42e1-a803-1f6ddf250a80",
+         "key": "CONTEXT_CORPORATE_DEVICE",
+         "name": "Corporate Device",
+         "description": "Defines if the remote device is a corporate managed, AD joined device.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "True",
+               "conditions": [
+                  {
+                     "id": "e776fc50-74e8-480a-adb0-40b4fe866bd9",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "False",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "024edb1a-1446-4206-a5a8-aabff3678496",
+                     "categoryName": "OS",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_OS_NAME",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Windows"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "970d3108-e71c-4f4a-8b9e-c1b6a4e1f0b7",
+                     "categoryName": "Domain",
+                     "propertyName": "Join",
+                     "propertyValue": 4,
+                     "underlyingPropertyName": "TARGET_DOMAIN_JOIN",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Domain"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "df8a491b-1c6a-4365-be84-bbd9e32413ba",
+                     "categoryName": "Domain",
+                     "propertyName": "ID",
+                     "propertyValue": 3,
+                     "underlyingPropertyName": "TARGET_DOMAIN_ID",
+                     "operator": "String Equals",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "DOMAIN_SID"
+                        ]
+                     },
+                     "target": "Device",
+                     "filter": "All Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      },
+      {
+         "id": "023a3639-77be-4ff6-a00d-0f77d090a9ee",
+         "key": "CONTEXT_INFORMATION_GATHERING",
+         "name": "Information Gathering",
+         "description": "Enter context description",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "Available",
+               "conditions": [
+                  {
+                     "id": "ada285e5-1342-447a-adb6-a90fd876e95f",
+                     "categoryName": "Name",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_NAME",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "b2df45f4-152d-48e0-996d-8475f7fc0ad9",
+                     "categoryName": "User",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_USER_NAME",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "dacd6e26-2835-44e3-8a9b-3373603ab276",
+                     "categoryName": "User",
+                     "propertyName": "Domain",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_USER_NAME_DOMAIN",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      }
+   ],
+   "actions": [
+      {
+         "id": "a9a99c59-df4c-4d8e-b729-cd5e08af8f7b",
+         "key": "ACTION_CONTROL_CITRIX_SESSION_RECORDING",
+         "name": "Control Citrix Session Recording",
+         "description": "Enables Citrix Session Recoding for non corporate devices. Disabled Citrix Session Recoding for corporate devices.",
+         "data": [
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_CORPORATE_DEVICE",
+                     "contextName": "Corporate Device",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Not Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "True"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "ee32d07a-d8d4-4f85-9a3c-5e17da5278ec",
+                     "type": "Custom Process",
+                     "description": "Start Session Recording",
+                     "runAs": "System",
+                     "hidden": true,
+                     "wait": true,
+                     "captureOutput": true,
+                     "timeout": 300,
+                     "failureDetection": "Exit Code",
+                     "runOnClient": false,
+                     "useEmbeddedScript": true,
+                     "embeddedScript": "# Sytem accounts need to be members of the remote management users at the ddcs\n\n# Define Citrix Broker server\n$CitrixBroker = \"dtldcb01\"\n\n$UserName = $env:HOST_USER_NAME_DOMAIN+ \"\\\" + $env:HOST_USER_NAME\n\n$MachineName = $env:HOST_USER_NAME_DOMAIN + \"\\\" + $env:HOST_NAME\n\n$brokersession = $null\n\n$CitrixBroker | ForEach-Object{\n\n    if($brokersession -eq \"\" -OR $brokersession -eq $null){\n\n        $brokersession = Invoke-Command -ComputerName $_ -ArgumentList $UserName,$MachineName -ScriptBlock {\n\n            Param($UserName,$MachineName)\n\n            get-brokersession | where-object{$_.username -eq $UserName -AND $_.MachineName -eq $MachineName}\n        }\n\n    }\n\n    if($brokersession -ne \"\" -AND $brokersession -ne $null){\n\n        $BrokerSessionRecordingStatus = Invoke-Command -ComputerName $brokersession.PSComputerName -ArgumentList $brokersession -ScriptBlock {\n\n            Param($brokersession)\n\n            Get-BrokerSessionRecordingStatus -Session $brokersession\n\n        }\n\n    }\n\n}\n\nwhile($BrokerSessionRecordingStatus  -eq \"SessionNotRecorded\"){\n\n    write-host \"Attempting to start the session recording.\"\n\n    Invoke-Command -ComputerName $brokersession.PSComputerName -ArgumentList $brokersession -ScriptBlock {\n\n        Param($brokersession)\n\n        Start-BrokerSessionRecording -Session $brokersession\n\n    }\n\n    $BrokerSessionRecordingStatus = Invoke-Command -ComputerName $brokersession.PSComputerName -ArgumentList $brokersession -ScriptBlock {\n\n        Param($brokersession)\n\n        Get-BrokerSessionRecordingStatus -Session $brokersession\n\n    }\n\n    if($BrokerSessionRecordingStatus -eq \"SessionBeingRecorded\"){\n\n        write-host \"Successfully started the session recording.\"\n\n    } else {\n\n        write-host \"Could not start Session Recording.\"\n\n    }\n\n}\n\nwrite-output \"User: \" $UserName\nwrite-output \"Host: \" $MachineName\nwrite-output \"Session recording status: \" $BrokerSessionRecordingStatus ",
+                     "embeddedScriptTarget": "PowerShell",
+                     "powerShellExecutionPolicy": "Unrestricted",
+                     "bypassAppLockerPolicy": true
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_CORPORATE_DEVICE",
+                     "contextName": "Corporate Device",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "True"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "79f46a83-9ce2-48ab-bd07-ee49e87e71bd",
+                     "type": "Custom Process",
+                     "description": "Stop Session Recording",
+                     "runAs": "System",
+                     "hidden": true,
+                     "wait": true,
+                     "captureOutput": true,
+                     "timeout": 300,
+                     "failureDetection": "Exit Code",
+                     "runOnClient": false,
+                     "useEmbeddedScript": true,
+                     "embeddedScript": "# Sytem accounts need to be members of the remote management users at the ddcs\n\n# Define Citrix Broker server\n$CitrixBroker = \"dtldcb01\"\n\n$UserName = $env:HOST_USER_NAME_DOMAIN+ \"\\\" + $env:HOST_USER_NAME\n\n$MachineName = $env:HOST_USER_NAME_DOMAIN + \"\\\" + $env:HOST_NAME\n\n$brokersession = $null\n\n$CitrixBroker | ForEach-Object{\n\n    if($brokersession -eq \"\" -OR $brokersession -eq $null){\n\n        $brokersession = Invoke-Command -ComputerName $_ -ArgumentList $UserName,$MachineName -ScriptBlock {\n\n            Param($UserName,$MachineName)\n\n            get-brokersession | where-object{$_.username -eq $UserName -AND $_.MachineName -eq $MachineName}\n        }\n\n    }\n\n    if($brokersession -ne \"\" -AND $brokersession -ne $null){\n\n        $BrokerSessionRecordingStatus = Invoke-Command -ComputerName $brokersession.PSComputerName -ArgumentList $brokersession -ScriptBlock {\n\n            Param($brokersession)\n\n            Get-BrokerSessionRecordingStatus -Session $brokersession\n\n        }\n\n    }\n\n}\n\nwhile($BrokerSessionRecordingStatus  -eq \"SessionBeingRecorded\"){\n\n    write-host \"Attempting to stop the session recording.\"\n\n    Invoke-Command -ComputerName $brokersession.PSComputerName -ArgumentList $brokersession -ScriptBlock {\n\n        Param($brokersession)\n\n        Stop-BrokerSessionRecording -Session $brokersession\n\n    }\n\n    $BrokerSessionRecordingStatus = Invoke-Command -ComputerName $brokersession.PSComputerName -ArgumentList $brokersession -ScriptBlock {\n\n        Param($brokersession)\n\n        Get-BrokerSessionRecordingStatus -Session $brokersession\n\n    }\n\n    if($BrokerSessionRecordingStatus -eq \"SessionNotRecorded\"){\n\n        write-host \"Successfully stopped the session recording.\"\n\n    } else {\n\n        write-host \"Could not stop Session Recording.\"\n\n    }\n\n}\n\nwrite-output \"User: \" $UserName\nwrite-output \"Host: \" $MachineName\nwrite-output \"Session recording status: \" $BrokerSessionRecordingStatus ",
+                     "embeddedScriptTarget": "PowerShell",
+                     "powerShellExecutionPolicy": "Unrestricted",
+                     "bypassAppLockerPolicy": true
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "Medium"
+      }
+   ],
+   "messages": [],
+   "settings": []
+}
