@@ -1,0 +1,186 @@
+{
+   "consoleVersion": "20.2.341.0",
+   "username": "DEMO.DEVICETRUST.LOCAL\\admin",
+   "timestamp": "2021-06-16T06:22:36.220Z",
+   "contexts": [
+      {
+         "id": "63cf7372-ad2c-466d-bf9a-6e113199ccc4",
+         "key": "CONTEXT_ACCESS_MODE",
+         "name": "Access Mode",
+         "description": "Defines if the remote device is internal or external to the corporate network.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unknown",
+         "enabled": true,
+         "data": [
+            {
+               "state": "Internal",
+               "conditions": [
+                  {
+                     "id": "fa0c6aae-3ddb-4956-aa35-e0872138728f",
+                     "categoryName": "Remote Control",
+                     "propertyName": "Protocol",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_REMOTECONTROL_PROTOCOL",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "ICA",
+                           "Blast"
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "External",
+                           "conditions": [
+                              {
+                                 "id": "f55509cd-cf1f-42c7-b95f-b62b2ec17bcc",
+                                 "categoryName": "Remote Control",
+                                 "propertyName": "Gateway",
+                                 "propertyValue": 6,
+                                 "underlyingPropertyName": "TARGET_REMOTECONTROL_GATEWAY",
+                                 "operator": "Boolean Equals",
+                                 "value": {
+                                    "type": "Boolean",
+                                    "data": [
+                                       true
+                                    ]
+                                 },
+                                 "target": "Host",
+                                 "filter": "Host",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "id": "7e3e2d8f-b664-4f1b-85f8-985a7671362a",
+                     "categoryName": "Remote Control",
+                     "propertyName": "Gateway",
+                     "propertyValue": 6,
+                     "underlyingPropertyName": "TARGET_REMOTECONTROL_GATEWAY",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           false
+                        ]
+                     },
+                     "target": "Host",
+                     "filter": "Host",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text"
+      }
+   ],
+   "actions": [
+      {
+         "id": "275e2d0c-cf5a-452b-bbe6-9f13874820b0",
+         "key": "ACTION_CONFIGURE_CITRIX_CLIPBOARD_REDIRECTION",
+         "name": "Configure Citrix Clipboard Redirection",
+         "description": "Restricts clipboard content when accessing externally",
+         "data": [
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "External",
+                           "Unknown"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "4b2ff912-9155-4b0c-ba79-63457f1730fc",
+                     "type": "Custom Process",
+                     "description": "Restrict Clipboard Access",
+                     "runAs": "System",
+                     "hidden": true,
+                     "wait": true,
+                     "captureOutput": true,
+                     "timeout": 300,
+                     "failureDetection": "Exit Code",
+                     "runOnClient": false,
+                     "useEmbeddedScript": true,
+                     "embeddedScript": "[String]$USerSessionID = (Get-Process -PID $pid).SessionID\n\nif (Test-Path \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\VCPolicies\"){\n   Remove-Item \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\VCPolicies\"\n}\nNew-Item \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\VCPolicies\"\n\n$CREntries=@(\n\t\"CF_TEXT\",\n\t\"CFX_RICHTEXT\",\n\t\"CFX_BIFF8\",\n\t\"CFX_OfficeDrawingShape\"\n)\n\nNew-ItemProperty -Path \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\VCPolicies\" -PropertyType MultiString -Name ClientClipboardWriteAllowedFormats -Value $CREntries -Force\nNew-ItemProperty -Path \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\VCPolicies\" -PropertyType MultiString -Name SessionClipboardWriteAllowedFormats -Value $CREntries -Force\n\nNew-ItemProperty -Path \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\VCPolicies\" -PropertyType DWORD -Name AllowClipboardRedir -Value 1 -Force\nNew-ItemProperty -Path \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\VCPolicies\" -PropertyType DWORD -Name RestrictClientClipboardWrite -Value 1 -Force\nNew-ItemProperty -Path \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\VCPolicies\" -PropertyType DWORD -Name RestrictSessionClipboardWrite -Value 1 -Force",
+                     "embeddedScriptTarget": "PowerShell",
+                     "powerShellExecutionPolicy": "NotSpecified",
+                     "bypassAppLockerPolicy": false
+                  }
+               ]
+            },
+            {
+               "type": "Context",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_ACCESS_MODE",
+                     "contextName": "Access Mode",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Internal"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "424e4703-0c96-4584-92c5-43ae0d6d51d6",
+                     "type": "Custom Process",
+                     "description": "Allow Clipboard Access",
+                     "runAs": "System",
+                     "hidden": true,
+                     "wait": true,
+                     "captureOutput": true,
+                     "timeout": 300,
+                     "failureDetection": "Exit Code",
+                     "runOnClient": false,
+                     "useEmbeddedScript": true,
+                     "embeddedScript": "[String]$USerSessionID = (Get-Process -PID $pid).SessionID\n\nif (Test-Path \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\VCPolicies\"){\n   Remove-Item \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\VCPolicies\"\n}\nNew-Item \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\VCPolicies\"\n\nNew-ItemProperty -Path \"HKLM:SOFTWARE\\Policies\\Citrix\\$USerSessionID\\User\\VCPolicies\" -PropertyType DWORD -Name AllowClipboardRedir -Value 1 -Force",
+                     "embeddedScriptTarget": "PowerShell",
+                     "powerShellExecutionPolicy": "NotSpecified",
+                     "bypassAppLockerPolicy": false
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "Medium"
+      }
+   ],
+   "messages": [],
+   "settings": []
+}
