@@ -1,0 +1,126 @@
+{
+  "consoleVersion": "20.2.342.0",
+  "username": "DEMO.DEVICETRUST.LOCAL\\admin",
+  "timestamp": "2021-07-06T06:41:18.779Z",
+  "contexts": [
+    {
+      "id": "026f6774-23b7-4c63-9b05-5f6b491ffe2b",
+      "key": "CONTEXT_WORKING_HOURS",
+      "name": "Working Hours",
+      "description": "Enter context description",
+      "mode": "Left-Most Path",
+      "defaultState": "Outside",
+      "enabled": true,
+      "data": [
+        {
+          "state": "Inside",
+          "conditions": [
+            {
+              "id": "e3c4b00c-736d-4a35-b9f7-583c9676cc33",
+              "categoryName": "Session",
+              "propertyName": "Time",
+              "propertyValue": 14,
+              "underlyingPropertyName": "TARGET_SESSION_TIME",
+              "operator": "DateTime Time Of Day",
+              "value": {
+                "type": "DateTime",
+                "data": [
+                  {
+                    "entries": [
+                      {
+                        "dayOfWeek": 7,
+                        "startTime": "08:00",
+                        "endTime": "17:00"
+                      }
+                    ],
+                    "adjustForDaylightSaving": true,
+                    "timeZone": {
+                      "timeZoneKeyName": "W. Europe Standard Time",
+                      "display": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
+                      "bias": -60,
+                      "standardName": "W. Europe Standard Time",
+                      "standardBias": 0,
+                      "daylightName": "W. Europe Daylight Time",
+                      "daylightBias": -60,
+                      "standardDate": {
+                        "year": 0,
+                        "month": 10,
+                        "dayOfWeek": 0,
+                        "day": 5,
+                        "hours": 3,
+                        "minutes": 0
+                      },
+                      "daylightDate": {
+                        "year": 0,
+                        "month": 3,
+                        "dayOfWeek": 0,
+                        "day": 5,
+                        "hours": 2,
+                        "minutes": 0
+                      }
+                    }
+                  }
+                ]
+              },
+              "target": "Host",
+              "filter": "Host",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false
+            }
+          ]
+        }
+      ],
+      "protection": "Text"
+    }
+  ],
+  "actions": [
+    {
+      "id": "f51842f2-1c26-474e-98a9-849c21b43804",
+      "key": "ACTION_DENY_ACCESS",
+      "name": "Deny Access",
+      "description": "Denies Access to the worspace outside of working hours.",
+      "data": [
+        {
+          "type": "Trigger",
+          "triggers": [
+            "Logon",
+            "Reconnect",
+            "ContextChanged"
+          ],
+          "filters": [
+            {
+              "contextKey": "CONTEXT_WORKING_HOURS",
+              "contextName": "Working Hours",
+              "contextMode": "Left-Most Path",
+              "operator": "Enum Equals",
+              "value": {
+                "type": "Enum",
+                "data": [
+                  "Outside"
+                ]
+              }
+            }
+          ],
+          "tasks": [
+            {
+              "id": "8d91dd17-d657-4a1f-9ef7-29703896d66f",
+              "type": "Deny Access",
+              "description": "Access denied",
+              "allowShellInteraction": false,
+              "title": "Access denied",
+              "message": "You are accessing outside office hours!",
+              "triggerButtons": [],
+              "persistence": "Context",
+              "alwaysShowSignoutButton": false
+            }
+          ]
+        }
+      ],
+      "enabled": true,
+      "priority": "Medium"
+    }
+  ],
+  "messages": [],
+  "settings": []
+}
