@@ -1,0 +1,1928 @@
+{
+  "consoleVersion": "20.2.400.0",
+  "username": "DEMO.DEVICETRUST.LOCAL\\admin",
+  "timestamp": "2021-11-11T13:15:16.860Z",
+  "contexts": [
+    {
+      "id": "1e87277b-3d63-4f1b-833d-e554e8217169",
+      "key": "CONTEXT_COUNTRY",
+      "name": "Country",
+      "description": "Defines the country in which the remote device is located.",
+      "mode": "Left-Most Path",
+      "defaultState": "No Client",
+      "enabled": true,
+      "data": [
+        {
+          "state": "%DEVICE_LOCATION_COUNTRY%",
+          "conditions": [
+            {
+              "id": "cfad048d-f430-4b45-b17c-740112dc35c6",
+              "categoryName": "deviceTRUST",
+              "propertyName": "Connected",
+              "propertyValue": 2,
+              "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+              "operator": "Boolean Equals",
+              "value": {
+                "type": "Boolean",
+                "data": [
+                  true
+                ]
+              },
+              "target": "Host",
+              "filter": "Host",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false,
+              "branches": [
+                {
+                  "state": "%DEVICE_CELLULAR_COUNTRY%",
+                  "conditions": [
+                    {
+                      "id": "d682dcf4-757a-40e5-b4af-461b71b91c3e",
+                      "categoryName": "Cellular",
+                      "propertyName": "Country",
+                      "propertyValue": 5,
+                      "underlyingPropertyName": "TARGET_CELLULAR_COUNTRY",
+                      "operator": "Available",
+                      "value": {
+                        "type": "String",
+                        "data": []
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false
+                    }
+                  ]
+                },
+                {
+                  "state": "%DEVICE_WHOIS_COUNTRY%",
+                  "conditions": [
+                    {
+                      "id": "50835042-330a-4694-9e4e-fcaa494adae1",
+                      "categoryName": "WHOIS",
+                      "propertyName": "Country",
+                      "propertyValue": 4,
+                      "underlyingPropertyName": "TARGET_WHOIS_COUNTRY",
+                      "operator": "Available",
+                      "value": {
+                        "type": "String",
+                        "data": []
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false
+                    }
+                  ]
+                },
+                {
+                  "state": "Unknown",
+                  "conditions": []
+                }
+              ]
+            },
+            {
+              "id": "c02eee3c-2e00-45c1-9bcc-8b2ae111522e",
+              "categoryName": "Location",
+              "propertyName": "Country",
+              "propertyValue": 6,
+              "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+              "operator": "Available",
+              "value": {
+                "type": "String",
+                "data": []
+              },
+              "target": "Device",
+              "filter": "All Devices",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false
+            },
+            {
+              "id": "e57caaca-d59f-460d-87bf-953b9410acc5",
+              "categoryName": "Location",
+              "propertyName": "Country",
+              "propertyValue": 6,
+              "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+              "operator": "Not Loading",
+              "value": {
+                "type": "String",
+                "data": []
+              },
+              "target": "Device",
+              "filter": "All Devices",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false
+            }
+          ]
+        }
+      ],
+      "protection": "Text"
+    },
+    {
+      "id": "152dfd2f-5e1a-4353-bb22-b382602d3eb9",
+      "key": "CONTEXT_COUNTRY_PROVIDER",
+      "name": "Country Provider",
+      "description": "Defines the country provider that reports the country of the remote device.",
+      "mode": "Left-Most Path",
+      "defaultState": "No Client",
+      "enabled": true,
+      "data": [
+        {
+          "state": "%DEVICE_LOCATION_PROVIDER% %DEVICE_LOCATION_SOURCE%",
+          "conditions": [
+            {
+              "id": "116b720c-bb8f-4e32-ab0f-3a202289da4d",
+              "categoryName": "deviceTRUST",
+              "propertyName": "Connected",
+              "propertyValue": 2,
+              "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+              "operator": "Boolean Equals",
+              "value": {
+                "type": "Boolean",
+                "data": [
+                  true
+                ]
+              },
+              "target": "Host",
+              "filter": "Host",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false,
+              "branches": [
+                {
+                  "state": "Cellular",
+                  "conditions": [
+                    {
+                      "id": "2a883521-6abc-4fe6-994d-ebde5e625cf3",
+                      "categoryName": "Cellular",
+                      "propertyName": "Country",
+                      "propertyValue": 5,
+                      "underlyingPropertyName": "TARGET_CELLULAR_COUNTRY",
+                      "operator": "Available",
+                      "value": {
+                        "type": "String",
+                        "data": []
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false
+                    }
+                  ]
+                },
+                {
+                  "state": "Whois",
+                  "conditions": [
+                    {
+                      "id": "89e60928-2774-46bd-a231-d754245228cd",
+                      "categoryName": "WHOIS",
+                      "propertyName": "Country",
+                      "propertyValue": 4,
+                      "underlyingPropertyName": "TARGET_WHOIS_COUNTRY",
+                      "operator": "Available",
+                      "value": {
+                        "type": "String",
+                        "data": []
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false
+                    }
+                  ]
+                },
+                {
+                  "state": "Unknown",
+                  "conditions": []
+                }
+              ]
+            },
+            {
+              "id": "6e52ad6b-56d3-4379-a3cb-a73ed89816da",
+              "categoryName": "Location",
+              "propertyName": "Country",
+              "propertyValue": 6,
+              "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+              "operator": "Available",
+              "value": {
+                "type": "String",
+                "data": []
+              },
+              "target": "Device",
+              "filter": "All Devices",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false
+            },
+            {
+              "id": "32b09770-241a-4006-986e-d35c4e7e5b64",
+              "categoryName": "Location",
+              "propertyName": "Country",
+              "propertyValue": 6,
+              "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+              "operator": "Not Loading",
+              "value": {
+                "type": "String",
+                "data": []
+              },
+              "target": "Device",
+              "filter": "All Devices",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false
+            }
+          ]
+        }
+      ],
+      "protection": "Text"
+    },
+    {
+      "id": "3a6101ff-da2d-4724-a38c-2e5d78153850",
+      "key": "CONTEXT_ECONOMIC_REGION",
+      "name": "Economic Region",
+      "description": "Defines the economic region the remote device is located within.",
+      "mode": "Left-Most Path",
+      "defaultState": "No Client",
+      "enabled": true,
+      "data": [
+        {
+          "state": "AMER",
+          "conditions": [
+            {
+              "id": "0b4bd631-d995-466b-96f5-ba8228401184",
+              "categoryName": "deviceTRUST",
+              "propertyName": "Connected",
+              "propertyValue": 2,
+              "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+              "operator": "Boolean Equals",
+              "value": {
+                "type": "Boolean",
+                "data": [
+                  true
+                ]
+              },
+              "target": "Host",
+              "filter": "Host",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false,
+              "branches": [
+                {
+                  "state": "AMER",
+                  "conditions": [
+                    {
+                      "id": "8e8f0169-f16f-44db-9041-533c3842b134",
+                      "categoryName": "Cellular",
+                      "propertyName": "Country",
+                      "propertyValue": 5,
+                      "underlyingPropertyName": "TARGET_CELLULAR_COUNTRY",
+                      "operator": "Available",
+                      "value": {
+                        "type": "String",
+                        "data": []
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false,
+                      "branches": [
+                        {
+                          "state": "APAC",
+                          "conditions": [
+                            {
+                              "id": "eb8751c4-3672-42b3-a5c6-5c06eeb63aeb",
+                              "categoryName": "Cellular",
+                              "propertyName": "Country",
+                              "propertyValue": 5,
+                              "underlyingPropertyName": "TARGET_CELLULAR_COUNTRY",
+                              "operator": "String Equals",
+                              "value": {
+                                "type": "String",
+                                "data": [
+                                  "AF # Afghanistan",
+                                  "AS # American Samoa",
+                                  "AU # Australia",
+                                  "BD # Bangladesh",
+                                  "BN # Brunei Darussalam",
+                                  "BT # Bhutan",
+                                  "CK # Cook Islands",
+                                  "CN # China",
+                                  "FJ # Fiji",
+                                  "FM # Micronesia (Federated States of)",
+                                  "GU # Guam",
+                                  "HK # Hong Kong",
+                                  "ID # Indonesia",
+                                  "IN # India",
+                                  "IO # British Indian Ocean Territory",
+                                  "JP # Japan",
+                                  "KG # Kyrgyzstan",
+                                  "KH # Cambodia",
+                                  "KI # Kiribati",
+                                  "KP # North Korea",
+                                  "KR # South Korea",
+                                  "LA # Laos",
+                                  "LK # Sri Lanka",
+                                  "MH # Marshall Islands",
+                                  "MM # Myanmar",
+                                  "MN # Mongolia",
+                                  "MO # Macao",
+                                  "MP # Northern Mariana Islands",
+                                  "MV # Maldives",
+                                  "MY # Malaysia",
+                                  "NC # New Caledonia",
+                                  "NF # Norfolk Island",
+                                  "NP # Nepal",
+                                  "NR # Nauru",
+                                  "NU # Niue",
+                                  "NZ # New Zealand",
+                                  "PF # French Polynesia",
+                                  "PG # Papua New Guinea",
+                                  "PH # Philippines",
+                                  "PK # Pakistan",
+                                  "PW # Palau",
+                                  "SB # Solomon Islands",
+                                  "SG # Singapore",
+                                  "TH # Thailand",
+                                  "TJ # Tadschikistan",
+                                  "TK # Tokelau",
+                                  "TL # Timor-Leste",
+                                  "TM # Turkmenistan",
+                                  "TO # Tonga",
+                                  "TV # Tuvalu",
+                                  "TW # Taiwan, Province of China",
+                                  "UZ # Uzbekistan",
+                                  "VN # Viet Nam",
+                                  "VU # Vanuatu",
+                                  "WF # Wallis and Futuna",
+                                  "WS # Samoa"
+                                ]
+                              },
+                              "target": "Device",
+                              "filter": "All Devices",
+                              "isArrayIndexed": false,
+                              "sameAsParent": false,
+                              "isDelimitedArray": false
+                            }
+                          ]
+                        },
+                        {
+                          "state": "EMEA",
+                          "conditions": [
+                            {
+                              "id": "df1cf0a3-132d-4dbd-95bf-9d5873817271",
+                              "categoryName": "Cellular",
+                              "propertyName": "Country",
+                              "propertyValue": 5,
+                              "underlyingPropertyName": "TARGET_CELLULAR_COUNTRY",
+                              "operator": "String Equals",
+                              "value": {
+                                "type": "String",
+                                "data": [
+                                  "AD # Andorra",
+                                  "AE # United Arab Emirates",
+                                  "AL # Albania",
+                                  "AM # Armenia",
+                                  "AO # Angola",
+                                  "AT # Austria",
+                                  "AX # �land Islands",
+                                  "AZ # Azerbaijan",
+                                  "BA # Bosnia and Herzegovina",
+                                  "BE # Belgium",
+                                  "BF # Burkina Faso",
+                                  "BG # Bulgaria",
+                                  "BH # Bahrain",
+                                  "BI # Burundi",
+                                  "BJ # Benin",
+                                  "BW # Botswana",
+                                  "BY # Belarus",
+                                  "CD # Congo (Democratic Republic of the)",
+                                  "CF # Central African Republic",
+                                  "CG # Congo",
+                                  "CH # Switzerland",
+                                  "CI # Ivory Coast",
+                                  "CM # Cameroon",
+                                  "CV # Cabo Verde",
+                                  "CY # Cyprus",
+                                  "CZ # Czech Republic",
+                                  "DE # Germany",
+                                  "DJ # Djibouti",
+                                  "DK # Denmark",
+                                  "DZ # Algeria",
+                                  "EE # Estonia",
+                                  "EG # Egypt",
+                                  "EH # Western Sahara",
+                                  "ER # Eritrea",
+                                  "ES # Spain",
+                                  "ET # Ethiopia",
+                                  "FI # Finland",
+                                  "FO # Faroe Islands",
+                                  "FR # France",
+                                  "GA # Gabon",
+                                  "GB # United Kingdom of Great Britain and Northern Ireland",
+                                  "GE # Georgia",
+                                  "GH # Ghana",
+                                  "GI # Gibraltar",
+                                  "GL # Greenland",
+                                  "GM # Gambia",
+                                  "GN # Guinea",
+                                  "GQ # Equatorial Guinea",
+                                  "GR # Greece",
+                                  "GW # Guinea-Bissau",
+                                  "HR # Croatia",
+                                  "HU # Hungary",
+                                  "IE # Ireland",
+                                  "IL # Israel",
+                                  "IM # Isle of Man",
+                                  "IQ # Iraq",
+                                  "IR # Iran (Islamic Republic of)",
+                                  "IS # Iceland",
+                                  "IT # Italy",
+                                  "JO # Jordan",
+                                  "KE # Kenya",
+                                  "KM # Comoros",
+                                  "KW # Kuwait",
+                                  "KZ # Kazakhstan",
+                                  "LB # Lebanon",
+                                  "LI # Liechtenstein",
+                                  "LR # Liberia",
+                                  "LS # Lesotho",
+                                  "LT # Lithuania",
+                                  "LU # Luxembourg",
+                                  "LV # Latvia",
+                                  "LY # Libya",
+                                  "MA # Morocco",
+                                  "MC # Monaco",
+                                  "MD # Moldova, Republic of",
+                                  "ME # Montenegro",
+                                  "MG # Madagascar",
+                                  "MK # North Macedonia",
+                                  "ML # Mali",
+                                  "MR # Mauritania",
+                                  "MT # Malta",
+                                  "MU # Mauritius",
+                                  "MW # Malawi",
+                                  "MZ # Mozambique",
+                                  "NA # Namibia",
+                                  "NE # Niger",
+                                  "NG # Nigeria",
+                                  "NL # Netherlands",
+                                  "NO # Norway",
+                                  "OM # Oman",
+                                  "PL # Poland",
+                                  "PS # Palestine, State of",
+                                  "PT # Portugal",
+                                  "QA # Qatar",
+                                  "RE # Reunion",
+                                  "RO # Romania",
+                                  "RS # Serbia",
+                                  "RU # Russian Federation",
+                                  "RW # Rwanda",
+                                  "SA # Saudi Arabia",
+                                  "SC # Seychelles",
+                                  "SD # Sudan",
+                                  "SE # Sweden",
+                                  "SI # Slovenia",
+                                  "SK # Slovakia",
+                                  "SL # Sierra Leone",
+                                  "SM # San Marino",
+                                  "SN # Senegal",
+                                  "SO # Somalia",
+                                  "SS # South Sudan",
+                                  "ST # Sao Tome and Principe",
+                                  "SY # Syrian Arab Republic",
+                                  "TD # Chad",
+                                  "TG # Togo",
+                                  "TN # Tunisia",
+                                  "TR # Turkey",
+                                  "TZ # Tanzania, United Republic of",
+                                  "UA # Ukraine",
+                                  "UG # Uganda",
+                                  "VA # Vatican City",
+                                  "YE # Yemen",
+                                  "YT # Mayotte",
+                                  "ZA # South Africa",
+                                  "ZM # Zambia",
+                                  "ZW # Zimbabwe"
+                                ]
+                              },
+                              "target": "Device",
+                              "filter": "All Devices",
+                              "isArrayIndexed": false,
+                              "sameAsParent": false,
+                              "isDelimitedArray": false
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "6187c375-839a-444c-8146-666caeaf19ad",
+                      "categoryName": "Cellular",
+                      "propertyName": "Country",
+                      "propertyValue": 5,
+                      "underlyingPropertyName": "TARGET_CELLULAR_COUNTRY",
+                      "operator": "String Equals",
+                      "value": {
+                        "type": "String",
+                        "data": [
+                          "AG # Antigua and Barbuda",
+                          "AI # Anguilla",
+                          "AQ # Antarctica",
+                          "AR # Argentina",
+                          "AW # Aruba",
+                          "BB # Barbados",
+                          "BL # Saint Barth�lemy",
+                          "BM # Bermuda",
+                          "BO # Bolivia (Plurinational State of)",
+                          "BQ # Bonaire (Sint Eustatius and Saba)",
+                          "BR # Brazil",
+                          "BS # Bahamas",
+                          "BV # Bouvet Island",
+                          "BZ # Belize",
+                          "CA # Canada",
+                          "CC # Cocos (Keeling) Islands",
+                          "CL # Chile",
+                          "CO # Colombia",
+                          "CR # Costa Rica",
+                          "CU # Cuba",
+                          "CW # Cura�ao",
+                          "CX # Christmas Island",
+                          "DM # Dominica",
+                          "DO # Dominican Republic",
+                          "EC # Ecuador",
+                          "FK # Falkland Islands (Malvinas)",
+                          "GD # Grenada",
+                          "GF # French Guiana",
+                          "GG # Guernsey",
+                          "GP # Guadeloupe",
+                          "GS # South Georgia and the South Sandwich Islands",
+                          "GT # Guatemala",
+                          "GY # Guyana",
+                          "HM # Heard Island and McDonald Islands",
+                          "HN # Honduras",
+                          "HT # Haiti",
+                          "JE # Jersey",
+                          "JM # Jamaica",
+                          "KN # Saint Kitts and Nevis",
+                          "KY # Cayman Islands",
+                          "LC # Saint Lucia",
+                          "MF # Saint Martin (French part)",
+                          "MQ # Martinique",
+                          "MS # Montserrat",
+                          "MX # Mexico",
+                          "NI # Nicaragua",
+                          "PA # Panama",
+                          "PE # Peru",
+                          "PM # Saint Pierre and Miquelon",
+                          "PN # Pitcairn",
+                          "PR # Puerto Rico",
+                          "PY # Paraguay",
+                          "SH # Saint Helena, Ascension and Tristan da Cunha",
+                          "SJ # Svalbard and Jan Mayen",
+                          "SR # Suriname",
+                          "SV # El Salvador",
+                          "SX # Sint Maarten (Dutch part)",
+                          "SZ # Eswatini",
+                          "TC # Turks and Caicos Islands",
+                          "TF # French Southern Territories",
+                          "TT # Trinidad and Tobago",
+                          "UM # United States Minor Outlying Islands",
+                          "US # United States of America",
+                          "UY # Uruguay",
+                          "VC # Saint Vincent and the Grenadines",
+                          "VE # Venezuela (Bolivarian Republic of)",
+                          "VG # Virgin Islands (British)",
+                          "VI # Virgin Islands (U.S.)"
+                        ]
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false
+                    }
+                  ]
+                },
+                {
+                  "state": "AMER",
+                  "conditions": [
+                    {
+                      "id": "d3749aff-242c-4597-9da1-32e303ca027c",
+                      "categoryName": "WHOIS",
+                      "propertyName": "Country",
+                      "propertyValue": 4,
+                      "underlyingPropertyName": "TARGET_WHOIS_COUNTRY",
+                      "operator": "Available",
+                      "value": {
+                        "type": "String",
+                        "data": []
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false,
+                      "branches": [
+                        {
+                          "state": "APAC",
+                          "conditions": [
+                            {
+                              "id": "2166d4fd-b4bd-4493-a291-9c353afa87d8",
+                              "categoryName": "WHOIS",
+                              "propertyName": "Country",
+                              "propertyValue": 4,
+                              "underlyingPropertyName": "TARGET_WHOIS_COUNTRY",
+                              "operator": "String Equals",
+                              "value": {
+                                "type": "String",
+                                "data": [
+                                  "AF # Afghanistan",
+                                  "AS # American Samoa",
+                                  "AU # Australia",
+                                  "BD # Bangladesh",
+                                  "BN # Brunei Darussalam",
+                                  "BT # Bhutan",
+                                  "CK # Cook Islands",
+                                  "CN # China",
+                                  "FJ # Fiji",
+                                  "FM # Micronesia (Federated States of)",
+                                  "GU # Guam",
+                                  "HK # Hong Kong",
+                                  "ID # Indonesia",
+                                  "IN # India",
+                                  "IO # British Indian Ocean Territory",
+                                  "JP # Japan",
+                                  "KG # Kyrgyzstan",
+                                  "KH # Cambodia",
+                                  "KI # Kiribati",
+                                  "KP # North Korea",
+                                  "KR # South Korea",
+                                  "LA # Laos",
+                                  "LK # Sri Lanka",
+                                  "MH # Marshall Islands",
+                                  "MM # Myanmar",
+                                  "MN # Mongolia",
+                                  "MO # Macao",
+                                  "MP # Northern Mariana Islands",
+                                  "MV # Maldives",
+                                  "MY # Malaysia",
+                                  "NC # New Caledonia",
+                                  "NF # Norfolk Island",
+                                  "NP # Nepal",
+                                  "NR # Nauru",
+                                  "NU # Niue",
+                                  "NZ # New Zealand",
+                                  "PF # French Polynesia",
+                                  "PG # Papua New Guinea",
+                                  "PH # Philippines",
+                                  "PK # Pakistan",
+                                  "PW # Palau",
+                                  "SB # Solomon Islands",
+                                  "SG # Singapore",
+                                  "TH # Thailand",
+                                  "TJ # Tadschikistan",
+                                  "TK # Tokelau",
+                                  "TL # Timor-Leste",
+                                  "TM # Turkmenistan",
+                                  "TO # Tonga",
+                                  "TV # Tuvalu",
+                                  "TW # Taiwan, Province of China",
+                                  "UZ # Uzbekistan",
+                                  "VN # Viet Nam",
+                                  "VU # Vanuatu",
+                                  "WF # Wallis and Futuna",
+                                  "WS # Samoa"
+                                ]
+                              },
+                              "target": "Device",
+                              "filter": "All Devices",
+                              "isArrayIndexed": false,
+                              "sameAsParent": false,
+                              "isDelimitedArray": false
+                            }
+                          ]
+                        },
+                        {
+                          "state": "EMEA",
+                          "conditions": [
+                            {
+                              "id": "e2d35b16-3352-437b-91ab-ab4f69e82f34",
+                              "categoryName": "WHOIS",
+                              "propertyName": "Country",
+                              "propertyValue": 4,
+                              "underlyingPropertyName": "TARGET_WHOIS_COUNTRY",
+                              "operator": "String Equals",
+                              "value": {
+                                "type": "String",
+                                "data": [
+                                  "AD # Andorra",
+                                  "AE # United Arab Emirates",
+                                  "AL # Albania",
+                                  "AM # Armenia",
+                                  "AO # Angola",
+                                  "AT # Austria",
+                                  "AX # �land Islands",
+                                  "AZ # Azerbaijan",
+                                  "BA # Bosnia and Herzegovina",
+                                  "BE # Belgium",
+                                  "BF # Burkina Faso",
+                                  "BG # Bulgaria",
+                                  "BH # Bahrain",
+                                  "BI # Burundi",
+                                  "BJ # Benin",
+                                  "BW # Botswana",
+                                  "BY # Belarus",
+                                  "CD # Congo (Democratic Republic of the)",
+                                  "CF # Central African Republic",
+                                  "CG # Congo",
+                                  "CH # Switzerland",
+                                  "CI # Ivory Coast",
+                                  "CM # Cameroon",
+                                  "CV # Cabo Verde",
+                                  "CY # Cyprus",
+                                  "CZ # Czech Republic",
+                                  "DE # Germany",
+                                  "DJ # Djibouti",
+                                  "DK # Denmark",
+                                  "DZ # Algeria",
+                                  "EE # Estonia",
+                                  "EG # Egypt",
+                                  "EH # Western Sahara",
+                                  "ER # Eritrea",
+                                  "ES # Spain",
+                                  "ET # Ethiopia",
+                                  "FI # Finland",
+                                  "FO # Faroe Islands",
+                                  "FR # France",
+                                  "GA # Gabon",
+                                  "GB # United Kingdom of Great Britain and Northern Ireland",
+                                  "GE # Georgia",
+                                  "GH # Ghana",
+                                  "GI # Gibraltar",
+                                  "GL # Greenland",
+                                  "GM # Gambia",
+                                  "GN # Guinea",
+                                  "GQ # Equatorial Guinea",
+                                  "GR # Greece",
+                                  "GW # Guinea-Bissau",
+                                  "HR # Croatia",
+                                  "HU # Hungary",
+                                  "IE # Ireland",
+                                  "IL # Israel",
+                                  "IM # Isle of Man",
+                                  "IQ # Iraq",
+                                  "IR # Iran (Islamic Republic of)",
+                                  "IS # Iceland",
+                                  "IT # Italy",
+                                  "JO # Jordan",
+                                  "KE # Kenya",
+                                  "KM # Comoros",
+                                  "KW # Kuwait",
+                                  "KZ # Kazakhstan",
+                                  "LB # Lebanon",
+                                  "LI # Liechtenstein",
+                                  "LR # Liberia",
+                                  "LS # Lesotho",
+                                  "LT # Lithuania",
+                                  "LU # Luxembourg",
+                                  "LV # Latvia",
+                                  "LY # Libya",
+                                  "MA # Morocco",
+                                  "MC # Monaco",
+                                  "MD # Moldova, Republic of",
+                                  "ME # Montenegro",
+                                  "MG # Madagascar",
+                                  "MK # North Macedonia",
+                                  "ML # Mali",
+                                  "MR # Mauritania",
+                                  "MT # Malta",
+                                  "MU # Mauritius",
+                                  "MW # Malawi",
+                                  "MZ # Mozambique",
+                                  "NA # Namibia",
+                                  "NE # Niger",
+                                  "NG # Nigeria",
+                                  "NL # Netherlands",
+                                  "NO # Norway",
+                                  "OM # Oman",
+                                  "PL # Poland",
+                                  "PS # Palestine, State of",
+                                  "PT # Portugal",
+                                  "QA # Qatar",
+                                  "RE # Reunion",
+                                  "RO # Romania",
+                                  "RS # Serbia",
+                                  "RU # Russian Federation",
+                                  "RW # Rwanda",
+                                  "SA # Saudi Arabia",
+                                  "SC # Seychelles",
+                                  "SD # Sudan",
+                                  "SE # Sweden",
+                                  "SI # Slovenia",
+                                  "SK # Slovakia",
+                                  "SL # Sierra Leone",
+                                  "SM # San Marino",
+                                  "SN # Senegal",
+                                  "SO # Somalia",
+                                  "SS # South Sudan",
+                                  "ST # Sao Tome and Principe",
+                                  "SY # Syrian Arab Republic",
+                                  "TD # Chad",
+                                  "TG # Togo",
+                                  "TN # Tunisia",
+                                  "TR # Turkey",
+                                  "TZ # Tanzania, United Republic of",
+                                  "UA # Ukraine",
+                                  "UG # Uganda",
+                                  "VA # Vatican City",
+                                  "YE # Yemen",
+                                  "YT # Mayotte",
+                                  "ZA # South Africa",
+                                  "ZM # Zambia",
+                                  "ZW # Zimbabwe"
+                                ]
+                              },
+                              "target": "Device",
+                              "filter": "All Devices",
+                              "isArrayIndexed": false,
+                              "sameAsParent": false,
+                              "isDelimitedArray": false
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "1bb88c9f-3344-48f2-bdf1-19e19b79590c",
+                      "categoryName": "WHOIS",
+                      "propertyName": "Country",
+                      "propertyValue": 4,
+                      "underlyingPropertyName": "TARGET_WHOIS_COUNTRY",
+                      "operator": "String Equals",
+                      "value": {
+                        "type": "String",
+                        "data": [
+                          "AG # Antigua and Barbuda",
+                          "AI # Anguilla",
+                          "AQ # Antarctica",
+                          "AR # Argentina",
+                          "AW # Aruba",
+                          "BB # Barbados",
+                          "BL # Saint Barth�lemy",
+                          "BM # Bermuda",
+                          "BO # Bolivia (Plurinational State of)",
+                          "BQ # Bonaire (Sint Eustatius and Saba)",
+                          "BR # Brazil",
+                          "BS # Bahamas",
+                          "BV # Bouvet Island",
+                          "BZ # Belize",
+                          "CA # Canada",
+                          "CC # Cocos (Keeling) Islands",
+                          "CL # Chile",
+                          "CO # Colombia",
+                          "CR # Costa Rica",
+                          "CU # Cuba",
+                          "CW # Cura�ao",
+                          "CX # Christmas Island",
+                          "DM # Dominica",
+                          "DO # Dominican Republic",
+                          "EC # Ecuador",
+                          "FK # Falkland Islands (Malvinas)",
+                          "GD # Grenada",
+                          "GF # French Guiana",
+                          "GG # Guernsey",
+                          "GP # Guadeloupe",
+                          "GS # South Georgia and the South Sandwich Islands",
+                          "GT # Guatemala",
+                          "GY # Guyana",
+                          "HM # Heard Island and McDonald Islands",
+                          "HN # Honduras",
+                          "HT # Haiti",
+                          "JE # Jersey",
+                          "JM # Jamaica",
+                          "KN # Saint Kitts and Nevis",
+                          "KY # Cayman Islands",
+                          "LC # Saint Lucia",
+                          "MF # Saint Martin (French part)",
+                          "MQ # Martinique",
+                          "MS # Montserrat",
+                          "MX # Mexico",
+                          "NI # Nicaragua",
+                          "PA # Panama",
+                          "PE # Peru",
+                          "PM # Saint Pierre and Miquelon",
+                          "PN # Pitcairn",
+                          "PR # Puerto Rico",
+                          "PY # Paraguay",
+                          "SH # Saint Helena, Ascension and Tristan da Cunha",
+                          "SJ # Svalbard and Jan Mayen",
+                          "SR # Suriname",
+                          "SV # El Salvador",
+                          "SX # Sint Maarten (Dutch part)",
+                          "SZ # Eswatini",
+                          "TC # Turks and Caicos Islands",
+                          "TF # French Southern Territories",
+                          "TT # Trinidad and Tobago",
+                          "UM # United States Minor Outlying Islands",
+                          "US # United States of America",
+                          "UY # Uruguay",
+                          "VC # Saint Vincent and the Grenadines",
+                          "VE # Venezuela (Bolivarian Republic of)",
+                          "VG # Virgin Islands (British)",
+                          "VI # Virgin Islands (U.S.)"
+                        ]
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false
+                    }
+                  ]
+                },
+                {
+                  "state": "Unknown",
+                  "conditions": []
+                }
+              ]
+            },
+            {
+              "id": "ca2e8742-e678-432f-b162-ada9182cfbb2",
+              "categoryName": "Location",
+              "propertyName": "Country",
+              "propertyValue": 6,
+              "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+              "operator": "Available",
+              "value": {
+                "type": "String",
+                "data": []
+              },
+              "target": "Device",
+              "filter": "All Devices",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false
+            },
+            {
+              "id": "cfc5683e-fbcc-4502-8c26-221cfb05ab56",
+              "categoryName": "Location",
+              "propertyName": "Country",
+              "propertyValue": 6,
+              "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+              "operator": "Not Loading",
+              "value": {
+                "type": "String",
+                "data": []
+              },
+              "target": "Device",
+              "filter": "All Devices",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false,
+              "branches": [
+                {
+                  "state": "APAC",
+                  "conditions": [
+                    {
+                      "id": "08418c1e-b2ee-4e87-b08a-d86e7c97842a",
+                      "categoryName": "Location",
+                      "propertyName": "Country",
+                      "propertyValue": 6,
+                      "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+                      "operator": "String Equals",
+                      "value": {
+                        "type": "String",
+                        "data": [
+                          "AF # Afghanistan",
+                          "AS # American Samoa",
+                          "AU # Australia",
+                          "BD # Bangladesh",
+                          "BN # Brunei Darussalam",
+                          "BT # Bhutan",
+                          "CK # Cook Islands",
+                          "CN # China",
+                          "FJ # Fiji",
+                          "FM # Micronesia (Federated States of)",
+                          "GU # Guam",
+                          "HK # Hong Kong",
+                          "ID # Indonesia",
+                          "IN # India",
+                          "IO # British Indian Ocean Territory",
+                          "JP # Japan",
+                          "KG # Kyrgyzstan",
+                          "KH # Cambodia",
+                          "KI # Kiribati",
+                          "KP # North Korea",
+                          "KR # South Korea",
+                          "LA # Laos",
+                          "LK # Sri Lanka",
+                          "MH # Marshall Islands",
+                          "MM # Myanmar",
+                          "MN # Mongolia",
+                          "MO # Macao",
+                          "MP # Northern Mariana Islands",
+                          "MV # Maldives",
+                          "MY # Malaysia",
+                          "NC # New Caledonia",
+                          "NF # Norfolk Island",
+                          "NP # Nepal",
+                          "NR # Nauru",
+                          "NU # Niue",
+                          "NZ # New Zealand",
+                          "PF # French Polynesia",
+                          "PG # Papua New Guinea",
+                          "PH # Philippines",
+                          "PK # Pakistan",
+                          "PW # Palau",
+                          "SB # Solomon Islands",
+                          "SG # Singapore",
+                          "TH # Thailand",
+                          "TJ # Tadschikistan",
+                          "TK # Tokelau",
+                          "TL # Timor-Leste",
+                          "TM # Turkmenistan",
+                          "TO # Tonga",
+                          "TV # Tuvalu",
+                          "TW # Taiwan, Province of China",
+                          "UZ # Uzbekistan",
+                          "VN # Viet Nam",
+                          "VU # Vanuatu",
+                          "WF # Wallis and Futuna",
+                          "WS # Samoa"
+                        ]
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false
+                    }
+                  ]
+                },
+                {
+                  "state": "EMEA",
+                  "conditions": [
+                    {
+                      "id": "39a498bc-57a2-4925-8b7c-48671845245b",
+                      "categoryName": "Location",
+                      "propertyName": "Country",
+                      "propertyValue": 6,
+                      "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+                      "operator": "String Equals",
+                      "value": {
+                        "type": "String",
+                        "data": [
+                          "AD # Andorra",
+                          "AE # United Arab Emirates",
+                          "AL # Albania",
+                          "AM # Armenia",
+                          "AO # Angola",
+                          "AT # Austria",
+                          "AX # �land Islands",
+                          "AZ # Azerbaijan",
+                          "BA # Bosnia and Herzegovina",
+                          "BE # Belgium",
+                          "BF # Burkina Faso",
+                          "BG # Bulgaria",
+                          "BH # Bahrain",
+                          "BI # Burundi",
+                          "BJ # Benin",
+                          "BW # Botswana",
+                          "BY # Belarus",
+                          "CD # Congo (Democratic Republic of the)",
+                          "CF # Central African Republic",
+                          "CG # Congo",
+                          "CH # Switzerland",
+                          "CI # Ivory Coast",
+                          "CM # Cameroon",
+                          "CV # Cabo Verde",
+                          "CY # Cyprus",
+                          "CZ # Czech Republic",
+                          "DE # Germany",
+                          "DJ # Djibouti",
+                          "DK # Denmark",
+                          "DZ # Algeria",
+                          "EE # Estonia",
+                          "EG # Egypt",
+                          "EH # Western Sahara",
+                          "ER # Eritrea",
+                          "ES # Spain",
+                          "ET # Ethiopia",
+                          "FI # Finland",
+                          "FO # Faroe Islands",
+                          "FR # France",
+                          "GA # Gabon",
+                          "GB # United Kingdom of Great Britain and Northern Ireland",
+                          "GE # Georgia",
+                          "GH # Ghana",
+                          "GI # Gibraltar",
+                          "GL # Greenland",
+                          "GM # Gambia",
+                          "GN # Guinea",
+                          "GQ # Equatorial Guinea",
+                          "GR # Greece",
+                          "GW # Guinea-Bissau",
+                          "HR # Croatia",
+                          "HU # Hungary",
+                          "IE # Ireland",
+                          "IL # Israel",
+                          "IM # Isle of Man",
+                          "IQ # Iraq",
+                          "IR # Iran (Islamic Republic of)",
+                          "IS # Iceland",
+                          "IT # Italy",
+                          "JO # Jordan",
+                          "KE # Kenya",
+                          "KM # Comoros",
+                          "KW # Kuwait",
+                          "KZ # Kazakhstan",
+                          "LB # Lebanon",
+                          "LI # Liechtenstein",
+                          "LR # Liberia",
+                          "LS # Lesotho",
+                          "LT # Lithuania",
+                          "LU # Luxembourg",
+                          "LV # Latvia",
+                          "LY # Libya",
+                          "MA # Morocco",
+                          "MC # Monaco",
+                          "MD # Moldova, Republic of",
+                          "ME # Montenegro",
+                          "MG # Madagascar",
+                          "MK # North Macedonia",
+                          "ML # Mali",
+                          "MR # Mauritania",
+                          "MT # Malta",
+                          "MU # Mauritius",
+                          "MW # Malawi",
+                          "MZ # Mozambique",
+                          "NA # Namibia",
+                          "NE # Niger",
+                          "NG # Nigeria",
+                          "NL # Netherlands",
+                          "NO # Norway",
+                          "OM # Oman",
+                          "PL # Poland",
+                          "PS # Palestine, State of",
+                          "PT # Portugal",
+                          "QA # Qatar",
+                          "RE # Reunion",
+                          "RO # Romania",
+                          "RS # Serbia",
+                          "RU # Russian Federation",
+                          "RW # Rwanda",
+                          "SA # Saudi Arabia",
+                          "SC # Seychelles",
+                          "SD # Sudan",
+                          "SE # Sweden",
+                          "SI # Slovenia",
+                          "SK # Slovakia",
+                          "SL # Sierra Leone",
+                          "SM # San Marino",
+                          "SN # Senegal",
+                          "SO # Somalia",
+                          "SS # South Sudan",
+                          "ST # Sao Tome and Principe",
+                          "SY # Syrian Arab Republic",
+                          "TD # Chad",
+                          "TG # Togo",
+                          "TN # Tunisia",
+                          "TR # Turkey",
+                          "TZ # Tanzania, United Republic of",
+                          "UA # Ukraine",
+                          "UG # Uganda",
+                          "VA # Vatican City",
+                          "YE # Yemen",
+                          "YT # Mayotte",
+                          "ZA # South Africa",
+                          "ZM # Zambia",
+                          "ZW # Zimbabwe"
+                        ]
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "82522173-75dc-4795-a066-15cea7c00405",
+              "categoryName": "Location",
+              "propertyName": "Country",
+              "propertyValue": 6,
+              "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+              "operator": "String Equals",
+              "value": {
+                "type": "String",
+                "data": [
+                  "AG # Antigua and Barbuda",
+                  "AI # Anguilla",
+                  "AQ # Antarctica",
+                  "AR # Argentina",
+                  "AW # Aruba",
+                  "BB # Barbados",
+                  "BL # Saint Barth�lemy",
+                  "BM # Bermuda",
+                  "BO # Bolivia (Plurinational State of)",
+                  "BQ # Bonaire (Sint Eustatius and Saba)",
+                  "BR # Brazil",
+                  "BS # Bahamas",
+                  "BV # Bouvet Island",
+                  "BZ # Belize",
+                  "CA # Canada",
+                  "CC # Cocos (Keeling) Islands",
+                  "CL # Chile",
+                  "CO # Colombia",
+                  "CR # Costa Rica",
+                  "CU # Cuba",
+                  "CW # Cura�ao",
+                  "CX # Christmas Island",
+                  "DM # Dominica",
+                  "DO # Dominican Republic",
+                  "EC # Ecuador",
+                  "FK # Falkland Islands (Malvinas)",
+                  "GD # Grenada",
+                  "GF # French Guiana",
+                  "GG # Guernsey",
+                  "GP # Guadeloupe",
+                  "GS # South Georgia and the South Sandwich Islands",
+                  "GT # Guatemala",
+                  "GY # Guyana",
+                  "HM # Heard Island and McDonald Islands",
+                  "HN # Honduras",
+                  "HT # Haiti",
+                  "JE # Jersey",
+                  "JM # Jamaica",
+                  "KN # Saint Kitts and Nevis",
+                  "KY # Cayman Islands",
+                  "LC # Saint Lucia",
+                  "MF # Saint Martin (French part)",
+                  "MQ # Martinique",
+                  "MS # Montserrat",
+                  "MX # Mexico",
+                  "NI # Nicaragua",
+                  "PA # Panama",
+                  "PE # Peru",
+                  "PM # Saint Pierre and Miquelon",
+                  "PN # Pitcairn",
+                  "PR # Puerto Rico",
+                  "PY # Paraguay",
+                  "SH # Saint Helena, Ascension and Tristan da Cunha",
+                  "SJ # Svalbard and Jan Mayen",
+                  "SR # Suriname",
+                  "SV # El Salvador",
+                  "SX # Sint Maarten (Dutch part)",
+                  "SZ # Eswatini",
+                  "TC # Turks and Caicos Islands",
+                  "TF # French Southern Territories",
+                  "TT # Trinidad and Tobago",
+                  "UM # United States Minor Outlying Islands",
+                  "US # United States of America",
+                  "UY # Uruguay",
+                  "VC # Saint Vincent and the Grenadines",
+                  "VE # Venezuela (Bolivarian Republic of)",
+                  "VG # Virgin Islands (British)",
+                  "VI # Virgin Islands (U.S.)"
+                ]
+              },
+              "target": "Device",
+              "filter": "All Devices",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false
+            }
+          ]
+        }
+      ],
+      "protection": "Text"
+    },
+    {
+      "id": "4d3ea0f7-fec1-406e-91c5-a6b42033676d",
+      "key": "CONTEXT_NETWORK_IP_ADDRESS",
+      "name": "Network IP Address",
+      "description": "Defines the network ip address of the remote device.",
+      "mode": "Left-Most Path",
+      "defaultState": "No Client",
+      "enabled": true,
+      "data": [
+        {
+          "state": "%DEVICE_NETWORK_X_IPV4%",
+          "conditions": [
+            {
+              "id": "44981de7-0c2a-4d68-a052-5ac5ebcb4de2",
+              "categoryName": "deviceTRUST",
+              "propertyName": "Connected",
+              "propertyValue": 2,
+              "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+              "operator": "Boolean Equals",
+              "value": {
+                "type": "Boolean",
+                "data": [
+                  true
+                ]
+              },
+              "target": "Host",
+              "filter": "Host",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false,
+              "branches": [
+                {
+                  "state": "Unsupported OS",
+                  "conditions": []
+                }
+              ]
+            },
+            {
+              "id": "a1f93aad-ab4b-4676-b139-a3687227f00b",
+              "categoryName": "Network",
+              "propertyName": "Status",
+              "propertyValue": 2,
+              "underlyingPropertyName": "TARGET_NETWORK_X_STATUS",
+              "operator": "Enum Equals",
+              "value": {
+                "type": "Enum",
+                "data": [
+                  "Up"
+                ]
+              },
+              "target": "Device",
+              "filter": "All Devices",
+              "isArrayIndexed": true,
+              "sameAsParent": false,
+              "isDelimitedArray": false
+            },
+            {
+              "id": "05054401-933f-4111-b4e4-8d45c59b5139",
+              "categoryName": "Network",
+              "propertyName": "Gateway",
+              "propertyValue": 12,
+              "underlyingPropertyName": "TARGET_NETWORK_X_GATEWAY",
+              "operator": "String Not Empty",
+              "value": {
+                "type": "String",
+                "data": []
+              },
+              "target": "Device",
+              "filter": "All Devices",
+              "isArrayIndexed": true,
+              "sameAsParent": true,
+              "isDelimitedArray": false
+            }
+          ]
+        }
+      ],
+      "protection": "Text"
+    },
+    {
+      "id": "c1abb47e-0fb8-42b4-b1e0-ae5635f42edb",
+      "key": "CONTEXT_SECURITY_STATE",
+      "name": "Security State",
+      "description": "Defines the security status of the remote device.",
+      "mode": "Left-Most Path",
+      "defaultState": "No Client",
+      "enabled": true,
+      "data": [
+        {
+          "state": "Protected",
+          "conditions": [
+            {
+              "id": "56a64bb6-f59c-4a68-ab91-f9ae6e2ec3ab",
+              "categoryName": "deviceTRUST",
+              "propertyName": "Connected",
+              "propertyValue": 2,
+              "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+              "operator": "Boolean Equals",
+              "value": {
+                "type": "Boolean",
+                "data": [
+                  true
+                ]
+              },
+              "target": "Host",
+              "filter": "Host",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false,
+              "branches": [
+                {
+                  "state": "Protected",
+                  "conditions": [
+                    {
+                      "id": "ec7a031d-81ff-40c4-9286-9673f4c1d886",
+                      "categoryName": "OS",
+                      "propertyName": "Name",
+                      "propertyValue": 1,
+                      "underlyingPropertyName": "TARGET_OS_NAME",
+                      "operator": "Enum Equals",
+                      "value": {
+                        "type": "Enum",
+                        "data": [
+                          "macOS"
+                        ]
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false,
+                      "branches": [
+                        {
+                          "state": "Unprotected",
+                          "conditions": []
+                        }
+                      ]
+                    },
+                    {
+                      "id": "1505dfb8-5312-4846-85df-85ef1656adb9",
+                      "categoryName": "Security Product",
+                      "propertyName": "Category",
+                      "propertyValue": 11,
+                      "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_CATEGORY",
+                      "operator": "Enum Equals",
+                      "value": {
+                        "type": "Enum",
+                        "data": [
+                          "Firewall"
+                        ]
+                      },
+                      "target": "Device",
+                      "filter": "macOS Devices",
+                      "isArrayIndexed": true,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false
+                    },
+                    {
+                      "id": "d4cf19d9-7442-4fd2-8af0-aa926b5b9d70",
+                      "categoryName": "Security Product",
+                      "propertyName": "Status",
+                      "propertyValue": 12,
+                      "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_STATUS",
+                      "operator": "Enum Equals",
+                      "value": {
+                        "type": "Enum",
+                        "data": [
+                          "Active"
+                        ]
+                      },
+                      "target": "Device",
+                      "filter": "macOS Devices",
+                      "isArrayIndexed": true,
+                      "sameAsParent": true,
+                      "isDelimitedArray": true
+                    }
+                  ]
+                },
+                {
+                  "state": "Protected",
+                  "conditions": [
+                    {
+                      "id": "f9a64283-7198-4b82-a635-6d43ceee141f",
+                      "categoryName": "OS",
+                      "propertyName": "Name",
+                      "propertyValue": 1,
+                      "underlyingPropertyName": "TARGET_OS_NAME",
+                      "operator": "Enum Equals",
+                      "value": {
+                        "type": "Enum",
+                        "data": [
+                          "IGEL"
+                        ]
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false,
+                      "branches": [
+                        {
+                          "state": "Unprotected",
+                          "conditions": []
+                        }
+                      ]
+                    },
+                    {
+                      "id": "ebfa22ff-3431-4025-bbf8-6b27d83c5c05",
+                      "categoryName": "IGEL",
+                      "propertyName": "UMS Server",
+                      "propertyValue": 2,
+                      "underlyingPropertyName": "TARGET_IGEL_UMS_SERVER",
+                      "operator": "String Not Empty",
+                      "value": {
+                        "type": "String",
+                        "data": []
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false
+                    }
+                  ]
+                },
+                {
+                  "state": "Protected",
+                  "conditions": [
+                    {
+                      "id": "ceb2d151-eda4-47de-9d3b-5b1f96f7769c",
+                      "categoryName": "OS",
+                      "propertyName": "Name",
+                      "propertyValue": 1,
+                      "underlyingPropertyName": "TARGET_OS_NAME",
+                      "operator": "Enum Equals",
+                      "value": {
+                        "type": "Enum",
+                        "data": [
+                          "eLux"
+                        ]
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false,
+                      "branches": [
+                        {
+                          "state": "Unprotected",
+                          "conditions": []
+                        }
+                      ]
+                    },
+                    {
+                      "id": "fefb128f-a935-44bd-9e71-82733acce61f",
+                      "categoryName": "eLux",
+                      "propertyName": "Scout Name",
+                      "propertyValue": 6,
+                      "underlyingPropertyName": "TARGET_ELUX_SCOUT_NAME",
+                      "operator": "String Not Empty",
+                      "value": {
+                        "type": "String",
+                        "data": []
+                      },
+                      "target": "Device",
+                      "filter": "eLux Devices",
+                      "isArrayIndexed": false,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false
+                    }
+                  ]
+                },
+                {
+                  "state": "Unsupported OS",
+                  "conditions": []
+                }
+              ]
+            },
+            {
+              "id": "00488993-86e2-4f09-829a-6ce1a4b6db8b",
+              "categoryName": "OS",
+              "propertyName": "Name",
+              "propertyValue": 1,
+              "underlyingPropertyName": "TARGET_OS_NAME",
+              "operator": "Enum Equals",
+              "value": {
+                "type": "Enum",
+                "data": [
+                  "Windows"
+                ]
+              },
+              "target": "Device",
+              "filter": "All Devices",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false,
+              "branches": [
+                {
+                  "state": "Unprotected",
+                  "conditions": []
+                }
+              ]
+            },
+            {
+              "id": "b74939f1-6453-4dfc-be2f-8d80781700c5",
+              "categoryName": "Security Product",
+              "propertyName": "Category",
+              "propertyValue": 11,
+              "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_CATEGORY",
+              "operator": "Enum Equals",
+              "value": {
+                "type": "Enum",
+                "data": [
+                  "AntiVirus"
+                ]
+              },
+              "target": "Device",
+              "filter": "Windows Devices",
+              "isArrayIndexed": true,
+              "sameAsParent": false,
+              "isDelimitedArray": false
+            },
+            {
+              "id": "97aa3ced-e22c-409f-a98e-dc3ae9b0b6c8",
+              "categoryName": "Security Product",
+              "propertyName": "Status",
+              "propertyValue": 12,
+              "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_STATUS",
+              "operator": "Enum Equals",
+              "value": {
+                "type": "Enum",
+                "data": [
+                  "Active"
+                ]
+              },
+              "target": "Device",
+              "filter": "Windows Devices",
+              "isArrayIndexed": true,
+              "sameAsParent": true,
+              "isDelimitedArray": true
+            },
+            {
+              "id": "b94cb9bf-9daa-4b17-bd1e-66c9b571966e",
+              "categoryName": "Security Product",
+              "propertyName": "Category",
+              "propertyValue": 11,
+              "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_CATEGORY",
+              "operator": "Enum Equals",
+              "value": {
+                "type": "Enum",
+                "data": [
+                  "Firewall"
+                ]
+              },
+              "target": "Device",
+              "filter": "Windows Devices",
+              "isArrayIndexed": true,
+              "sameAsParent": false,
+              "isDelimitedArray": false
+            },
+            {
+              "id": "54bf1f0e-5c5b-4855-ab3e-baa23e904f3f",
+              "categoryName": "Security Product",
+              "propertyName": "Status",
+              "propertyValue": 12,
+              "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_STATUS",
+              "operator": "Enum Equals",
+              "value": {
+                "type": "Enum",
+                "data": [
+                  "Active"
+                ]
+              },
+              "target": "Device",
+              "filter": "Windows Devices",
+              "isArrayIndexed": true,
+              "sameAsParent": true,
+              "isDelimitedArray": true
+            }
+          ]
+        }
+      ],
+      "protection": "Text"
+    },
+    {
+      "id": "8f077183-0cf4-46fd-bf28-baa4538b3475",
+      "key": "CONTEXT_VPN_CONNECTED",
+      "name": "VPN Connected",
+      "description": "Defines if a network adapter of the remote device is connected to a VPN network.",
+      "mode": "Left-Most Path",
+      "defaultState": "Unavailable",
+      "enabled": true,
+      "data": [
+        {
+          "state": "True",
+          "conditions": [
+            {
+              "id": "228abdfb-fe5b-4d99-9e5c-2e21118f4c6b",
+              "categoryName": "deviceTRUST",
+              "propertyName": "Connected",
+              "propertyValue": 2,
+              "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+              "operator": "Boolean Equals",
+              "value": {
+                "type": "Boolean",
+                "data": [
+                  true
+                ]
+              },
+              "target": "Host",
+              "filter": "Host",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false,
+              "branches": [
+                {
+                  "state": "Unsupported OS",
+                  "conditions": []
+                }
+              ]
+            },
+            {
+              "id": "a5d8d369-23d3-4bd8-92de-7835a317e993",
+              "categoryName": "OS",
+              "propertyName": "Name",
+              "propertyValue": 1,
+              "underlyingPropertyName": "TARGET_OS_NAME",
+              "operator": "Enum Equals",
+              "value": {
+                "type": "Enum",
+                "data": [
+                  "Windows",
+                  "Linux",
+                  "macOS"
+                ]
+              },
+              "target": "Device",
+              "filter": "Windows Devices",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false,
+              "branches": [
+                {
+                  "state": "True",
+                  "conditions": [
+                    {
+                      "id": "9dafe31a-c0cc-4e46-bb43-cbea9717c7a9",
+                      "categoryName": "Network",
+                      "propertyName": "Virtual",
+                      "propertyValue": 25,
+                      "underlyingPropertyName": "TARGET_NETWORK_X_VIRTUAL",
+                      "operator": "Boolean Equals",
+                      "value": {
+                        "type": "Boolean",
+                        "data": [
+                          true
+                        ]
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": true,
+                      "sameAsParent": false,
+                      "isDelimitedArray": false
+                    },
+                    {
+                      "id": "79a4e505-2e92-4859-ad06-26fff1b1c0fe",
+                      "categoryName": "Network",
+                      "propertyName": "Description",
+                      "propertyValue": 4,
+                      "underlyingPropertyName": "TARGET_NETWORK_X_DESCRIPTION",
+                      "operator": "String Wildcard",
+                      "value": {
+                        "type": "String",
+                        "data": [
+                          "*Cisco*",
+                          "*Juniper*",
+                          "*Nord*",
+                          "*PANGP*",
+                          "*Tunnel*",
+                          "*VPN*"
+                        ]
+                      },
+                      "target": "Device",
+                      "filter": "All Devices",
+                      "isArrayIndexed": true,
+                      "sameAsParent": true,
+                      "isDelimitedArray": false
+                    }
+                  ]
+                },
+                {
+                  "state": "False",
+                  "conditions": []
+                }
+              ]
+            },
+            {
+              "id": "e86408a0-6eb8-4aa1-a8b5-9f3f2df065fb",
+              "categoryName": "Network",
+              "propertyName": "Type",
+              "propertyValue": 5,
+              "underlyingPropertyName": "TARGET_NETWORK_X_TYPE",
+              "operator": "Enum Equals",
+              "value": {
+                "type": "Enum",
+                "data": [
+                  "PPP",
+                  "Tunnel"
+                ]
+              },
+              "target": "Device",
+              "filter": "All Devices",
+              "isArrayIndexed": true,
+              "sameAsParent": false,
+              "isDelimitedArray": false
+            }
+          ]
+        }
+      ],
+      "protection": "Text"
+    }
+  ],
+  "actions": [
+    {
+      "id": "4add8e1a-8f02-4223-8952-7d163be4be15",
+      "key": "ACTION_REPORTING_ACCESS_CONTROL_SPLUNK",
+      "name": "Reporting - Access Control - splunk",
+      "description": "Reports the status of the remote device to ELK Stack.",
+      "data": [
+        {
+          "type": "Trigger",
+          "triggers": [
+            "Logon",
+            "Reconnect"
+          ],
+          "filters": [
+            {
+              "contextKey": "CONTEXT_COUNTRY",
+              "contextName": "Country",
+              "contextMode": "Left-Most Path",
+              "operator": "String Equals",
+              "value": {
+                "type": "String",
+                "data": [
+                  "US"
+                ]
+              }
+            }
+          ],
+          "tasks": [
+            {
+              "id": "20bf17e4-c15c-40d7-871d-1c9e4dc2e7a1",
+              "type": "Web Request",
+              "description": "Access granted",
+              "method": "POST",
+              "url": "http://10.10.10.221:8088/services/collector",
+              "headers": [
+                [
+                  "Authorization",
+                  "Splunk 52e34312-63cd-41af-9db0-fb76212c34b5"
+                ]
+              ],
+              "body": "{\n \"host\": \"%DEVICE_NAME%\",\n \"index\": \"devicetrustaccesscontrol\",\n        \"sourcetype\": \"devicetrustaccesscontrol\",\n \"event\": \"Access granted for device: %DEVICE_NAME%\",\n \"fields\": {\n  \"AccessControl\": \"Granted\",\n  \"SessionDate\": \"%TRIGGER_TIME%\",\n  \"DeviceName\": \"%DEVICE_NAME%\",\n  \"SessionUserDomain\": \"%HOST_USER_NAME_DOMAIN%\",\n  \"SessionUserName\": \"%HOST_USER_NAME%\",\n  \"Country\": \"%CONTEXT_COUNTRY%\",\n  \"CountryProvider\": \"%CONTEXT_COUNTRY_PROVIDER%\",\n                \"EconomicRegion\": \"%CONTEXT_ECONOMIC_REGION%\",\n  \"NetworkIPAddress\": \"%CONTEXT_NETWORK_IP_ADDRESS%\",\n  \"SecurityState\": \"%CONTEXT_SECURITY_STATE%\",\n  \"VPNConnected\": \"%CONTEXT_VPN_CONNECTED%\"\n }\n}",
+              "bodyType": "Json",
+              "timeout": 30,
+              "wait": false,
+              "repeat": false
+            }
+          ]
+        },
+        {
+          "type": "Trigger",
+          "triggers": [
+            "Logon",
+            "Reconnect"
+          ],
+          "filters": [
+            {
+              "contextKey": "CONTEXT_COUNTRY",
+              "contextName": "Country",
+              "contextMode": "Left-Most Path",
+              "operator": "String Not Equals",
+              "value": {
+                "type": "String",
+                "data": [
+                  "US"
+                ]
+              }
+            }
+          ],
+          "tasks": [
+            {
+              "id": "d868e593-52be-44a6-8d8c-9fe38c836887",
+              "type": "Web Request",
+              "description": "Access blocked",
+              "method": "POST",
+              "url": "http://10.10.10.221:8088/services/collector",
+              "headers": [
+                [
+                  "Authorization",
+                  "Splunk 52e34312-63cd-41af-9db0-fb76212c34b5"
+                ]
+              ],
+              "body": "{\n \"host\": \"%DEVICE_NAME%\",\n \"index\": \"devicetrustaccesscontrol\",\n        \"sourcetype\": \"devicetrustaccesscontrol\",\n \"event\": \"Access blocked for device: %DEVICE_NAME%\",\n \"fields\": {\n  \"AccessControl\": \"Blocked\",\n  \"SessionDate\": \"%TRIGGER_TIME%\",\n  \"DeviceName\": \"%DEVICE_NAME%\",\n  \"SessionUserDomain\": \"%HOST_USER_NAME_DOMAIN%\",\n  \"SessionUserName\": \"%HOST_USER_NAME%\",\n  \"Country\": \"%CONTEXT_COUNTRY%\",\n  \"CountryProvider\": \"%CONTEXT_COUNTRY_PROVIDER%\",\n                \"EconomicRegion\": \"%CONTEXT_ECONOMIC_REGION%\",\n  \"NetworkIPAddress\": \"%CONTEXT_NETWORK_IP_ADDRESS%\",\n  \"SecurityState\": \"%CONTEXT_SECURITY_STATE%\",\n  \"VPNConnected\": \"%CONTEXT_VPN_CONNECTED%\"\n }\n}",
+              "bodyType": "Json",
+              "timeout": 30,
+              "wait": false,
+              "repeat": false
+            }
+          ]
+        }
+      ],
+      "enabled": true,
+      "priority": "Medium"
+    }
+  ],
+  "messages": [],
+  "settings": []
+}
