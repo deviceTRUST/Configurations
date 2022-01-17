@@ -1,0 +1,1953 @@
+{
+   "consoleVersion": "21.1.100.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-01-11T13:28:25.310Z",
+   "contexts": [
+      {
+         "id": "bf233946-70e4-4f96-ad34-5d3f80fe76c8",
+         "key": "CONTEXT_COUNTRY",
+         "name": "Country",
+         "description": "Defines the country in which the remote device is located.",
+         "mode": "Left-Most Path",
+         "defaultState": "No Client",
+         "enabled": true,
+         "data": [
+            {
+               "state": "%REMOTE_LOCATION_COUNTRY%",
+               "conditions": [
+                  {
+                     "id": "f9e6b02c-1655-414e-a950-ffb116f0f1f2",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Local",
+                     "filter": "Local",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "%REMOTE_CELLULAR_COUNTRY%",
+                           "conditions": [
+                              {
+                                 "id": "33473e68-8d52-4312-8203-ca16ebcfcb55",
+                                 "categoryName": "Cellular",
+                                 "propertyName": "Country",
+                                 "propertyValue": 5,
+                                 "underlyingPropertyName": "TARGET_CELLULAR_COUNTRY",
+                                 "operator": "Available",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "%REMOTE_WHOIS_COUNTRY%",
+                           "conditions": [
+                              {
+                                 "id": "ea50c2f3-9df8-458c-9dea-a6dbb8d4fb61",
+                                 "categoryName": "WHOIS",
+                                 "propertyName": "Country",
+                                 "propertyValue": 4,
+                                 "underlyingPropertyName": "TARGET_WHOIS_COUNTRY",
+                                 "operator": "Available",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Unknown",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "fd67c2a4-781a-40c1-acc2-131b6c8b4052",
+                     "categoryName": "Location",
+                     "propertyName": "Country",
+                     "propertyValue": 6,
+                     "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Remote",
+                     "filter": "All Remote Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "e1fc17fb-e69f-4152-8ee4-eb14db49cb59",
+                     "categoryName": "Location",
+                     "propertyName": "Country",
+                     "propertyValue": 6,
+                     "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+                     "operator": "Not Loading",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Remote",
+                     "filter": "All Remote Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
+      },
+      {
+         "id": "9bbc3021-d286-44ef-98a4-d4df195425f7",
+         "key": "CONTEXT_COUNTRY_PROVIDER",
+         "name": "Country Provider",
+         "description": "Defines the country provider that reports the country of the remote device.",
+         "mode": "Left-Most Path",
+         "defaultState": "No Client",
+         "enabled": true,
+         "data": [
+            {
+               "state": "%REMOTE_LOCATION_PROVIDER% %REMOTE_LOCATION_SOURCE%",
+               "conditions": [
+                  {
+                     "id": "3022b4a5-f4aa-40a5-b4bb-b7a3bb232be6",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Local",
+                     "filter": "Local",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Cellular",
+                           "conditions": [
+                              {
+                                 "id": "f08991b6-39c8-4453-8ca4-816cdb411997",
+                                 "categoryName": "Cellular",
+                                 "propertyName": "Country",
+                                 "propertyValue": 5,
+                                 "underlyingPropertyName": "TARGET_CELLULAR_COUNTRY",
+                                 "operator": "Available",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Whois",
+                           "conditions": [
+                              {
+                                 "id": "be2a15ff-6f08-49b1-b4d1-d27d3ac86fab",
+                                 "categoryName": "WHOIS",
+                                 "propertyName": "Country",
+                                 "propertyValue": 4,
+                                 "underlyingPropertyName": "TARGET_WHOIS_COUNTRY",
+                                 "operator": "Available",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Unknown",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "0fd5718d-313d-473b-a581-080217730700",
+                     "categoryName": "Location",
+                     "propertyName": "Country",
+                     "propertyValue": 6,
+                     "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Remote",
+                     "filter": "All Remote Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "7f34233f-cbc7-41cc-a4b7-59e3eaa12e99",
+                     "categoryName": "Location",
+                     "propertyName": "Country",
+                     "propertyValue": 6,
+                     "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+                     "operator": "Not Loading",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Remote",
+                     "filter": "All Remote Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
+      },
+      {
+         "id": "75817e7b-008d-43d2-98e7-b203f85ec140",
+         "key": "CONTEXT_ECONOMIC_REGION",
+         "name": "Economic Region",
+         "description": "Defines the economic region the remote device is located within.",
+         "mode": "Left-Most Path",
+         "defaultState": "No Client",
+         "enabled": true,
+         "data": [
+            {
+               "state": "AMER",
+               "conditions": [
+                  {
+                     "id": "ab9c2bec-eab2-4922-805d-85673efe592f",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Local",
+                     "filter": "Local",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "AMER",
+                           "conditions": [
+                              {
+                                 "id": "ef6eca0b-5815-4407-97e5-9cd90c3c0175",
+                                 "categoryName": "Cellular",
+                                 "propertyName": "Country",
+                                 "propertyValue": 5,
+                                 "underlyingPropertyName": "TARGET_CELLULAR_COUNTRY",
+                                 "operator": "Available",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false,
+                                 "branches": [
+                                    {
+                                       "state": "APAC",
+                                       "conditions": [
+                                          {
+                                             "id": "8b7dbd26-7703-4ee8-b9bf-9ec410e01c79",
+                                             "categoryName": "Cellular",
+                                             "propertyName": "Country",
+                                             "propertyValue": 5,
+                                             "underlyingPropertyName": "TARGET_CELLULAR_COUNTRY",
+                                             "operator": "String Any Of (Wildcard)",
+                                             "value": {
+                                                "type": "String",
+                                                "data": [
+                                                   "AF # Afghanistan",
+                                                   "AS # American Samoa",
+                                                   "AU # Australia",
+                                                   "BD # Bangladesh",
+                                                   "BN # Brunei Darussalam",
+                                                   "BT # Bhutan",
+                                                   "CK # Cook Islands",
+                                                   "CN # China",
+                                                   "FJ # Fiji",
+                                                   "FM # Micronesia (Federated States of)",
+                                                   "GU # Guam",
+                                                   "HK # Hong Kong",
+                                                   "ID # Indonesia",
+                                                   "IN # India",
+                                                   "IO # British Indian Ocean Territory",
+                                                   "JP # Japan",
+                                                   "KG # Kyrgyzstan",
+                                                   "KH # Cambodia",
+                                                   "KI # Kiribati",
+                                                   "KP # North Korea",
+                                                   "KR # South Korea",
+                                                   "LA # Laos",
+                                                   "LK # Sri Lanka",
+                                                   "MH # Marshall Islands",
+                                                   "MM # Myanmar",
+                                                   "MN # Mongolia",
+                                                   "MO # Macao",
+                                                   "MP # Northern Mariana Islands",
+                                                   "MV # Maldives",
+                                                   "MY # Malaysia",
+                                                   "NC # New Caledonia",
+                                                   "NF # Norfolk Island",
+                                                   "NP # Nepal",
+                                                   "NR # Nauru",
+                                                   "NU # Niue",
+                                                   "NZ # New Zealand",
+                                                   "PF # French Polynesia",
+                                                   "PG # Papua New Guinea",
+                                                   "PH # Philippines",
+                                                   "PK # Pakistan",
+                                                   "PW # Palau",
+                                                   "SB # Solomon Islands",
+                                                   "SG # Singapore",
+                                                   "TH # Thailand",
+                                                   "TJ # Tadschikistan",
+                                                   "TK # Tokelau",
+                                                   "TL # Timor-Leste",
+                                                   "TM # Turkmenistan",
+                                                   "TO # Tonga",
+                                                   "TV # Tuvalu",
+                                                   "TW # Taiwan, Province of China",
+                                                   "UZ # Uzbekistan",
+                                                   "VN # Viet Nam",
+                                                   "VU # Vanuatu",
+                                                   "WF # Wallis and Futuna",
+                                                   "WS # Samoa"
+                                                ]
+                                             },
+                                             "target": "Remote",
+                                             "filter": "All Remote Devices",
+                                             "isArrayIndexed": false,
+                                             "sameAsParent": false,
+                                             "isDelimitedArray": false
+                                          }
+                                       ]
+                                    },
+                                    {
+                                       "state": "EMEA",
+                                       "conditions": [
+                                          {
+                                             "id": "dc48b269-da32-45ba-9499-dc2384e86c0c",
+                                             "categoryName": "Cellular",
+                                             "propertyName": "Country",
+                                             "propertyValue": 5,
+                                             "underlyingPropertyName": "TARGET_CELLULAR_COUNTRY",
+                                             "operator": "String Any Of (Wildcard)",
+                                             "value": {
+                                                "type": "String",
+                                                "data": [
+                                                   "AD # Andorra",
+                                                   "AE # United Arab Emirates",
+                                                   "AL # Albania",
+                                                   "AM # Armenia",
+                                                   "AO # Angola",
+                                                   "AT # Austria",
+                                                   "AX # �land Islands",
+                                                   "AZ # Azerbaijan",
+                                                   "BA # Bosnia and Herzegovina",
+                                                   "BE # Belgium",
+                                                   "BF # Burkina Faso",
+                                                   "BG # Bulgaria",
+                                                   "BH # Bahrain",
+                                                   "BI # Burundi",
+                                                   "BJ # Benin",
+                                                   "BW # Botswana",
+                                                   "BY # Belarus",
+                                                   "CD # Congo (Democratic Republic of the)",
+                                                   "CF # Central African Republic",
+                                                   "CG # Congo",
+                                                   "CH # Switzerland",
+                                                   "CI # Ivory Coast",
+                                                   "CM # Cameroon",
+                                                   "CV # Cabo Verde",
+                                                   "CY # Cyprus",
+                                                   "CZ # Czech Republic",
+                                                   "DE # Germany",
+                                                   "DJ # Djibouti",
+                                                   "DK # Denmark",
+                                                   "DZ # Algeria",
+                                                   "EE # Estonia",
+                                                   "EG # Egypt",
+                                                   "EH # Western Sahara",
+                                                   "ER # Eritrea",
+                                                   "ES # Spain",
+                                                   "ET # Ethiopia",
+                                                   "FI # Finland",
+                                                   "FO # Faroe Islands",
+                                                   "FR # France",
+                                                   "GA # Gabon",
+                                                   "GB # United Kingdom of Great Britain and Northern Ireland",
+                                                   "GE # Georgia",
+                                                   "GH # Ghana",
+                                                   "GI # Gibraltar",
+                                                   "GL # Greenland",
+                                                   "GM # Gambia",
+                                                   "GN # Guinea",
+                                                   "GQ # Equatorial Guinea",
+                                                   "GR # Greece",
+                                                   "GW # Guinea-Bissau",
+                                                   "HR # Croatia",
+                                                   "HU # Hungary",
+                                                   "IE # Ireland",
+                                                   "IL # Israel",
+                                                   "IM # Isle of Man",
+                                                   "IQ # Iraq",
+                                                   "IR # Iran (Islamic Republic of)",
+                                                   "IS # Iceland",
+                                                   "IT # Italy",
+                                                   "JO # Jordan",
+                                                   "KE # Kenya",
+                                                   "KM # Comoros",
+                                                   "KW # Kuwait",
+                                                   "KZ # Kazakhstan",
+                                                   "LB # Lebanon",
+                                                   "LI # Liechtenstein",
+                                                   "LR # Liberia",
+                                                   "LS # Lesotho",
+                                                   "LT # Lithuania",
+                                                   "LU # Luxembourg",
+                                                   "LV # Latvia",
+                                                   "LY # Libya",
+                                                   "MA # Morocco",
+                                                   "MC # Monaco",
+                                                   "MD # Moldova, Republic of",
+                                                   "ME # Montenegro",
+                                                   "MG # Madagascar",
+                                                   "MK # North Macedonia",
+                                                   "ML # Mali",
+                                                   "MR # Mauritania",
+                                                   "MT # Malta",
+                                                   "MU # Mauritius",
+                                                   "MW # Malawi",
+                                                   "MZ # Mozambique",
+                                                   "NA # Namibia",
+                                                   "NE # Niger",
+                                                   "NG # Nigeria",
+                                                   "NL # Netherlands",
+                                                   "NO # Norway",
+                                                   "OM # Oman",
+                                                   "PL # Poland",
+                                                   "PS # Palestine, State of",
+                                                   "PT # Portugal",
+                                                   "QA # Qatar",
+                                                   "RE # Reunion",
+                                                   "RO # Romania",
+                                                   "RS # Serbia",
+                                                   "RU # Russian Federation",
+                                                   "RW # Rwanda",
+                                                   "SA # Saudi Arabia",
+                                                   "SC # Seychelles",
+                                                   "SD # Sudan",
+                                                   "SE # Sweden",
+                                                   "SI # Slovenia",
+                                                   "SK # Slovakia",
+                                                   "SL # Sierra Leone",
+                                                   "SM # San Marino",
+                                                   "SN # Senegal",
+                                                   "SO # Somalia",
+                                                   "SS # South Sudan",
+                                                   "ST # Sao Tome and Principe",
+                                                   "SY # Syrian Arab Republic",
+                                                   "TD # Chad",
+                                                   "TG # Togo",
+                                                   "TN # Tunisia",
+                                                   "TR # Turkey",
+                                                   "TZ # Tanzania, United Republic of",
+                                                   "UA # Ukraine",
+                                                   "UG # Uganda",
+                                                   "VA # Vatican City",
+                                                   "YE # Yemen",
+                                                   "YT # Mayotte",
+                                                   "ZA # South Africa",
+                                                   "ZM # Zambia",
+                                                   "ZW # Zimbabwe"
+                                                ]
+                                             },
+                                             "target": "Remote",
+                                             "filter": "All Remote Devices",
+                                             "isArrayIndexed": false,
+                                             "sameAsParent": false,
+                                             "isDelimitedArray": false
+                                          }
+                                       ]
+                                    }
+                                 ]
+                              },
+                              {
+                                 "id": "d7ec1f88-9063-426b-8387-93fc339b1247",
+                                 "categoryName": "Cellular",
+                                 "propertyName": "Country",
+                                 "propertyValue": 5,
+                                 "underlyingPropertyName": "TARGET_CELLULAR_COUNTRY",
+                                 "operator": "String Any Of (Wildcard)",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       "AG # Antigua and Barbuda",
+                                       "AI # Anguilla",
+                                       "AQ # Antarctica",
+                                       "AR # Argentina",
+                                       "AW # Aruba",
+                                       "BB # Barbados",
+                                       "BL # Saint Barth�lemy",
+                                       "BM # Bermuda",
+                                       "BO # Bolivia (Plurinational State of)",
+                                       "BQ # Bonaire (Sint Eustatius and Saba)",
+                                       "BR # Brazil",
+                                       "BS # Bahamas",
+                                       "BV # Bouvet Island",
+                                       "BZ # Belize",
+                                       "CA # Canada",
+                                       "CC # Cocos (Keeling) Islands",
+                                       "CL # Chile",
+                                       "CO # Colombia",
+                                       "CR # Costa Rica",
+                                       "CU # Cuba",
+                                       "CW # Cura�ao",
+                                       "CX # Christmas Island",
+                                       "DM # Dominica",
+                                       "DO # Dominican Republic",
+                                       "EC # Ecuador",
+                                       "FK # Falkland Islands (Malvinas)",
+                                       "GD # Grenada",
+                                       "GF # French Guiana",
+                                       "GG # Guernsey",
+                                       "GP # Guadeloupe",
+                                       "GS # South Georgia and the South Sandwich Islands",
+                                       "GT # Guatemala",
+                                       "GY # Guyana",
+                                       "HM # Heard Island and McDonald Islands",
+                                       "HN # Honduras",
+                                       "HT # Haiti",
+                                       "JE # Jersey",
+                                       "JM # Jamaica",
+                                       "KN # Saint Kitts and Nevis",
+                                       "KY # Cayman Islands",
+                                       "LC # Saint Lucia",
+                                       "MF # Saint Martin (French part)",
+                                       "MQ # Martinique",
+                                       "MS # Montserrat",
+                                       "MX # Mexico",
+                                       "NI # Nicaragua",
+                                       "PA # Panama",
+                                       "PE # Peru",
+                                       "PM # Saint Pierre and Miquelon",
+                                       "PN # Pitcairn",
+                                       "PR # Puerto Rico",
+                                       "PY # Paraguay",
+                                       "SH # Saint Helena, Ascension and Tristan da Cunha",
+                                       "SJ # Svalbard and Jan Mayen",
+                                       "SR # Suriname",
+                                       "SV # El Salvador",
+                                       "SX # Sint Maarten (Dutch part)",
+                                       "SZ # Eswatini",
+                                       "TC # Turks and Caicos Islands",
+                                       "TF # French Southern Territories",
+                                       "TT # Trinidad and Tobago",
+                                       "UM # United States Minor Outlying Islands",
+                                       "US # United States of America",
+                                       "UY # Uruguay",
+                                       "VC # Saint Vincent and the Grenadines",
+                                       "VE # Venezuela (Bolivarian Republic of)",
+                                       "VG # Virgin Islands (British)",
+                                       "VI # Virgin Islands (U.S.)"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "AMER",
+                           "conditions": [
+                              {
+                                 "id": "a3507124-ee01-478e-b8d5-3dac710ce5ba",
+                                 "categoryName": "WHOIS",
+                                 "propertyName": "Country",
+                                 "propertyValue": 4,
+                                 "underlyingPropertyName": "TARGET_WHOIS_COUNTRY",
+                                 "operator": "Available",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false,
+                                 "branches": [
+                                    {
+                                       "state": "APAC",
+                                       "conditions": [
+                                          {
+                                             "id": "729f2dd0-9c9a-494a-9b25-6759fdccc8ba",
+                                             "categoryName": "WHOIS",
+                                             "propertyName": "Country",
+                                             "propertyValue": 4,
+                                             "underlyingPropertyName": "TARGET_WHOIS_COUNTRY",
+                                             "operator": "String Any Of (Wildcard)",
+                                             "value": {
+                                                "type": "String",
+                                                "data": [
+                                                   "AF # Afghanistan",
+                                                   "AS # American Samoa",
+                                                   "AU # Australia",
+                                                   "BD # Bangladesh",
+                                                   "BN # Brunei Darussalam",
+                                                   "BT # Bhutan",
+                                                   "CK # Cook Islands",
+                                                   "CN # China",
+                                                   "FJ # Fiji",
+                                                   "FM # Micronesia (Federated States of)",
+                                                   "GU # Guam",
+                                                   "HK # Hong Kong",
+                                                   "ID # Indonesia",
+                                                   "IN # India",
+                                                   "IO # British Indian Ocean Territory",
+                                                   "JP # Japan",
+                                                   "KG # Kyrgyzstan",
+                                                   "KH # Cambodia",
+                                                   "KI # Kiribati",
+                                                   "KP # North Korea",
+                                                   "KR # South Korea",
+                                                   "LA # Laos",
+                                                   "LK # Sri Lanka",
+                                                   "MH # Marshall Islands",
+                                                   "MM # Myanmar",
+                                                   "MN # Mongolia",
+                                                   "MO # Macao",
+                                                   "MP # Northern Mariana Islands",
+                                                   "MV # Maldives",
+                                                   "MY # Malaysia",
+                                                   "NC # New Caledonia",
+                                                   "NF # Norfolk Island",
+                                                   "NP # Nepal",
+                                                   "NR # Nauru",
+                                                   "NU # Niue",
+                                                   "NZ # New Zealand",
+                                                   "PF # French Polynesia",
+                                                   "PG # Papua New Guinea",
+                                                   "PH # Philippines",
+                                                   "PK # Pakistan",
+                                                   "PW # Palau",
+                                                   "SB # Solomon Islands",
+                                                   "SG # Singapore",
+                                                   "TH # Thailand",
+                                                   "TJ # Tadschikistan",
+                                                   "TK # Tokelau",
+                                                   "TL # Timor-Leste",
+                                                   "TM # Turkmenistan",
+                                                   "TO # Tonga",
+                                                   "TV # Tuvalu",
+                                                   "TW # Taiwan, Province of China",
+                                                   "UZ # Uzbekistan",
+                                                   "VN # Viet Nam",
+                                                   "VU # Vanuatu",
+                                                   "WF # Wallis and Futuna",
+                                                   "WS # Samoa"
+                                                ]
+                                             },
+                                             "target": "Remote",
+                                             "filter": "All Remote Devices",
+                                             "isArrayIndexed": false,
+                                             "sameAsParent": false,
+                                             "isDelimitedArray": false
+                                          }
+                                       ]
+                                    },
+                                    {
+                                       "state": "EMEA",
+                                       "conditions": [
+                                          {
+                                             "id": "eae2d1bb-5e2d-4775-bc65-c4f0d5a48fec",
+                                             "categoryName": "WHOIS",
+                                             "propertyName": "Country",
+                                             "propertyValue": 4,
+                                             "underlyingPropertyName": "TARGET_WHOIS_COUNTRY",
+                                             "operator": "String Any Of (Wildcard)",
+                                             "value": {
+                                                "type": "String",
+                                                "data": [
+                                                   "AD # Andorra",
+                                                   "AE # United Arab Emirates",
+                                                   "AL # Albania",
+                                                   "AM # Armenia",
+                                                   "AO # Angola",
+                                                   "AT # Austria",
+                                                   "AX # �land Islands",
+                                                   "AZ # Azerbaijan",
+                                                   "BA # Bosnia and Herzegovina",
+                                                   "BE # Belgium",
+                                                   "BF # Burkina Faso",
+                                                   "BG # Bulgaria",
+                                                   "BH # Bahrain",
+                                                   "BI # Burundi",
+                                                   "BJ # Benin",
+                                                   "BW # Botswana",
+                                                   "BY # Belarus",
+                                                   "CD # Congo (Democratic Republic of the)",
+                                                   "CF # Central African Republic",
+                                                   "CG # Congo",
+                                                   "CH # Switzerland",
+                                                   "CI # Ivory Coast",
+                                                   "CM # Cameroon",
+                                                   "CV # Cabo Verde",
+                                                   "CY # Cyprus",
+                                                   "CZ # Czech Republic",
+                                                   "DE # Germany",
+                                                   "DJ # Djibouti",
+                                                   "DK # Denmark",
+                                                   "DZ # Algeria",
+                                                   "EE # Estonia",
+                                                   "EG # Egypt",
+                                                   "EH # Western Sahara",
+                                                   "ER # Eritrea",
+                                                   "ES # Spain",
+                                                   "ET # Ethiopia",
+                                                   "FI # Finland",
+                                                   "FO # Faroe Islands",
+                                                   "FR # France",
+                                                   "GA # Gabon",
+                                                   "GB # United Kingdom of Great Britain and Northern Ireland",
+                                                   "GE # Georgia",
+                                                   "GH # Ghana",
+                                                   "GI # Gibraltar",
+                                                   "GL # Greenland",
+                                                   "GM # Gambia",
+                                                   "GN # Guinea",
+                                                   "GQ # Equatorial Guinea",
+                                                   "GR # Greece",
+                                                   "GW # Guinea-Bissau",
+                                                   "HR # Croatia",
+                                                   "HU # Hungary",
+                                                   "IE # Ireland",
+                                                   "IL # Israel",
+                                                   "IM # Isle of Man",
+                                                   "IQ # Iraq",
+                                                   "IR # Iran (Islamic Republic of)",
+                                                   "IS # Iceland",
+                                                   "IT # Italy",
+                                                   "JO # Jordan",
+                                                   "KE # Kenya",
+                                                   "KM # Comoros",
+                                                   "KW # Kuwait",
+                                                   "KZ # Kazakhstan",
+                                                   "LB # Lebanon",
+                                                   "LI # Liechtenstein",
+                                                   "LR # Liberia",
+                                                   "LS # Lesotho",
+                                                   "LT # Lithuania",
+                                                   "LU # Luxembourg",
+                                                   "LV # Latvia",
+                                                   "LY # Libya",
+                                                   "MA # Morocco",
+                                                   "MC # Monaco",
+                                                   "MD # Moldova, Republic of",
+                                                   "ME # Montenegro",
+                                                   "MG # Madagascar",
+                                                   "MK # North Macedonia",
+                                                   "ML # Mali",
+                                                   "MR # Mauritania",
+                                                   "MT # Malta",
+                                                   "MU # Mauritius",
+                                                   "MW # Malawi",
+                                                   "MZ # Mozambique",
+                                                   "NA # Namibia",
+                                                   "NE # Niger",
+                                                   "NG # Nigeria",
+                                                   "NL # Netherlands",
+                                                   "NO # Norway",
+                                                   "OM # Oman",
+                                                   "PL # Poland",
+                                                   "PS # Palestine, State of",
+                                                   "PT # Portugal",
+                                                   "QA # Qatar",
+                                                   "RE # Reunion",
+                                                   "RO # Romania",
+                                                   "RS # Serbia",
+                                                   "RU # Russian Federation",
+                                                   "RW # Rwanda",
+                                                   "SA # Saudi Arabia",
+                                                   "SC # Seychelles",
+                                                   "SD # Sudan",
+                                                   "SE # Sweden",
+                                                   "SI # Slovenia",
+                                                   "SK # Slovakia",
+                                                   "SL # Sierra Leone",
+                                                   "SM # San Marino",
+                                                   "SN # Senegal",
+                                                   "SO # Somalia",
+                                                   "SS # South Sudan",
+                                                   "ST # Sao Tome and Principe",
+                                                   "SY # Syrian Arab Republic",
+                                                   "TD # Chad",
+                                                   "TG # Togo",
+                                                   "TN # Tunisia",
+                                                   "TR # Turkey",
+                                                   "TZ # Tanzania, United Republic of",
+                                                   "UA # Ukraine",
+                                                   "UG # Uganda",
+                                                   "VA # Vatican City",
+                                                   "YE # Yemen",
+                                                   "YT # Mayotte",
+                                                   "ZA # South Africa",
+                                                   "ZM # Zambia",
+                                                   "ZW # Zimbabwe"
+                                                ]
+                                             },
+                                             "target": "Remote",
+                                             "filter": "All Remote Devices",
+                                             "isArrayIndexed": false,
+                                             "sameAsParent": false,
+                                             "isDelimitedArray": false
+                                          }
+                                       ]
+                                    }
+                                 ]
+                              },
+                              {
+                                 "id": "0c15e162-0229-45e6-b551-30f884352d46",
+                                 "categoryName": "WHOIS",
+                                 "propertyName": "Country",
+                                 "propertyValue": 4,
+                                 "underlyingPropertyName": "TARGET_WHOIS_COUNTRY",
+                                 "operator": "String Any Of (Wildcard)",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       "AG # Antigua and Barbuda",
+                                       "AI # Anguilla",
+                                       "AQ # Antarctica",
+                                       "AR # Argentina",
+                                       "AW # Aruba",
+                                       "BB # Barbados",
+                                       "BL # Saint Barth�lemy",
+                                       "BM # Bermuda",
+                                       "BO # Bolivia (Plurinational State of)",
+                                       "BQ # Bonaire (Sint Eustatius and Saba)",
+                                       "BR # Brazil",
+                                       "BS # Bahamas",
+                                       "BV # Bouvet Island",
+                                       "BZ # Belize",
+                                       "CA # Canada",
+                                       "CC # Cocos (Keeling) Islands",
+                                       "CL # Chile",
+                                       "CO # Colombia",
+                                       "CR # Costa Rica",
+                                       "CU # Cuba",
+                                       "CW # Cura�ao",
+                                       "CX # Christmas Island",
+                                       "DM # Dominica",
+                                       "DO # Dominican Republic",
+                                       "EC # Ecuador",
+                                       "FK # Falkland Islands (Malvinas)",
+                                       "GD # Grenada",
+                                       "GF # French Guiana",
+                                       "GG # Guernsey",
+                                       "GP # Guadeloupe",
+                                       "GS # South Georgia and the South Sandwich Islands",
+                                       "GT # Guatemala",
+                                       "GY # Guyana",
+                                       "HM # Heard Island and McDonald Islands",
+                                       "HN # Honduras",
+                                       "HT # Haiti",
+                                       "JE # Jersey",
+                                       "JM # Jamaica",
+                                       "KN # Saint Kitts and Nevis",
+                                       "KY # Cayman Islands",
+                                       "LC # Saint Lucia",
+                                       "MF # Saint Martin (French part)",
+                                       "MQ # Martinique",
+                                       "MS # Montserrat",
+                                       "MX # Mexico",
+                                       "NI # Nicaragua",
+                                       "PA # Panama",
+                                       "PE # Peru",
+                                       "PM # Saint Pierre and Miquelon",
+                                       "PN # Pitcairn",
+                                       "PR # Puerto Rico",
+                                       "PY # Paraguay",
+                                       "SH # Saint Helena, Ascension and Tristan da Cunha",
+                                       "SJ # Svalbard and Jan Mayen",
+                                       "SR # Suriname",
+                                       "SV # El Salvador",
+                                       "SX # Sint Maarten (Dutch part)",
+                                       "SZ # Eswatini",
+                                       "TC # Turks and Caicos Islands",
+                                       "TF # French Southern Territories",
+                                       "TT # Trinidad and Tobago",
+                                       "UM # United States Minor Outlying Islands",
+                                       "US # United States of America",
+                                       "UY # Uruguay",
+                                       "VC # Saint Vincent and the Grenadines",
+                                       "VE # Venezuela (Bolivarian Republic of)",
+                                       "VG # Virgin Islands (British)",
+                                       "VI # Virgin Islands (U.S.)"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Unknown",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "75fa17d3-4b53-4600-9319-ae71a2ad1b71",
+                     "categoryName": "Location",
+                     "propertyName": "Country",
+                     "propertyValue": 6,
+                     "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Remote",
+                     "filter": "All Remote Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "d0a0c521-94d6-4a9a-ba99-2970286491ce",
+                     "categoryName": "Location",
+                     "propertyName": "Country",
+                     "propertyValue": 6,
+                     "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+                     "operator": "Not Loading",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Remote",
+                     "filter": "All Remote Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "APAC",
+                           "conditions": [
+                              {
+                                 "id": "be5f8065-6b77-4ed0-86bd-7d45d6c93de0",
+                                 "categoryName": "Location",
+                                 "propertyName": "Country",
+                                 "propertyValue": 6,
+                                 "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+                                 "operator": "String Any Of (Wildcard)",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       "AF # Afghanistan",
+                                       "AS # American Samoa",
+                                       "AU # Australia",
+                                       "BD # Bangladesh",
+                                       "BN # Brunei Darussalam",
+                                       "BT # Bhutan",
+                                       "CK # Cook Islands",
+                                       "CN # China",
+                                       "FJ # Fiji",
+                                       "FM # Micronesia (Federated States of)",
+                                       "GU # Guam",
+                                       "HK # Hong Kong",
+                                       "ID # Indonesia",
+                                       "IN # India",
+                                       "IO # British Indian Ocean Territory",
+                                       "JP # Japan",
+                                       "KG # Kyrgyzstan",
+                                       "KH # Cambodia",
+                                       "KI # Kiribati",
+                                       "KP # North Korea",
+                                       "KR # South Korea",
+                                       "LA # Laos",
+                                       "LK # Sri Lanka",
+                                       "MH # Marshall Islands",
+                                       "MM # Myanmar",
+                                       "MN # Mongolia",
+                                       "MO # Macao",
+                                       "MP # Northern Mariana Islands",
+                                       "MV # Maldives",
+                                       "MY # Malaysia",
+                                       "NC # New Caledonia",
+                                       "NF # Norfolk Island",
+                                       "NP # Nepal",
+                                       "NR # Nauru",
+                                       "NU # Niue",
+                                       "NZ # New Zealand",
+                                       "PF # French Polynesia",
+                                       "PG # Papua New Guinea",
+                                       "PH # Philippines",
+                                       "PK # Pakistan",
+                                       "PW # Palau",
+                                       "SB # Solomon Islands",
+                                       "SG # Singapore",
+                                       "TH # Thailand",
+                                       "TJ # Tadschikistan",
+                                       "TK # Tokelau",
+                                       "TL # Timor-Leste",
+                                       "TM # Turkmenistan",
+                                       "TO # Tonga",
+                                       "TV # Tuvalu",
+                                       "TW # Taiwan, Province of China",
+                                       "UZ # Uzbekistan",
+                                       "VN # Viet Nam",
+                                       "VU # Vanuatu",
+                                       "WF # Wallis and Futuna",
+                                       "WS # Samoa"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "EMEA",
+                           "conditions": [
+                              {
+                                 "id": "2ef7224d-c3fe-4df7-b51b-7567439c9283",
+                                 "categoryName": "Location",
+                                 "propertyName": "Country",
+                                 "propertyValue": 6,
+                                 "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+                                 "operator": "String Any Of (Wildcard)",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       "AD # Andorra",
+                                       "AE # United Arab Emirates",
+                                       "AL # Albania",
+                                       "AM # Armenia",
+                                       "AO # Angola",
+                                       "AT # Austria",
+                                       "AX # �land Islands",
+                                       "AZ # Azerbaijan",
+                                       "BA # Bosnia and Herzegovina",
+                                       "BE # Belgium",
+                                       "BF # Burkina Faso",
+                                       "BG # Bulgaria",
+                                       "BH # Bahrain",
+                                       "BI # Burundi",
+                                       "BJ # Benin",
+                                       "BW # Botswana",
+                                       "BY # Belarus",
+                                       "CD # Congo (Democratic Republic of the)",
+                                       "CF # Central African Republic",
+                                       "CG # Congo",
+                                       "CH # Switzerland",
+                                       "CI # Ivory Coast",
+                                       "CM # Cameroon",
+                                       "CV # Cabo Verde",
+                                       "CY # Cyprus",
+                                       "CZ # Czech Republic",
+                                       "DE # Germany",
+                                       "DJ # Djibouti",
+                                       "DK # Denmark",
+                                       "DZ # Algeria",
+                                       "EE # Estonia",
+                                       "EG # Egypt",
+                                       "EH # Western Sahara",
+                                       "ER # Eritrea",
+                                       "ES # Spain",
+                                       "ET # Ethiopia",
+                                       "FI # Finland",
+                                       "FO # Faroe Islands",
+                                       "FR # France",
+                                       "GA # Gabon",
+                                       "GB # United Kingdom of Great Britain and Northern Ireland",
+                                       "GE # Georgia",
+                                       "GH # Ghana",
+                                       "GI # Gibraltar",
+                                       "GL # Greenland",
+                                       "GM # Gambia",
+                                       "GN # Guinea",
+                                       "GQ # Equatorial Guinea",
+                                       "GR # Greece",
+                                       "GW # Guinea-Bissau",
+                                       "HR # Croatia",
+                                       "HU # Hungary",
+                                       "IE # Ireland",
+                                       "IL # Israel",
+                                       "IM # Isle of Man",
+                                       "IQ # Iraq",
+                                       "IR # Iran (Islamic Republic of)",
+                                       "IS # Iceland",
+                                       "IT # Italy",
+                                       "JO # Jordan",
+                                       "KE # Kenya",
+                                       "KM # Comoros",
+                                       "KW # Kuwait",
+                                       "KZ # Kazakhstan",
+                                       "LB # Lebanon",
+                                       "LI # Liechtenstein",
+                                       "LR # Liberia",
+                                       "LS # Lesotho",
+                                       "LT # Lithuania",
+                                       "LU # Luxembourg",
+                                       "LV # Latvia",
+                                       "LY # Libya",
+                                       "MA # Morocco",
+                                       "MC # Monaco",
+                                       "MD # Moldova, Republic of",
+                                       "ME # Montenegro",
+                                       "MG # Madagascar",
+                                       "MK # North Macedonia",
+                                       "ML # Mali",
+                                       "MR # Mauritania",
+                                       "MT # Malta",
+                                       "MU # Mauritius",
+                                       "MW # Malawi",
+                                       "MZ # Mozambique",
+                                       "NA # Namibia",
+                                       "NE # Niger",
+                                       "NG # Nigeria",
+                                       "NL # Netherlands",
+                                       "NO # Norway",
+                                       "OM # Oman",
+                                       "PL # Poland",
+                                       "PS # Palestine, State of",
+                                       "PT # Portugal",
+                                       "QA # Qatar",
+                                       "RE # Reunion",
+                                       "RO # Romania",
+                                       "RS # Serbia",
+                                       "RU # Russian Federation",
+                                       "RW # Rwanda",
+                                       "SA # Saudi Arabia",
+                                       "SC # Seychelles",
+                                       "SD # Sudan",
+                                       "SE # Sweden",
+                                       "SI # Slovenia",
+                                       "SK # Slovakia",
+                                       "SL # Sierra Leone",
+                                       "SM # San Marino",
+                                       "SN # Senegal",
+                                       "SO # Somalia",
+                                       "SS # South Sudan",
+                                       "ST # Sao Tome and Principe",
+                                       "SY # Syrian Arab Republic",
+                                       "TD # Chad",
+                                       "TG # Togo",
+                                       "TN # Tunisia",
+                                       "TR # Turkey",
+                                       "TZ # Tanzania, United Republic of",
+                                       "UA # Ukraine",
+                                       "UG # Uganda",
+                                       "VA # Vatican City",
+                                       "YE # Yemen",
+                                       "YT # Mayotte",
+                                       "ZA # South Africa",
+                                       "ZM # Zambia",
+                                       "ZW # Zimbabwe"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "id": "af0118db-e5fc-4a90-aadc-a000c3708094",
+                     "categoryName": "Location",
+                     "propertyName": "Country",
+                     "propertyValue": 6,
+                     "underlyingPropertyName": "TARGET_LOCATION_COUNTRY",
+                     "operator": "String Any Of (Wildcard)",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "AG # Antigua and Barbuda",
+                           "AI # Anguilla",
+                           "AQ # Antarctica",
+                           "AR # Argentina",
+                           "AW # Aruba",
+                           "BB # Barbados",
+                           "BL # Saint Barth�lemy",
+                           "BM # Bermuda",
+                           "BO # Bolivia (Plurinational State of)",
+                           "BQ # Bonaire (Sint Eustatius and Saba)",
+                           "BR # Brazil",
+                           "BS # Bahamas",
+                           "BV # Bouvet Island",
+                           "BZ # Belize",
+                           "CA # Canada",
+                           "CC # Cocos (Keeling) Islands",
+                           "CL # Chile",
+                           "CO # Colombia",
+                           "CR # Costa Rica",
+                           "CU # Cuba",
+                           "CW # Cura�ao",
+                           "CX # Christmas Island",
+                           "DM # Dominica",
+                           "DO # Dominican Republic",
+                           "EC # Ecuador",
+                           "FK # Falkland Islands (Malvinas)",
+                           "GD # Grenada",
+                           "GF # French Guiana",
+                           "GG # Guernsey",
+                           "GP # Guadeloupe",
+                           "GS # South Georgia and the South Sandwich Islands",
+                           "GT # Guatemala",
+                           "GY # Guyana",
+                           "HM # Heard Island and McDonald Islands",
+                           "HN # Honduras",
+                           "HT # Haiti",
+                           "JE # Jersey",
+                           "JM # Jamaica",
+                           "KN # Saint Kitts and Nevis",
+                           "KY # Cayman Islands",
+                           "LC # Saint Lucia",
+                           "MF # Saint Martin (French part)",
+                           "MQ # Martinique",
+                           "MS # Montserrat",
+                           "MX # Mexico",
+                           "NI # Nicaragua",
+                           "PA # Panama",
+                           "PE # Peru",
+                           "PM # Saint Pierre and Miquelon",
+                           "PN # Pitcairn",
+                           "PR # Puerto Rico",
+                           "PY # Paraguay",
+                           "SH # Saint Helena, Ascension and Tristan da Cunha",
+                           "SJ # Svalbard and Jan Mayen",
+                           "SR # Suriname",
+                           "SV # El Salvador",
+                           "SX # Sint Maarten (Dutch part)",
+                           "SZ # Eswatini",
+                           "TC # Turks and Caicos Islands",
+                           "TF # French Southern Territories",
+                           "TT # Trinidad and Tobago",
+                           "UM # United States Minor Outlying Islands",
+                           "US # United States of America",
+                           "UY # Uruguay",
+                           "VC # Saint Vincent and the Grenadines",
+                           "VE # Venezuela (Bolivarian Republic of)",
+                           "VG # Virgin Islands (British)",
+                           "VI # Virgin Islands (U.S.)"
+                        ]
+                     },
+                     "target": "Remote",
+                     "filter": "All Remote Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
+      },
+      {
+         "id": "0984dafd-ec42-4def-8929-568e6d163357",
+         "key": "CONTEXT_NETWORK_IP_ADDRESS",
+         "name": "Network IP Address",
+         "description": "Defines the network ip address of the remote device.",
+         "mode": "Left-Most Path",
+         "defaultState": "No Client",
+         "enabled": true,
+         "data": [
+            {
+               "state": "%REMOTE_NETWORK_X_IPV4%",
+               "conditions": [
+                  {
+                     "id": "c8e01458-79b0-431f-bc43-46547b283d42",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Local",
+                     "filter": "Local",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Unsupported OS",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "e5eb53ff-68a4-4ffa-be3e-0330694d9717",
+                     "categoryName": "Network",
+                     "propertyName": "Status",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_NETWORK_X_STATUS",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Up"
+                        ]
+                     },
+                     "target": "Remote",
+                     "filter": "All Remote Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "cddf6df8-94ef-451b-a7e1-7c6e7b5f1eb1",
+                     "categoryName": "Network",
+                     "propertyName": "Gateway",
+                     "propertyValue": 12,
+                     "underlyingPropertyName": "TARGET_NETWORK_X_GATEWAY",
+                     "operator": "String Not Empty",
+                     "value": {
+                        "type": "String",
+                        "data": []
+                     },
+                     "target": "Remote",
+                     "filter": "All Remote Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": true,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
+      },
+      {
+         "id": "033bb928-967c-4203-bde8-db505e51457f",
+         "key": "CONTEXT_SECURITY_STATE",
+         "name": "Security State",
+         "description": "Defines the security status of the remote device.",
+         "mode": "Left-Most Path",
+         "defaultState": "No Client",
+         "enabled": true,
+         "data": [
+            {
+               "state": "Protected",
+               "conditions": [
+                  {
+                     "id": "ba91635c-9a40-454c-a08a-7232273b6342",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Local",
+                     "filter": "Local",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Protected",
+                           "conditions": [
+                              {
+                                 "id": "3705d5fb-3b7c-46c5-abf5-1cef068e4950",
+                                 "categoryName": "OS",
+                                 "propertyName": "Name",
+                                 "propertyValue": 1,
+                                 "underlyingPropertyName": "TARGET_OS_NAME",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "macOS"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false,
+                                 "branches": [
+                                    {
+                                       "state": "Unprotected",
+                                       "conditions": []
+                                    }
+                                 ]
+                              },
+                              {
+                                 "id": "07f525fc-0a21-4269-88ed-5c828ca0a7ea",
+                                 "categoryName": "Security Product",
+                                 "propertyName": "Category",
+                                 "propertyValue": 11,
+                                 "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_CATEGORY",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Firewall"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "filter": "Remote macOS Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "0acddd30-4da8-4e8f-828e-33f3ab13d14f",
+                                 "categoryName": "Security Product",
+                                 "propertyName": "Status",
+                                 "propertyValue": 12,
+                                 "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_STATUS",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Active"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "filter": "Remote macOS Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": true,
+                                 "isDelimitedArray": true
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Protected",
+                           "conditions": [
+                              {
+                                 "id": "d40ae649-5597-459e-9333-fccf9cbf1e8d",
+                                 "categoryName": "OS",
+                                 "propertyName": "Name",
+                                 "propertyValue": 1,
+                                 "underlyingPropertyName": "TARGET_OS_NAME",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "IGEL"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false,
+                                 "branches": [
+                                    {
+                                       "state": "Unprotected",
+                                       "conditions": []
+                                    }
+                                 ]
+                              },
+                              {
+                                 "id": "0fa29604-d4fa-427a-a157-8a02a9d90883",
+                                 "categoryName": "IGEL",
+                                 "propertyName": "UMS Server",
+                                 "propertyValue": 2,
+                                 "underlyingPropertyName": "TARGET_IGEL_UMS_SERVER",
+                                 "operator": "String Not Empty",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Protected",
+                           "conditions": [
+                              {
+                                 "id": "1e83921b-9e59-4b9e-9ea1-871cb745f687",
+                                 "categoryName": "OS",
+                                 "propertyName": "Name",
+                                 "propertyValue": 1,
+                                 "underlyingPropertyName": "TARGET_OS_NAME",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "eLux"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false,
+                                 "branches": [
+                                    {
+                                       "state": "Unprotected",
+                                       "conditions": []
+                                    }
+                                 ]
+                              },
+                              {
+                                 "id": "29a38d20-1d4c-4fa9-bc9f-b8f6f994caeb",
+                                 "categoryName": "eLux",
+                                 "propertyName": "Scout Name",
+                                 "propertyValue": 6,
+                                 "underlyingPropertyName": "TARGET_ELUX_SCOUT_NAME",
+                                 "operator": "String Not Empty",
+                                 "value": {
+                                    "type": "String",
+                                    "data": []
+                                 },
+                                 "target": "Remote",
+                                 "filter": "Remote eLux Devices",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Unsupported OS",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "017e899e-ea71-4a3b-81d4-f17acc839874",
+                     "categoryName": "OS",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_OS_NAME",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Windows"
+                        ]
+                     },
+                     "target": "Remote",
+                     "filter": "All Remote Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Unprotected",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "1776d249-7c58-40e2-b295-621212a3db86",
+                     "categoryName": "Security Product",
+                     "propertyName": "Category",
+                     "propertyValue": 11,
+                     "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_CATEGORY",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "AntiVirus"
+                        ]
+                     },
+                     "target": "Remote",
+                     "filter": "Remote Windows Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "39064eea-be70-4e68-8f84-60133107f53f",
+                     "categoryName": "Security Product",
+                     "propertyName": "Status",
+                     "propertyValue": 12,
+                     "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_STATUS",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Active"
+                        ]
+                     },
+                     "target": "Remote",
+                     "filter": "Remote Windows Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": true,
+                     "isDelimitedArray": true
+                  },
+                  {
+                     "id": "655f4a5a-76f7-4264-942e-f00d05b65c7d",
+                     "categoryName": "Security Product",
+                     "propertyName": "Category",
+                     "propertyValue": 11,
+                     "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_CATEGORY",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Firewall"
+                        ]
+                     },
+                     "target": "Remote",
+                     "filter": "Remote Windows Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "e1752090-4b37-4545-a4a4-2fadbf1c9bc5",
+                     "categoryName": "Security Product",
+                     "propertyName": "Status",
+                     "propertyValue": 12,
+                     "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_STATUS",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Active"
+                        ]
+                     },
+                     "target": "Remote",
+                     "filter": "Remote Windows Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": true,
+                     "isDelimitedArray": true
+                  }
+               ]
+            }
+         ],
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
+      },
+      {
+         "id": "38a066cf-9d99-4a03-8cc4-f58917730e41",
+         "key": "CONTEXT_VPN_CONNECTED",
+         "name": "VPN Connected",
+         "description": "Defines if a network adapter of the remote device is connected to a VPN network.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "True",
+               "conditions": [
+                  {
+                     "id": "8be48140-9008-4cc9-937c-fb81e23c5470",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Local",
+                     "filter": "Local",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Unsupported OS",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "e7727cf3-f163-4c5a-b230-a39a61f1804a",
+                     "categoryName": "OS",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_OS_NAME",
+                     "operator": "Enum Any Of",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Windows",
+                           "Linux",
+                           "macOS"
+                        ]
+                     },
+                     "target": "Remote",
+                     "filter": "Remote Windows Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "True",
+                           "conditions": [
+                              {
+                                 "id": "d47dfa5c-70a9-41c3-9c8b-8c88b002acd7",
+                                 "categoryName": "Network",
+                                 "propertyName": "Virtual",
+                                 "propertyValue": 25,
+                                 "underlyingPropertyName": "TARGET_NETWORK_X_VIRTUAL",
+                                 "operator": "Boolean Equals",
+                                 "value": {
+                                    "type": "Boolean",
+                                    "data": [
+                                       true
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "8f9d6c6f-0be2-4fd5-9dc5-544e9f5b527f",
+                                 "categoryName": "Network",
+                                 "propertyName": "Description",
+                                 "propertyValue": 4,
+                                 "underlyingPropertyName": "TARGET_NETWORK_X_DESCRIPTION",
+                                 "operator": "String Any Of (Wildcard)",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       "*Cisco*",
+                                       "*Juniper*",
+                                       "*Nord*",
+                                       "*PANGP*",
+                                       "*Tunnel*",
+                                       "*VPN*"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "filter": "All Remote Devices",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": true,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "False",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "e658cdc0-2b92-4da3-a707-4d7609737426",
+                     "categoryName": "Network",
+                     "propertyName": "Type",
+                     "propertyValue": 5,
+                     "underlyingPropertyName": "TARGET_NETWORK_X_TYPE",
+                     "operator": "Enum Any Of",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "PPP",
+                           "Tunnel"
+                        ]
+                     },
+                     "target": "Remote",
+                     "filter": "All Remote Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
+      }
+   ],
+   "actions": [
+      {
+         "id": "3d628b8e-c707-4780-9d7c-ddcbd1f7f3c4",
+         "key": "ACTION_REPORTING_ACCESS_CONTROL_SPLUNK",
+         "name": "Reporting - Access Control - splunk",
+         "description": "Reports the status of the remote device to ELK Stack.",
+         "data": [
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_COUNTRY",
+                     "contextName": "Country",
+                     "contextMode": "Left-Most Path",
+                     "operator": "String Equals (Wildcard)",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "US"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "14b8e427-16f6-4b0b-95f9-b120ab7ed354",
+                     "type": "Web Request",
+                     "description": "Access granted",
+                     "method": "POST",
+                     "url": "http://YOUR_SPLUNK_SERVER_IP:8088/services/collector",
+                     "headers": [
+                        [
+                           "Authorization",
+                           "Splunk YOUR_AUTH_TOKEN_ID"
+                        ]
+                     ],
+                     "body": "{\n\t\"host\": \"%REMOTE_NAME%\",\n\t\"index\": \"YOUR_INDEX_NAME\",\n        \"sourcetype\": \"YOUR_SOURCETYPE_NAME\",\n\t\"event\": \"Access granted for device: %REMOTE_NAME%\",\n\t\"fields\": {\n\t\t\"AccessControl\": \"Granted\",\n\t\t\"SessionDate\": \"%TRIGGER_TIME%\",\n\t\t\"DeviceName\": \"%REMOTE_NAME%\",\n\t\t\"SessionUserDomain\": \"%LOCAL_USER_NAME_DOMAIN%\",\n\t\t\"SessionUserName\": \"%LOCAL_USER_NAME%\",\n\t\t\"Country\": \"%CONTEXT_COUNTRY%\",\n\t\t\"CountryProvider\": \"%CONTEXT_COUNTRY_PROVIDER%\",\n                \"EconomicRegion\": \"%CONTEXT_ECONOMIC_REGION%\",\n\t\t\"NetworkIPAddress\": \"%CONTEXT_NETWORK_IP_ADDRESS%\",\n\t\t\"SecurityState\": \"%CONTEXT_SECURITY_STATE%\",\n\t\t\"VPNConnected\": \"%CONTEXT_VPN_CONNECTED%\"\n\t}\n}",
+                     "bodyType": "Json",
+                     "timeout": 30,
+                     "wait": false,
+                     "repeat": false
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_COUNTRY",
+                     "contextName": "Country",
+                     "contextMode": "Left-Most Path",
+                     "operator": "String Not Equals (Wildcard)",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "US"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "6aa32639-3d52-4d5d-b4ba-70670b0ad87d",
+                     "type": "Web Request",
+                     "description": "Access blocked",
+                     "method": "POST",
+                     "url": "http://YOUR_SPLUNK_SERVER_IP:8088/services/collector",
+                     "headers": [
+                        [
+                           "Authorization",
+                           "Splunk YOUR_AUTH_TOKEN_ID"
+                        ]
+                     ],
+                     "body": "{\n\t\"host\": \"%REMOTE_NAME%\",\n\t\"index\": \"YOUR_INDEX_NAME\",\n        \"sourcetype\": \"YOUR_SOURCETYPE_NAME\",\n\t\"event\": \"Access blocked for device: %REMOTE_NAME%\",\n\t\"fields\": {\n\t\t\"AccessControl\": \"Blocked\",\n\t\t\"SessionDate\": \"%TRIGGER_TIME%\",\n\t\t\"DeviceName\": \"%REMOTE_NAME%\",\n\t\t\"SessionUserDomain\": \"%LOCAL_USER_NAME_DOMAIN%\",\n\t\t\"SessionUserName\": \"%LOCAL_USER_NAME%\",\n\t\t\"Country\": \"%CONTEXT_COUNTRY%\",\n\t\t\"CountryProvider\": \"%CONTEXT_COUNTRY_PROVIDER%\",\n                \"EconomicRegion\": \"%CONTEXT_ECONOMIC_REGION%\",\n\t\t\"NetworkIPAddress\": \"%CONTEXT_NETWORK_IP_ADDRESS%\",\n\t\t\"SecurityState\": \"%CONTEXT_SECURITY_STATE%\",\n\t\t\"VPNConnected\": \"%CONTEXT_VPN_CONNECTED%\"\n\t}\n}",
+                     "bodyType": "Json",
+                     "timeout": 30,
+                     "wait": false,
+                     "repeat": false
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "Medium"
+      }
+   ],
+   "messages": [],
+   "settings": [],
+   "usecases": []
+}

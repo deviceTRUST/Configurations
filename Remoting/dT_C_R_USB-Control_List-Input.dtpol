@@ -1,0 +1,158 @@
+{
+   "consoleVersion": "21.1.100.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-01-11T13:33:10.710Z",
+   "contexts": [
+      {
+         "id": "c32db3fa-aeee-4f2b-8615-c54b06232e8e",
+         "key": "CONTEXT_UNAUTHORIZED_USB_DRIVE",
+         "name": "Unauthorized USB Drive",
+         "description": "Defines if an unauthorized USB drive (Stick, Camera and Mobile Phone) is plugged into the remote device.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "True",
+               "conditions": [
+                  {
+                     "id": "76a3089a-954c-45b9-bae4-b10a3de03a52",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Local",
+                     "filter": "Local",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Unsupported OS",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "01ed808f-9b79-42b6-bc1b-c03e0ff2cd88",
+                     "categoryName": "OS",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_OS_NAME",
+                     "operator": "Enum Any Of",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Windows",
+                           "macOS",
+                           "eLux",
+                           "IGEL"
+                        ]
+                     },
+                     "target": "Remote",
+                     "filter": "Remote Windows Devices",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "False",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "07a7a464-187f-440f-8f96-0a5831bdd96c",
+                     "categoryName": "Logical Disk",
+                     "propertyName": "Bus Type",
+                     "propertyValue": 15,
+                     "underlyingPropertyName": "TARGET_LOGICALDISK_X_BUSTYPE",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "USB"
+                        ]
+                     },
+                     "target": "Remote",
+                     "filter": "All Remote Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": false,
+                     "isDelimitedArray": true
+                  },
+                  {
+                     "id": "b1814978-f9ce-4923-9365-54cc03344067",
+                     "categoryName": "Logical Disk",
+                     "propertyName": "Type",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_LOGICALDISK_X_TYPE",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Removable"
+                        ]
+                     },
+                     "target": "Remote",
+                     "filter": "Remote Windows Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": true,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "27ee27e2-ae69-4096-9f7a-b4e969445906",
+                     "categoryName": "Logical Disk",
+                     "propertyName": "Identity",
+                     "propertyValue": 19,
+                     "underlyingPropertyName": "TARGET_LOGICALDISK_X_IDENTITY",
+                     "operator": "String Not Equals (Wildcard)",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "serialNumber": "%HOST_CUSTOM_UserDeviceSerials%"
+                           }
+                        ]
+                     },
+                     "target": "Remote",
+                     "filter": "Remote Windows Devices",
+                     "isArrayIndexed": true,
+                     "sameAsParent": true,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
+      }
+   ],
+   "actions": [],
+   "messages": [],
+   "settings": [
+      {
+         "type": "CustomProperties",
+         "enabled": true,
+         "runAs": "System",
+         "delayUntilPropertiesAvailable": false,
+         "captureOutput": true,
+         "timeout": 300,
+         "failureDetection": "Exit Code",
+         "embeddedScript": "$UserDeviceSerials = \"\"\n\n### Import the IP and range configuration file\n$AllDevices = Import-Csv \"\\\\YOUR_FILESHARE_FQDN\\input.csv\"\n\n### List all available ports\n$UserDevices = $AllDevices | Where-Object{$_.Username -eq \"USERNAME\"}\n\n$UserDevices | ForEach-Object {\n    \n    $UserDeviceSerials = $UserDeviceSerials + $_.DeviceSerial + \";\"\n\n}\n\nif ($UserDeviceSerials.StartsWith(\";\")) {\n\n    $UserDeviceSerials  = $UserDeviceSerials.TrimStart(\";\")\n    \n}\n\nif ($UserDeviceSerials.EndsWith(\";\")) {\n\n    $UserDeviceSerials  = $UserDeviceSerials.TrimEnd(\";\")\n    \n}\n\nwrite-output \"&dtcmd SET \"/update:HOST_CUSTOM_UserDeviceSerials=$UserDeviceSerials\"\"\n&dtcmd SET \"/update:HOST_CUSTOM_UserDeviceSerials=$UserDeviceSerials\"",
+         "embeddedScriptTarget": "PowerShell",
+         "powerShellExecutionPolicy": "Unrestricted",
+         "bypassAppLockerPolicy": true
+      }
+   ],
+   "usecases": []
+}
