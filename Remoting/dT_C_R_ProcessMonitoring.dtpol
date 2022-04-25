@@ -1,0 +1,210 @@
+{
+   "consoleVersion": "21.1.200.0",
+   "username": "DEMO.DEVICETRUST.LOCAL\\admin",
+   "timestamp": "2022-04-25T08:55:54.223Z",
+   "contexts": [
+      {
+         "id": "0ae24796-8227-4b62-8de0-267c08067e06",
+         "key": "CONTEXT_PROCESS_STATE_SNIPPINGTOOL",
+         "name": "Process State - SnippingTool ",
+         "description": "",
+         "mode": "Left-Most Path",
+         "defaultState": "Stopped",
+         "enabled": true,
+         "data": [
+            {
+               "state": "Running",
+               "conditions": [
+                  {
+                     "id": "1a2e131f-ba8d-4815-bdd0-5c61d1cad600",
+                     "categoryName": "Custom",
+                     "propertyName": "Condition",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_CUSTOM_CONDITION",
+                     "operator": "String Equals (Wildcard)",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "property": "%REMOTE_CUSTOM_SNIP_RUNNING%",
+                              "data": [
+                                 "True"
+                              ]
+                           }
+                        ]
+                     },
+                     "target": "Local",
+                     "filter": "Local",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": true
+                  }
+               ]
+            }
+         ],
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
+      },
+      {
+         "id": "eb7b32f7-4d22-4887-af0a-3bfad12608e7",
+         "key": "CONTEXT_PROCESS_STATE_ZOOM",
+         "name": "Process State - Zoom",
+         "description": "",
+         "mode": "Left-Most Path",
+         "defaultState": "Stopped",
+         "enabled": true,
+         "data": [
+            {
+               "state": "Running",
+               "conditions": [
+                  {
+                     "id": "53376b38-5c49-47ee-9a66-4c6390a236c2",
+                     "categoryName": "Custom",
+                     "propertyName": "Condition",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_CUSTOM_CONDITION",
+                     "operator": "String Equals (Wildcard)",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           {
+                              "property": "%REMOTE_CUSTOM_ZOOM_RUNNING%",
+                              "data": [
+                                 "True"
+                              ]
+                           }
+                        ]
+                     },
+                     "target": "Local",
+                     "filter": "Local",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": true
+                  }
+               ]
+            }
+         ],
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
+      }
+   ],
+   "actions": [
+      {
+         "id": "14ca6f21-7d6e-4321-be16-8e26ca63cc75",
+         "key": "ACTION_CONDITIONAL_ACCESS_SHARING_TOOLS",
+         "name": "Conditional Access - Sharing Tools",
+         "description": "",
+         "data": [
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_PROCESS_STATE_SNIPPINGTOOL",
+                     "contextName": "Process State - SnippingTool ",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Running"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "17420d7b-7ebf-44ce-93cb-34f911313fe2",
+                     "type": "Deny Access",
+                     "description": "Content blocked",
+                     "allowShellInteraction": false,
+                     "title": "Content blocked",
+                     "message": "This session's content has been blocked because \"SnippingTool\" is running on your local client. %NEWLINE% Please stop \"Snipping Tool\" to re-gain access.",
+                     "triggerButtons": [],
+                     "persistence": "Context",
+                     "alwaysShowSignoutButton": false
+                  }
+               ]
+            },
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect",
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_PROCESS_STATE_ZOOM",
+                     "contextName": "Process State - Zoom",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Running"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "79689077-711b-4f86-87f7-5679f26af832",
+                     "type": "Deny Access",
+                     "description": "Content blocked",
+                     "allowShellInteraction": false,
+                     "title": "Content blocked",
+                     "message": "This session's content has been blocked because \"Zoom\" is running on your local client. %NEWLINE% Please stop \"Zoom\" to re-gain access.",
+                     "triggerButtons": [],
+                     "persistence": "Context",
+                     "alwaysShowSignoutButton": false
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "Medium"
+      }
+   ],
+   "messages": [],
+   "settings": [
+      {
+         "type": "CustomProperties",
+         "settingsEnabled": true,
+         "enabled": false,
+         "runAs": "User",
+         "delayUntilPropertiesAvailable": false,
+         "captureOutput": false,
+         "timeout": 300,
+         "failureDetection": "Exit Code",
+         "embeddedScript": "# Example PowerShell to create a LOCAL_CUSTOM_EXAMPLE property\r\n$exampleValue=$env:USERNAME\r\nWrite-Host \"LOCAL_CUSTOM_EXAMPLE=$exampleValue\"",
+         "embeddedScriptTarget": "PowerShell",
+         "powerShellExecutionPolicy": "NotSpecified",
+         "bypassAppLockerPolicy": false,
+         "localPersistAcrossReconnects": false,
+         "localHashProperties": false,
+         "remoteWindowsProcess": {
+            "enabled": true,
+            "runAs": "Current",
+            "timeout": 0,
+            "failureDetection": "Exit Code And Error Message",
+            "embeddedScript": "while($true){\n\n    $zoomProcess = Get-Process 'Zoom' -ErrorAction Ignore\n    Write-Host \"REMOTE_CUSTOM_ZOOM_RUNNING=$($zoomProcess.Length -gt 0)\"\n\n    $snippingProcess = Get-Process 'snipp*' -ErrorAction Ignore\n    Write-Host \"REMOTE_CUSTOM_SNIP_RUNNING=$($snippingProcess.Length -gt 0)\"\n\n    Write-Host \"CONTINUE\"\n\n    Sleep -Seconds 1\n\n}",
+            "embeddedScriptTarget": "PowerShell",
+            "powerShellExecutionPolicy": "Unrestricted",
+            "bypassAppLockerPolicy": false,
+            "hashProperties": false
+         }
+      }
+   ],
+   "usecases": []
+}
