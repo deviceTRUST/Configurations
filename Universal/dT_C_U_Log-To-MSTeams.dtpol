@@ -1,0 +1,63 @@
+{
+   "consoleVersion": "21.1.200.0",
+   "username": "localadmin",
+   "timestamp": "2022-04-25T06:15:03.718Z",
+   "contexts": [],
+   "actions": [
+      {
+         "id": "0cd1d282-42ac-4961-99a8-99be4f84a981",
+         "key": "ACTION_CONDITIONAL_APPLICATION_ACCESS_SECURITY_STATE_REPORT_TO_TEAMS",
+         "name": "Conditional Application Access - Security State - Report to Teams",
+         "description": "Enter action description",
+         "data": [
+            {
+               "type": "Context",
+               "triggers": [
+                  "ContextChanged"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_SECURITY_STATE",
+                     "contextName": "Security State",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Any Of",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Protected (AV Update Required)",
+                           "Unprotected",
+                           "Protected"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "e33fb46c-ced5-4297-bc0a-bb1945a71ecb",
+                     "type": "Web Request",
+                     "description": "Send to Teams",
+                     "method": "POST",
+                     "url": "https://devicetrustemployees.webhook.office.com/webhookb2/335bbb1a-07b4-40ad-ab0f-ce6fb233d4a9@ac2142e7-fd2b-40c8-81ba-f4786af6ba08/IncomingWebhook/a2074480d8f945448b53430d3ae1d39f/f2f1b805-714c-49b2-8016-9b6d669a12ea",
+                     "headers": [
+                        [
+                           "ContentType",
+                           "application/json"
+                        ]
+                     ],
+                     "body": "{\"@type\"      : \"MessageCard\",\n    \"@context\"  : \"http://schema.org/extensions\",\n    \"summary\"   : \"Security State %LOCAL_NAME%:%LOCAL_USER_NAME%\",\n    \"themeColor\" : \"0078D7\",\n    \"title\"      : \"Security State changed on %LOCAL_NAME%:%LOCAL_USER_NAME%\",\n    \"text\"       : \"Security State:%CONTEXT_SECURITY_STATE%\"\n}",
+                     "bodyType": "Json",
+                     "timeout": 30,
+                     "wait": false,
+                     "repeat": false
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "Medium"
+      }
+   ],
+   "messages": [],
+   "settings": [],
+   "usecases": []
+}
