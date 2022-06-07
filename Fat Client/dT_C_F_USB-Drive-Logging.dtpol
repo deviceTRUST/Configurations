@@ -1,0 +1,229 @@
+{
+    "consoleVersion": "21.1.200.0",
+    "username": "DEMO.DEVICETRUST.LOCAL\\admin",
+    "timestamp": "2022-06-07T15:18:30.378Z",
+    "contexts": [
+      {
+        "id": "aa63b9c5-6660-4acf-9f34-5658e16d78ce",
+        "key": "CONTEXT_USB_DEVICE_COUNT",
+        "name": "USB Device Count",
+        "description": "Defines if an unauthorized USB device (Stick, Camera and Mobile Phone) is plugged in.",
+        "mode": "Left-Most Path",
+        "defaultState": "False",
+        "enabled": true,
+        "data": [
+          {
+            "state": "%LOCAL_LOGICALDISK_COUNT%",
+            "conditions": [
+              {
+                "id": "0b39f3ff-4cb7-4b1c-97c3-ec12fc489922",
+                "categoryName": "Logical Disk",
+                "propertyName": "Bus Type",
+                "propertyValue": 15,
+                "underlyingPropertyName": "TARGET_LOGICALDISK_X_BUSTYPE",
+                "operator": "Enum Equals",
+                "value": {
+                  "type": "Enum",
+                  "data": [
+                    "USB"
+                  ]
+                },
+                "target": "Local",
+                "filter": "Local",
+                "isArrayIndexed": true,
+                "sameAsParent": false,
+                "isDelimitedArray": true
+              },
+              {
+                "id": "4319a6fd-8fa1-437a-a15b-aed830290dd6",
+                "categoryName": "Logical Disk",
+                "propertyName": "Type",
+                "propertyValue": 2,
+                "underlyingPropertyName": "TARGET_LOGICALDISK_X_TYPE",
+                "operator": "Enum Any Of",
+                "value": {
+                  "type": "Enum",
+                  "data": [
+                    "Removable",
+                    "PortableDevice"
+                  ]
+                },
+                "target": "Local",
+                "filter": "Local",
+                "isArrayIndexed": true,
+                "sameAsParent": true,
+                "isDelimitedArray": false
+              },
+              {
+                "id": "3dc813f3-643f-45df-8214-e0a960c51478",
+                "categoryName": "Logical Disk",
+                "propertyName": "Vendor Id",
+                "propertyValue": 12,
+                "underlyingPropertyName": "TARGET_LOGICALDISK_X_VENDOR_ID",
+                "operator": "Available",
+                "value": {
+                  "type": "String",
+                  "data": []
+                },
+                "target": "Local",
+                "filter": "Local",
+                "isArrayIndexed": true,
+                "sameAsParent": true,
+                "isDelimitedArray": true
+              },
+              {
+                "id": "fa90cab6-882d-486b-b240-610ebdc58767",
+                "categoryName": "Logical Disk",
+                "propertyName": "Product Id",
+                "propertyValue": 13,
+                "underlyingPropertyName": "TARGET_LOGICALDISK_X_PRODUCT_ID",
+                "operator": "Available",
+                "value": {
+                  "type": "String",
+                  "data": []
+                },
+                "target": "Local",
+                "filter": "Local",
+                "isArrayIndexed": true,
+                "sameAsParent": true,
+                "isDelimitedArray": true
+              },
+              {
+                "id": "d0d3f21c-42e0-4895-8340-bf3071a1fb52",
+                "categoryName": "Logical Disk",
+                "propertyName": "Serial Number",
+                "propertyValue": 14,
+                "underlyingPropertyName": "TARGET_LOGICALDISK_X_SERIALNUMBER",
+                "operator": "Available",
+                "value": {
+                  "type": "String",
+                  "data": []
+                },
+                "target": "Local",
+                "filter": "Local",
+                "isArrayIndexed": true,
+                "sameAsParent": true,
+                "isDelimitedArray": true
+              },
+              {
+                "id": "18ee5688-2d39-48fc-a5b6-7b34fd2763b7",
+                "categoryName": "Logical Disk",
+                "propertyName": "Count",
+                "propertyValue": 1,
+                "underlyingPropertyName": "TARGET_LOGICALDISK_COUNT",
+                "operator": "Available",
+                "value": {
+                  "type": "String",
+                  "data": []
+                },
+                "target": "Local",
+                "filter": "Local",
+                "isArrayIndexed": false,
+                "sameAsParent": false,
+                "isDelimitedArray": false
+              }
+            ]
+          }
+        ],
+        "protection": "Text",
+        "persistToEventLog": true,
+        "persistToRegistry": true,
+        "persistToEnvironment": true,
+        "persistToCommandPrompt": true
+      },
+      {
+        "id": "d912af24-2d0a-4c59-9ff1-508323ee02cc",
+        "key": "CONTEXT_USERNAME",
+        "name": "Username",
+        "description": "Enter context description",
+        "mode": "Left-Most Path",
+        "defaultState": "Unavailable",
+        "enabled": true,
+        "data": [
+          {
+            "state": "%LOCAL_USER_NAME%",
+            "conditions": [
+              {
+                "id": "1d519b64-0fc3-46f6-b8e5-cf1290d48550",
+                "categoryName": "User",
+                "propertyName": "Name",
+                "propertyValue": 1,
+                "underlyingPropertyName": "TARGET_USER_NAME",
+                "operator": "Available",
+                "value": {
+                  "type": "String",
+                  "data": []
+                },
+                "target": "Local",
+                "filter": "Local",
+                "isArrayIndexed": false,
+                "sameAsParent": false,
+                "isDelimitedArray": false
+              }
+            ]
+          }
+        ],
+        "protection": "Text",
+        "persistToEventLog": true,
+        "persistToRegistry": true,
+        "persistToEnvironment": true,
+        "persistToCommandPrompt": true
+      }
+    ],
+    "actions": [
+      {
+        "id": "6591ab7f-f210-448c-99b9-df5d7c5cb29b",
+        "key": "ACTION_USB_DEVICE_LOGGING",
+        "name": "USB Device Logging",
+        "description": "",
+        "data": [
+          {
+            "type": "Context",
+            "triggers": [
+              "Logon",
+              "Reconnect",
+              "ContextChanged"
+            ],
+            "filters": [
+              {
+                "contextKey": "CONTEXT_USB_DEVICE_COUNT",
+                "contextName": "USB Device Count",
+                "contextMode": "Left-Most Path",
+                "operator": "String Not Equals (Wildcard)",
+                "value": {
+                  "type": "String",
+                  "data": [
+                    "Test"
+                  ]
+                }
+              }
+            ],
+            "tasks": [
+              {
+                "id": "ef0b0125-56ad-4fac-bae4-4c3cc7db03c2",
+                "type": "Custom Process",
+                "description": "Run embedded script as System",
+                "runAs": "System",
+                "hidden": false,
+                "wait": true,
+                "captureOutput": true,
+                "timeout": 300,
+                "failureDetection": "Exit Code",
+                "runOnClient": false,
+                "useEmbeddedScript": true,
+                "embeddedScript": "start-sleep -seconds 2\n\n# Get the most recent event with ID 105 (\"Properties of user xxx were changed.\")\n$WindowsEvent=[xml]( get-winevent -FilterHashtable @{Logname='deviceTRUST/Admin';ID=105}  -MaxEvents 1| Foreach-Object{$_.ToXml()})\n\n# Read all added properties from the selected event\n$data = ($WindowsEvent.event.EventData | Select-Object -expand data | Where-Object{$_.name -eq \"AddedProperties\"}).'#text'\n\n# Run script block if the content is not \"None\"\nif($data -ne \"None\" -and $data -match \"LOGICALDISK\"){\n\n    # Initialize loop variable\n    $i=0\n\n    # Run script block while data is found\n    while($true){\n\n        # If data is found in the selected line...\n        if($data.Split([Environment]::NewLine)[$i]){\n\n            # ... analyze the line for it's value type and store the value to the respective variable\n            switch -wildcard ($data.Split([Environment]::NewLine)[$i].split(\"=\")[0]){\n\n                \"*_PRODUCT_ID\"{$ProductID = write-output $data.Split([Environment]::NewLine)[$i].split(\"=\")[1]}\n                \"*_VENDOR_ID\"{$VendorID = write-output $data.Split([Environment]::NewLine)[$i].split(\"=\")[1]}\n                \"*_SERIALNUMBER\"{$SerialNumber = write-output $data.Split([Environment]::NewLine)[$i].split(\"=\")[1]}\n                \"*_TYPE\"{$Type = write-output $data.Split([Environment]::NewLine)[$i].split(\"=\")[1]}\n                \"*_BUSTYPE\"{$BUSType = write-output $data.Split([Environment]::NewLine)[$i].split(\"=\")[1]}\n\n            }\n    \n        # If no data is found in the selected line...\n        } else {\n\n            # ... end script bock if no data is found\n            break\n\n        }\n\n        # Count the loop variable up by 1\n        $i++\n\n    }\n\n    # Configure the log folder\n    $folder = \"$env:SystemRoot\\System32\\LogFiles\\deviceTRUST\\\"\n\n    # Create the log folder if it does not exist\n    if (!(Test-Path $folder)) {New-Item -Name \"deviceTRUST\" -Path \"$env:SystemRoot\\System32\\LogFiles\" -ItemType Directory}\n\n    # Generate the log entry from the evaluated data\n    $LogEntry = [ordered] @{\n        \"Date\" = Get-Date\n        \"ComputerName\" = $env:Computername\n        \"Product ID\" = $ProductID\n        \"Vendor ID\" = $VendorID\n        \"SerialNumber\" = $SerialNumber\n        \"BUSType\" = $BUSType\n        \"Type\" = $Type\n    }\n\n    # Write the log entry to the csv log file\n    New-Object PSObject -Property $LogEntry | Export-Csv -Path \"$env:SystemRoot\\System32\\LogFiles\\deviceTRUST\\USBDeviceLog_$env:Computername.csv\" -Append -NoTypeInformation\n\n}",
+                "embeddedScriptTarget": "PowerShell",
+                "powerShellExecutionPolicy": "NotSpecified",
+                "bypassAppLockerPolicy": false
+              }
+            ]
+          }
+        ],
+        "enabled": true,
+        "priority": "High"
+      }
+    ],
+    "messages": [],
+    "settings": [],
+    "usecases": []
+  }
