@@ -1,7 +1,4 @@
 {
-   "consoleVersion": "20.2.300.0",
-   "username": "SvenJansen",
-   "timestamp": "2021-04-29T12:36:56.830Z",
    "contexts": [
       {
          "id": "22ace224-e6f9-446e-99f4-6bd5a794d17a",
@@ -30,8 +27,7 @@
                            }
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": true
@@ -39,7 +35,11 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       },
       {
          "id": "a801526a-117d-4df1-90a6-7d3d93efa303",
@@ -68,8 +68,7 @@
                            }
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": true
@@ -77,7 +76,11 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       },
       {
          "id": "2161d1ff-cc3c-4951-a09e-1ccd12b07032",
@@ -97,7 +100,7 @@
                      "propertyName": "Condition",
                      "propertyValue": 1,
                      "underlyingPropertyName": "TARGET_CUSTOM_CONDITION",
-                     "operator": "String Equals",
+                     "operator": "String Any Of (Wildcard)",
                      "value": {
                         "type": "String",
                         "data": [
@@ -109,8 +112,7 @@
                            }
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": true
@@ -126,7 +128,7 @@
                      "propertyName": "Condition",
                      "propertyValue": 1,
                      "underlyingPropertyName": "TARGET_CUSTOM_CONDITION",
-                     "operator": "String Wildcard",
+                     "operator": "String Any Of (Wildcard)",
                      "value": {
                         "type": "String",
                         "data": [
@@ -138,8 +140,7 @@
                            }
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": true
@@ -155,7 +156,7 @@
                      "propertyName": "Condition",
                      "propertyValue": 1,
                      "underlyingPropertyName": "TARGET_CUSTOM_CONDITION",
-                     "operator": "String Wildcard",
+                     "operator": "String Any Of (Wildcard)",
                      "value": {
                         "type": "String",
                         "data": [
@@ -167,8 +168,7 @@
                            }
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": true
@@ -184,7 +184,7 @@
                      "propertyName": "Condition",
                      "propertyValue": 1,
                      "underlyingPropertyName": "TARGET_CUSTOM_CONDITION",
-                     "operator": "String Wildcard",
+                     "operator": "String Any Of (Wildcard)",
                      "value": {
                         "type": "String",
                         "data": [
@@ -196,8 +196,7 @@
                            }
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": true
@@ -205,7 +204,11 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       },
       {
          "id": "861e91c3-50f9-4f37-a330-d2a385d9a607",
@@ -234,8 +237,7 @@
                            }
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": true
@@ -243,7 +245,11 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       },
       {
          "id": "f83b52cd-860c-4e6a-9c51-3be4ee47b7cb",
@@ -272,8 +278,7 @@
                            }
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": true
@@ -281,7 +286,11 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       }
    ],
    "actions": [
@@ -560,6 +569,7 @@
    "settings": [
       {
          "type": "CustomProperties",
+         "settingsEnabled": true,
          "enabled": true,
          "runAs": "System",
          "delayUntilPropertiesAvailable": true,
@@ -569,16 +579,51 @@
          "embeddedScript": "[string]$PrinterGroupPrefix = \"PrinterMap_*\" # AD printer management group\n[string]$PrinterGroupPrefix = \"CN=\" + $PrinterGroupPrefix  # AD printer management group CN\n[string]$PrintersToConnect = \"\"  # Clear the printers to connect variable\n\n# Create a searcher which binds to the root of the directory\n$root = [ADSI]\"LDAP://RootDSE\"\n$searchRoot = [ADSI]('LDAP://' + $root.rootDomainNamingContext)\n$searcher = [adsisearcher]$searchRoot\n\n# Find the local computer\n$searcher.Filter = \"(&(objectclass=computer)(cn=$env:COMPUTERNAME))\"\n$computerObject = $searcher.FindOne()\n$computer = $computerObject.GetDirectoryEntry()\n\n# Find the groups distinguished names which match the printer wildcard\n$allGroupDns = $computer.memberOf\n$printerGroupDns = $allGroupDns -match $PrinterGroupPrefix\n\nif($printerGroupDns -ne $null){\n    if($printerGroupDns.length -eq 1){\n\n        # Lookup the printer group in AD\n        $printerGroup = [adsi]\"LDAP://$printerGroupDns\"\n        $printerGroupDescription = $printerGroup.Description\n\n        if ($PrinterGroupDescription.Length -gt 0) {\n\n            [array]$PrintersToConnectRaw = $PrinterGroupDescription.Split(\",\")\n\n            foreach ($Printer in $PrintersToConnectRaw) {\n\n                if ($Printer.StartsWith(\"!\\\\\")) {\n\n                    [string]$PRINTER_DEFAULT = $Printer.TrimStart(\"!\")\n                    &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_DEFAULT=$PRINTER_DEFAULT\"\n                    $PrintersToConnect = $PrintersToConnect + \",\" + $PRINTER_DEFAULT\n\n                }\n\n                if ($Printer.StartsWith(\"!!\\\\\")) {\n\n                    [string]$PRINTER_DEFAULT_FAILOVER = $Printer.TrimStart(\"!!\")\n                    &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_DEFAULT_FAILOVER=$PRINTER_DEFAULT_FAILOVER\"\n                    $PrintersToConnect = $PrintersToConnect + \",\" + $PRINTER_DEFAULT_FAILOVER\n\n                }\n\n                if ($Printer.StartsWith(\"\\\\\")) {\n\n                    $PrintersToConnect = $PrintersToConnect + \",\" + $Printer\n                }\n\n            }\n\n            if ($PrintersToConnect.StartsWith(\",\")) {\n\n                $PrintersToConnect = $PrintersToConnect.TrimStart(\",\")\n\n            }\n\n            if ($PrintersToConnect.EndsWith(\",\")) {\n\n                $PrintersToConnect = $PrintersToConnect.TrimEnd(\",\")\n\n            }\n        \n            &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_ERROR=False\"\n\n            &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_MANAGEMENT_GROUP=$PrinterManagementGroup\"\n\n            &dtcmd SET \"/update:HOST_CUSTOM_PRINTERS=$PrintersToConnect\"\n\n        } else {\n\n            &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_MANAGEMENT_GROUP=$PrinterManagementGroup\"\n            \n            [string]$PrintersToConnectGroup = (Get-ADPrincipalGroupMembership (Get-ADComputer $env:COMPUTERNAME) | Where-Object name -Match \"PrinterMap_*\").name    \n            [string]$PrintersToConnectError = \"Description: The printer management group '$PrintersToConnectGroup' has no definied printers.\"\n            \n            &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_ERROR=$PrintersToConnectError\"\n        }\n\n    } else {\n\n        &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_MANAGEMENT_GROUP=$PrinterManagementGroup\"\n        \n        [string]$PrintersToConnectError = \"Groups: The PC '$env:COMPUTERNAME' is a member of multiple printer management groups.\"\n        \n        &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_ERROR=$PrintersToConnectError\"\n\n    }\n\n} else {\n\n    &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_MANAGEMENT_GROUP=No Printer Management Group\"\n        \n    [string]$PrintersToConnectError = \"No Group: The PC '$env:COMPUTERNAME' is not a member of any printer management group.\"\n        \n    &dtcmd SET \"/update:HOST_CUSTOM_PRINTER_ERROR=$PrintersToConnectError\"\n\n}",
          "embeddedScriptTarget": "PowerShell",
          "powerShellExecutionPolicy": "Unrestricted",
-         "bypassAppLockerPolicy": true
+         "bypassAppLockerPolicy": true,
+         "localDelayUntilPropertiesAvailable": true,
+         "localPersistAcrossReconnects": false,
+         "localHashProperties": false,
+         "remoteWindowsProcess": {
+            "enabled": false,
+            "runAs": "Current",
+            "timeout": 300,
+            "failureDetection": "Exit Code",
+            "embeddedScript": "# Example PowerShell to create a REMOTE_CUSTOM_EXAMPLE property\r\n$exampleValue=$env:USERNAME\r\nWrite-Host \"REMOTE_CUSTOM_EXAMPLE=$exampleValue\"",
+            "embeddedScriptTarget": "PowerShell",
+            "powerShellExecutionPolicy": "Unrestricted",
+            "bypassAppLockerPolicy": false,
+            "hashProperties": false
+         },
+         "remoteIgelProcess": {
+            "enabled": false,
+            "runAs": "Current",
+            "timeout": 300,
+            "failureDetection": "Exit Code",
+            "embeddedScript": "#!/bin/bash\n echo REMOTE_CUSTOM_EXAMPLE=$(whoami)\n",
+            "embeddedScriptTarget": "Unknown",
+            "hashProperties": false
+         },
+         "remoteLinuxProcess": {
+            "enabled": false,
+            "runAs": "Current",
+            "timeout": 300,
+            "failureDetection": "Exit Code",
+            "embeddedScript": "#!/bin/bash\n echo REMOTE_CUSTOM_EXAMPLE=$(whoami)\n",
+            "embeddedScriptTarget": "Unknown",
+            "hashProperties": false
+         }
       },
       {
          "type": "Printer",
          "enabled": true,
          "maxNumberOfRetries": 5,
          "retryIntervalInSeconds": 1,
-         "createDesktopPrinterIcon": true,
          "letPrintSpoolerManageNetworkPrinters": false,
          "letWindowsManageDefaultPrinter": false
       }
-   ]
+   ],
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-11-29T11:56:26.096Z"
 }

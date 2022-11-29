@@ -1,7 +1,4 @@
 {
-   "consoleVersion": "20.2.300.0",
-   "username": "DEMO.DEVICETRUST.LOCAL\\admin",
-   "timestamp": "2021-05-03T10:32:40.936Z",
    "contexts": [
       {
          "id": "fa577b9f-2da1-448b-ae73-cb9394627e75",
@@ -28,8 +25,7 @@
                            "ICA"
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false,
@@ -53,8 +49,7 @@
                            "21"
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -70,15 +65,14 @@
                      "propertyName": "Remote Name",
                      "propertyValue": 4,
                      "underlyingPropertyName": "TARGET_REMOTECONTROL_REMOTE_NAME",
-                     "operator": "String Wildcard",
+                     "operator": "String Equals (Wildcard)",
                      "value": {
                         "type": "String",
                         "data": [
                            "HTML*"
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false,
@@ -102,8 +96,7 @@
                            "20"
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -111,10 +104,18 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       }
    ],
    "actions": [],
    "messages": [],
-   "settings": []
+   "settings": [],
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-11-29T11:59:00.753Z"
 }

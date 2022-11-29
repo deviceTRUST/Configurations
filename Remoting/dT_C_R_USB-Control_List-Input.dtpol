@@ -1,7 +1,4 @@
 {
-   "consoleVersion": "21.1.100.0",
-   "username": "SvenJansen",
-   "timestamp": "2022-01-11T13:33:10.710Z",
    "contexts": [
       {
          "id": "c32db3fa-aeee-4f2b-8615-c54b06232e8e",
@@ -29,7 +26,6 @@
                         ]
                      },
                      "target": "Local",
-                     "filter": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false,
@@ -57,7 +53,6 @@
                         ]
                      },
                      "target": "Remote",
-                     "filter": "Remote Windows Devices",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false,
@@ -82,7 +77,6 @@
                         ]
                      },
                      "target": "Remote",
-                     "filter": "All Remote Devices",
                      "isArrayIndexed": true,
                      "sameAsParent": false,
                      "isDelimitedArray": true
@@ -101,7 +95,6 @@
                         ]
                      },
                      "target": "Remote",
-                     "filter": "Remote Windows Devices",
                      "isArrayIndexed": true,
                      "sameAsParent": true,
                      "isDelimitedArray": false
@@ -122,7 +115,6 @@
                         ]
                      },
                      "target": "Remote",
-                     "filter": "Remote Windows Devices",
                      "isArrayIndexed": true,
                      "sameAsParent": true,
                      "isDelimitedArray": false
@@ -142,6 +134,7 @@
    "settings": [
       {
          "type": "CustomProperties",
+         "settingsEnabled": true,
          "enabled": true,
          "runAs": "System",
          "delayUntilPropertiesAvailable": false,
@@ -151,8 +144,43 @@
          "embeddedScript": "$UserDeviceSerials = \"\"\n\n### Import the IP and range configuration file\n$AllDevices = Import-Csv \"\\\\YOUR_FILESHARE_FQDN\\input.csv\"\n\n### List all available ports\n$UserDevices = $AllDevices | Where-Object{$_.Username -eq \"USERNAME\"}\n\n$UserDevices | ForEach-Object {\n    \n    $UserDeviceSerials = $UserDeviceSerials + $_.DeviceSerial + \";\"\n\n}\n\nif ($UserDeviceSerials.StartsWith(\";\")) {\n\n    $UserDeviceSerials  = $UserDeviceSerials.TrimStart(\";\")\n    \n}\n\nif ($UserDeviceSerials.EndsWith(\";\")) {\n\n    $UserDeviceSerials  = $UserDeviceSerials.TrimEnd(\";\")\n    \n}\n\nwrite-output \"&dtcmd SET \"/update:HOST_CUSTOM_UserDeviceSerials=$UserDeviceSerials\"\"\n&dtcmd SET \"/update:HOST_CUSTOM_UserDeviceSerials=$UserDeviceSerials\"",
          "embeddedScriptTarget": "PowerShell",
          "powerShellExecutionPolicy": "Unrestricted",
-         "bypassAppLockerPolicy": true
+         "bypassAppLockerPolicy": true,
+         "localDelayUntilPropertiesAvailable": false,
+         "localPersistAcrossReconnects": false,
+         "localHashProperties": false,
+         "remoteWindowsProcess": {
+            "enabled": false,
+            "runAs": "Current",
+            "timeout": 300,
+            "failureDetection": "Exit Code",
+            "embeddedScript": "# Example PowerShell to create a REMOTE_CUSTOM_EXAMPLE property\r\n$exampleValue=$env:USERNAME\r\nWrite-Host \"REMOTE_CUSTOM_EXAMPLE=$exampleValue\"",
+            "embeddedScriptTarget": "PowerShell",
+            "powerShellExecutionPolicy": "Unrestricted",
+            "bypassAppLockerPolicy": false,
+            "hashProperties": false
+         },
+         "remoteIgelProcess": {
+            "enabled": false,
+            "runAs": "Current",
+            "timeout": 300,
+            "failureDetection": "Exit Code",
+            "embeddedScript": "#!/bin/bash\n echo REMOTE_CUSTOM_EXAMPLE=$(whoami)\n",
+            "embeddedScriptTarget": "Unknown",
+            "hashProperties": false
+         },
+         "remoteLinuxProcess": {
+            "enabled": false,
+            "runAs": "Current",
+            "timeout": 300,
+            "failureDetection": "Exit Code",
+            "embeddedScript": "#!/bin/bash\n echo REMOTE_CUSTOM_EXAMPLE=$(whoami)\n",
+            "embeddedScriptTarget": "Unknown",
+            "hashProperties": false
+         }
       }
    ],
-   "usecases": []
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-11-29T11:59:38.679Z"
 }

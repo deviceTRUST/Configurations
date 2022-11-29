@@ -5,9 +5,6 @@ This section contains a collection of deviceTRUST configurations. Configurations
 # Privacy / Anonymization
 All configurations found here are anonymized. Please make sure there is no private data in the configs while sharing!
 
-# Version Information
-All configurations have been created and tested with (at least) deviceTRUST Host and Console version 20.2.300. Please upgrade accordingly or modify the configurations, if you whitness issues.
-
 # Contributing
 To contribute to the configurations, follow these steps:
 

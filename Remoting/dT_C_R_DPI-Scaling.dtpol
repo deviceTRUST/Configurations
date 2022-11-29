@@ -1,7 +1,4 @@
 {
-   "consoleVersion": "20.2.300.0",
-   "username": "SvenJansen",
-   "timestamp": "2021-04-28T07:48:47.422Z",
    "contexts": [
       {
          "id": "e38b0846-a80c-4db2-b1c9-ecdc69caf52f",
@@ -28,8 +25,7 @@
                            true
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false,
@@ -53,8 +49,7 @@
                            "Windows"
                         ]
                      },
-                     "target": "Device",
-                     "filter": "Windows Devices",
+                     "target": "Remote",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false,
@@ -75,8 +70,7 @@
                                        "AzureAD"
                                     ]
                                  },
-                                 "target": "Device",
-                                 "filter": "Windows Devices",
+                                 "target": "Remote",
                                  "isArrayIndexed": false,
                                  "sameAsParent": false,
                                  "isDelimitedArray": false
@@ -87,15 +81,14 @@
                                  "propertyName": "ID",
                                  "propertyValue": 3,
                                  "underlyingPropertyName": "TARGET_DOMAIN_ID",
-                                 "operator": "String Equals",
+                                 "operator": "String Equals (Wildcard)",
                                  "value": {
                                     "type": "String",
                                     "data": [
                                        "AZURE_AD_ID"
                                     ]
                                  },
-                                 "target": "Device",
-                                 "filter": "Windows Devices",
+                                 "target": "Remote",
                                  "isArrayIndexed": false,
                                  "sameAsParent": false,
                                  "isDelimitedArray": false
@@ -117,8 +110,7 @@
                            "Domain"
                         ]
                      },
-                     "target": "Device",
-                     "filter": "Windows Devices",
+                     "target": "Remote",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -129,15 +121,14 @@
                      "propertyName": "ID",
                      "propertyValue": 3,
                      "underlyingPropertyName": "TARGET_DOMAIN_ID",
-                     "operator": "String Equals",
+                     "operator": "String Equals (Wildcard)",
                      "value": {
                         "type": "String",
                         "data": [
                            "DOMAIN_SID"
                         ]
                      },
-                     "target": "Device",
-                     "filter": "Windows Devices",
+                     "target": "Remote",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false,
@@ -151,15 +142,14 @@
                                  "propertyName": "Name",
                                  "propertyValue": 1,
                                  "underlyingPropertyName": "TARGET_NAME",
-                                 "operator": "String Wildcard",
+                                 "operator": "String Equals (Wildcard)",
                                  "value": {
                                     "type": "String",
                                     "data": [
                                        "ClientType2"
                                     ]
                                  },
-                                 "target": "Device",
-                                 "filter": "Windows Devices",
+                                 "target": "Remote",
                                  "isArrayIndexed": false,
                                  "sameAsParent": false,
                                  "isDelimitedArray": false
@@ -174,15 +164,14 @@
                      "propertyName": "Name",
                      "propertyValue": 1,
                      "underlyingPropertyName": "TARGET_NAME",
-                     "operator": "String Wildcard",
+                     "operator": "String Equals (Wildcard)",
                      "value": {
                         "type": "String",
                         "data": [
                            "ClientType1"
                         ]
                      },
-                     "target": "Device",
-                     "filter": "Windows Devices",
+                     "target": "Remote",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -190,7 +179,11 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       },
       {
          "id": "19437eb5-7e13-4051-aa75-84968e485903",
@@ -217,8 +210,7 @@
                            true
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "branches": [
                         {
                            "state": "%DEVICE_DISPLAY_X_DPI%",
@@ -236,8 +228,7 @@
                                        false
                                     ]
                                  },
-                                 "target": "Device",
-                                 "filter": "All Devices",
+                                 "target": "Remote",
                                  "isArrayIndexed": true,
                                  "sameAsParent": false,
                                  "isDelimitedArray": false
@@ -253,8 +244,7 @@
                                     "type": "String",
                                     "data": []
                                  },
-                                 "target": "Device",
-                                 "filter": "All Devices",
+                                 "target": "Remote",
                                  "isArrayIndexed": true,
                                  "sameAsParent": true,
                                  "isDelimitedArray": false
@@ -280,8 +270,7 @@
                            true
                         ]
                      },
-                     "target": "Device",
-                     "filter": "All Devices",
+                     "target": "Remote",
                      "isArrayIndexed": true,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -297,8 +286,7 @@
                         "type": "String",
                         "data": []
                      },
-                     "target": "Device",
-                     "filter": "All Devices",
+                     "target": "Remote",
                      "isArrayIndexed": true,
                      "sameAsParent": true,
                      "isDelimitedArray": false
@@ -306,7 +294,11 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       }
    ],
    "actions": [
@@ -326,7 +318,7 @@
                      "contextKey": "CONTEXT_CLIENT_TYPE",
                      "contextName": "Client Type",
                      "contextMode": "Left-Most Path",
-                     "operator": "Enum Equals",
+                     "operator": "Enum Any Of",
                      "value": {
                         "type": "Enum",
                         "data": [
@@ -367,7 +359,7 @@
                      "contextKey": "CONTEXT_CLIENT_TYPE",
                      "contextName": "Client Type",
                      "contextMode": "Left-Most Path",
-                     "operator": "Enum Equals",
+                     "operator": "Enum Any Of",
                      "value": {
                         "type": "Enum",
                         "data": [
@@ -409,7 +401,9 @@
       {
          "key": "MESSAGE_SYSTEM_MESSAGE_BUTTON_DISCONNECT",
          "value": "Trennen",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_SYSTEM_MESSAGE_BUTTON_LOGOFF",
@@ -418,7 +412,9 @@
       {
          "key": "MESSAGE_SYSTEM_MESSAGE_BUTTON_LOGOFF",
          "value": "Abmelden",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_SYSTEM_MESSAGE_ESTABLISHING_CONTEXT",
@@ -427,7 +423,9 @@
       {
          "key": "MESSAGE_SYSTEM_MESSAGE_ESTABLISHING_CONTEXT",
          "value": "Kontext mit %DEVICE_NAME% herstellen",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_SYSTEM_MESSAGE_EXECUTING_TRIGGER",
@@ -436,7 +434,9 @@
       {
          "key": "MESSAGE_SYSTEM_MESSAGE_EXECUTING_TRIGGER",
          "value": "Kontext-Richtlinien anwenden",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_SYSTEM_MESSAGE_PLEASE_WAIT",
@@ -445,7 +445,9 @@
       {
          "key": "MESSAGE_SYSTEM_MESSAGE_PLEASE_WAIT",
          "value": "Bitte warten",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       }
    ],
    "settings": [
@@ -454,7 +456,8 @@
          "enabled": true,
          "establishingIdentity": "%MESSAGE_SYSTEM_MESSAGE_PLEASE_WAIT%",
          "establishingContext": "%MESSAGE_SYSTEM_MESSAGE_ESTABLISHING_CONTEXT%",
-         "executingTrigger": "%MESSAGE_SYSTEM_MESSAGE_EXECUTING_TRIGGER%",
+         "executingActions": "%MESSAGE_SYSTEM_MESSAGE_EXECUTING_TRIGGER%",
+         "continuingLogon": "Welcome",
          "trustedDeviceDeniedTitle": "Access Denied",
          "trustedDeviceDeniedMessage": "To allow access to your session, please upgrade to the latest deviceTRUST client from https://devicetrust.com/download.%NEWLINE%For more details contact your IT help desk.",
          "untrustedDeviceDeniedTitle": "Access Denied",
@@ -463,5 +466,9 @@
          "lockButton": "Lock",
          "disconnectButton": "%MESSAGE_SYSTEM_MESSAGE_BUTTON_DISCONNECT%"
       }
-   ]
+   ],
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-11-29T11:59:12.444Z"
 }

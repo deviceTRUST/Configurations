@@ -1,7 +1,4 @@
 {
-   "consoleVersion": "20.2.300.0",
-   "username": "DEMO.DEVICETRUST.LOCAL\\admin",
-   "timestamp": "2021-05-03T10:02:36.028Z",
    "contexts": [
       {
          "id": "29060410-2b04-4fc2-bdb6-07aca0170378",
@@ -28,8 +25,7 @@
                            true
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "branches": [
                         {
                            "state": "Medium",
@@ -47,8 +43,7 @@
                                        "Medium"
                                     ]
                                  },
-                                 "target": "Device",
-                                 "filter": "Windows Devices",
+                                 "target": "Remote",
                                  "isArrayIndexed": false,
                                  "sameAsParent": false,
                                  "isDelimitedArray": false
@@ -71,8 +66,7 @@
                                        "Low"
                                     ]
                                  },
-                                 "target": "Device",
-                                 "filter": "Windows Devices",
+                                 "target": "Remote",
                                  "isArrayIndexed": false,
                                  "sameAsParent": false,
                                  "isDelimitedArray": false
@@ -95,8 +89,7 @@
                                        "Critical"
                                     ]
                                  },
-                                 "target": "Device",
-                                 "filter": "Windows Devices",
+                                 "target": "Remote",
                                  "isArrayIndexed": false,
                                  "sameAsParent": false,
                                  "isDelimitedArray": false
@@ -119,8 +112,7 @@
                                        "None"
                                     ]
                                  },
-                                 "target": "Device",
-                                 "filter": "Windows Devices",
+                                 "target": "Remote",
                                  "isArrayIndexed": false,
                                  "sameAsParent": false,
                                  "isDelimitedArray": false
@@ -142,8 +134,7 @@
                            "High"
                         ]
                      },
-                     "target": "Device",
-                     "filter": "Windows Devices",
+                     "target": "Remote",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -151,7 +142,11 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       }
    ],
    "actions": [
@@ -193,7 +188,8 @@
                      "triggerButtons": [
                         {
                            "triggerName": "Copy URL",
-                           "buttonText": "Copy URL"
+                           "buttonText": "Copy URL",
+                           "closePopup": false
                         }
                      ]
                   }
@@ -404,21 +400,27 @@
       {
          "key": "MESSAGE_BATTERY_LEVEL_CRITICAL",
          "value": "Der Akku-Stand Ihres Clients ist kritisch. Bitte sofort ein Ladegrät anstecken!",
-         "languageCode": "de"
-      },
-      {
-         "key": "MESSAGE_BATTERY_LEVEL_CRITICAL_TITLE",
-         "value": "Akku-Stand: Kritisch",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_BATTERY_LEVEL_CRITICAL_TITLE",
          "value": "Battery level: critical"
       },
       {
+         "key": "MESSAGE_BATTERY_LEVEL_CRITICAL_TITLE",
+         "value": "Akku-Stand: Kritisch",
+         "locale": {
+            "languageCode": "de"
+         }
+      },
+      {
          "key": "MESSAGE_BATTERY_LEVEL_HIGH",
          "value": "Der Akku-Stand Ihres Clients ist hoch. Genießen Sie Ihre Sitzung!",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_BATTERY_LEVEL_HIGH",
@@ -427,7 +429,9 @@
       {
          "key": "MESSAGE_BATTERY_LEVEL_HIGH_TITLE",
          "value": "Akku-Stand: Hoch",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_BATTERY_LEVEL_HIGH_TITLE",
@@ -436,7 +440,9 @@
       {
          "key": "MESSAGE_BATTERY_LEVEL_LOW",
          "value": "Der Akku-Stand Ihres Clients ist niedrig. Bitte ein Ladegrät anstecken!",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_BATTERY_LEVEL_LOW",
@@ -445,7 +451,9 @@
       {
          "key": "MESSAGE_BATTERY_LEVEL_LOW_TITLE",
          "value": "Akku-Stand: Niedrig",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_BATTERY_LEVEL_LOW_TITLE",
@@ -454,7 +462,9 @@
       {
          "key": "MESSAGE_BATTERY_LEVEL_MEDIUM",
          "value": "Der Akku-Stand Ihres Clients ist mittel. Genießen Sie Ihre Sitzung!",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_BATTERY_LEVEL_MEDIUM",
@@ -467,12 +477,16 @@
       {
          "key": "MESSAGE_BATTERY_LEVEL_MEDIUM_TITLE",
          "value": "Akku-Stand: Mittel",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_BATTERY_LEVEL_NONE",
          "value": "Der Akku-Stand Ihres Clients ist \"none\". Vermutlich wurde Ihre Sitzung getrennt.",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_BATTERY_LEVEL_NONE",
@@ -485,7 +499,9 @@
       {
          "key": "MESSAGE_BATTERY_LEVEL_NONE_TITLE",
          "value": "Akku-Stand: \"none\"",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_BATTERY_LEVEL_UNAVAILABLE",
@@ -494,7 +510,9 @@
       {
          "key": "MESSAGE_BATTERY_LEVEL_UNAVAILABLE",
          "value": "Wir können den Akku-Stand Ihres Clients nicht überprüfen. Bitte installieren Sie den deviceTRUST Client, um sicherzustallen, dass die Informationen abgefragt werden können.",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_BATTERY_LEVEL_UNAVAILABLE_TITLE",
@@ -503,7 +521,9 @@
       {
          "key": "MESSAGE_BATTERY_LEVEL_UNAVAILABLE_TITLE",
          "value": "Akku-Stand: Nicht verfügbar",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       },
       {
          "key": "MESSAGE_BUTTON_COPY_URL",
@@ -512,8 +532,14 @@
       {
          "key": "MESSAGE_BUTTON_COPY_URL",
          "value": "URL kopieren",
-         "languageCode": "de"
+         "locale": {
+            "languageCode": "de"
+         }
       }
    ],
-   "settings": []
+   "settings": [],
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-11-29T11:58:25.493Z"
 }

@@ -1,7 +1,4 @@
 {
-   "consoleVersion": "20.2.300.0",
-   "username": "SvenJansen",
-   "timestamp": "2021-04-29T11:55:14.761Z",
    "contexts": [
       {
          "id": "ebf574ba-0431-4597-ac92-454b9745434e",
@@ -21,7 +18,7 @@
                      "propertyName": "Protocol",
                      "propertyValue": 2,
                      "underlyingPropertyName": "TARGET_REMOTECONTROL_PROTOCOL",
-                     "operator": "Enum Equals",
+                     "operator": "Enum Any Of",
                      "value": {
                         "type": "Enum",
                         "data": [
@@ -29,8 +26,7 @@
                            "Blast"
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false,
@@ -51,8 +47,7 @@
                                        true
                                     ]
                                  },
-                                 "target": "Host",
-                                 "filter": "Host",
+                                 "target": "Local",
                                  "isArrayIndexed": false,
                                  "sameAsParent": false,
                                  "isDelimitedArray": false
@@ -74,8 +69,7 @@
                            false
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -98,8 +92,7 @@
                            "RDP"
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false,
@@ -113,15 +106,14 @@
                                  "propertyName": "Outbound DNS",
                                  "propertyValue": 4,
                                  "underlyingPropertyName": "TARGET_REMOTINGCLIENT_OUTBOUND_DNS",
-                                 "operator": "String Not Wildcard",
+                                 "operator": "String Not Equals (Wildcard)",
                                  "value": {
                                     "type": "String",
                                     "data": [
                                        "*.REMOTING_HOST_DNS_HERE:3389"
                                     ]
                                  },
-                                 "target": "Device",
-                                 "filter": "All Devices",
+                                 "target": "Remote",
                                  "isArrayIndexed": false,
                                  "sameAsParent": false,
                                  "isDelimitedArray": false
@@ -136,15 +128,14 @@
                      "propertyName": "Outbound DNS",
                      "propertyValue": 4,
                      "underlyingPropertyName": "TARGET_REMOTINGCLIENT_OUTBOUND_DNS",
-                     "operator": "String Wildcard",
+                     "operator": "String Equals (Wildcard)",
                      "value": {
                         "type": "String",
                         "data": [
                            "*.REMOTING_HOST_DNS_HERE:3389"
                         ]
                      },
-                     "target": "Device",
-                     "filter": "All Devices",
+                     "target": "Remote",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -152,7 +143,11 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       },
       {
          "id": "358438fd-f6d0-4bf0-b6f3-43d884ea58ed",
@@ -179,8 +174,7 @@
                            true
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false,
@@ -197,7 +191,7 @@
                      "propertyName": "Name",
                      "propertyValue": 1,
                      "underlyingPropertyName": "TARGET_OS_NAME",
-                     "operator": "Enum Equals",
+                     "operator": "Enum Any Of",
                      "value": {
                         "type": "Enum",
                         "data": [
@@ -205,8 +199,7 @@
                            "macOS"
                         ]
                      },
-                     "target": "Device",
-                     "filter": "All Devices",
+                     "target": "Remote",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -217,7 +210,7 @@
                      "propertyName": "Join",
                      "propertyValue": 4,
                      "underlyingPropertyName": "TARGET_DOMAIN_JOIN",
-                     "operator": "Enum Equals",
+                     "operator": "Enum Any Of",
                      "value": {
                         "type": "Enum",
                         "data": [
@@ -225,8 +218,7 @@
                            "AzureAD"
                         ]
                      },
-                     "target": "Device",
-                     "filter": "All Devices",
+                     "target": "Remote",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -237,7 +229,7 @@
                      "propertyName": "ID",
                      "propertyValue": 3,
                      "underlyingPropertyName": "TARGET_DOMAIN_ID",
-                     "operator": "String Equals",
+                     "operator": "String Any Of (Wildcard)",
                      "value": {
                         "type": "String",
                         "data": [
@@ -245,8 +237,7 @@
                            "AZURE_TENANT_ID"
                         ]
                      },
-                     "target": "Device",
-                     "filter": "All Devices",
+                     "target": "Remote",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -254,7 +245,11 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       }
    ],
    "actions": [
@@ -482,24 +477,12 @@
    "messages": [],
    "settings": [
       {
-         "type": "Persistence",
-         "enabled": true,
-         "sessionSpecificData": false,
-         "registryPersistenceOption": "Enabled",
-         "customRegistryExclude": [],
-         "environmentPersistenceOption": "Disabled",
-         "customEnvironmentExclude": [],
-         "auditingPersistenceOption": "Enabled",
-         "customAuditingExclude": [],
-         "commandPromptPersistenceOption": "Disabled",
-         "customCommandPromptExclude": []
-      },
-      {
          "type": "SystemMessages",
          "enabled": true,
          "establishingIdentity": "Bitte warten",
          "establishingContext": "Kontext herstellen mit %DEVICE_NAME%",
-         "executingTrigger": "Anwendung kontextbezogener Richtlinien",
+         "executingActions": "Anwendung kontextbezogener Richtlinien",
+         "continuingLogon": "Welcome",
          "trustedDeviceDeniedTitle": "Access Denied",
          "trustedDeviceDeniedMessage": "To allow access to your session, please upgrade to the latest deviceTRUST client from https://devicetrust.com/download.%NEWLINE%For more details contact your IT help desk.",
          "untrustedDeviceDeniedTitle": "Access Denied",
@@ -508,5 +491,9 @@
          "lockButton": "Sperren",
          "disconnectButton": "Trennen"
       }
-   ]
+   ],
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-11-29T11:58:49.649Z"
 }

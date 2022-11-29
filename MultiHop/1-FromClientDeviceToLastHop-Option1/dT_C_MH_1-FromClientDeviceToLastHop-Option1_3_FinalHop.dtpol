@@ -1,0 +1,112 @@
+{
+   "contexts": [
+      {
+         "id": "a27b698d-5f9e-400e-a96b-890f14f61c34",
+         "key": "CONTEXT_REMOTE_NAME",
+         "name": "Remote Name",
+         "description": "Enter context description",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "%REMOTE_NAME%",
+               "conditions": [
+                  {
+                     "id": "ee4cd2e1-9e11-492a-ac45-36f47a877232",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Local",
+                     "branches": [
+                        {
+                           "state": "Not found",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "8d1e51f1-f659-4f94-a2d2-dd1a8e980387",
+                     "categoryName": "Name",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_NAME",
+                     "operator": "Available",
+                     "value": {
+                        "type": "String"
+                     },
+                     "target": "Remote",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
+      }
+   ],
+   "actions": [
+      {
+         "id": "786bb449-2995-4c37-9176-7fc902b0aa79",
+         "key": "ACTION_DISPLAY_REMOTE_NAME",
+         "name": "Display Remote Name",
+         "description": "Enter action description",
+         "data": [
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_REMOTE_NAME",
+                     "contextName": "Remote Name",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum None Of",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Unavailable",
+                           "Not found"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "bbbba0ac-739d-4621-8860-1ad57b2c911b",
+                     "type": "Popup Message",
+                     "description": "You are accessing from %CONTEXT_REMOTE_NAME%",
+                     "toast": false,
+                     "message": "You are accessing from %CONTEXT_REMOTE_NAME%",
+                     "title": "Welcome to your session!",
+                     "triggerButtons": []
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "Medium"
+      }
+   ],
+   "messages": [],
+   "settings": [],
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-11-29T11:55:29.960Z"
+}

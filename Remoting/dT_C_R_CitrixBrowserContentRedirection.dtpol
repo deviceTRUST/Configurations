@@ -1,7 +1,4 @@
 {
-   "consoleVersion": "20.2.300.0",
-   "username": "SvenJansen",
-   "timestamp": "2021-04-29T11:46:09.473Z",
    "contexts": [
       {
          "id": "95a9d288-8745-45ed-933e-67c429b46f4e",
@@ -28,8 +25,7 @@
                            true
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "branches": [
                         {
                            "state": "True",
@@ -52,8 +48,7 @@
                                        }
                                     ]
                                  },
-                                 "target": "Device",
-                                 "filter": "Windows Devices",
+                                 "target": "Remote",
                                  "isArrayIndexed": true,
                                  "sameAsParent": false,
                                  "isDelimitedArray": false
@@ -76,8 +71,7 @@
                                        }
                                     ]
                                  },
-                                 "target": "Device",
-                                 "filter": "Windows Devices",
+                                 "target": "Remote",
                                  "isArrayIndexed": true,
                                  "sameAsParent": false,
                                  "isDelimitedArray": false
@@ -100,8 +94,7 @@
                                        }
                                     ]
                                  },
-                                 "target": "Device",
-                                 "filter": "Windows Devices",
+                                 "target": "Remote",
                                  "isArrayIndexed": true,
                                  "sameAsParent": false,
                                  "isDelimitedArray": false
@@ -132,8 +125,7 @@
                            }
                         ]
                      },
-                     "target": "Device",
-                     "filter": "Windows Devices",
+                     "target": "Remote",
                      "isArrayIndexed": true,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -156,8 +148,7 @@
                            }
                         ]
                      },
-                     "target": "Device",
-                     "filter": "Windows Devices",
+                     "target": "Remote",
                      "isArrayIndexed": true,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -180,8 +171,7 @@
                            }
                         ]
                      },
-                     "target": "Device",
-                     "filter": "Windows Devices",
+                     "target": "Remote",
                      "isArrayIndexed": true,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -189,7 +179,11 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       }
    ],
    "actions": [
@@ -252,7 +246,7 @@
                      "contextKey": "CONTEXT_WEBEX_VDI_PLUGIN_INSTALLED",
                      "contextName": "WebEx VDI Plugin installed",
                      "contextMode": "Left-Most Path",
-                     "operator": "Enum Equals",
+                     "operator": "Enum Any Of",
                      "value": {
                         "type": "Enum",
                         "data": [
@@ -288,5 +282,9 @@
       }
    ],
    "messages": [],
-   "settings": []
+   "settings": [],
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-11-29T11:58:32.129Z"
 }

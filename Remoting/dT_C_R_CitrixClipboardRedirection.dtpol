@@ -1,7 +1,4 @@
 {
-   "consoleVersion": "20.2.341.0",
-   "username": "DEMO.DEVICETRUST.LOCAL\\admin",
-   "timestamp": "2021-06-16T06:22:36.220Z",
    "contexts": [
       {
          "id": "63cf7372-ad2c-466d-bf9a-6e113199ccc4",
@@ -21,7 +18,7 @@
                      "propertyName": "Protocol",
                      "propertyValue": 2,
                      "underlyingPropertyName": "TARGET_REMOTECONTROL_PROTOCOL",
-                     "operator": "Enum Equals",
+                     "operator": "Enum Any Of",
                      "value": {
                         "type": "Enum",
                         "data": [
@@ -29,8 +26,7 @@
                            "Blast"
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false,
@@ -51,8 +47,7 @@
                                        true
                                     ]
                                  },
-                                 "target": "Host",
-                                 "filter": "Host",
+                                 "target": "Local",
                                  "isArrayIndexed": false,
                                  "sameAsParent": false,
                                  "isDelimitedArray": false
@@ -74,8 +69,7 @@
                            false
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -83,7 +77,11 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       }
    ],
    "actions": [
@@ -105,7 +103,7 @@
                      "contextKey": "CONTEXT_ACCESS_MODE",
                      "contextName": "Access Mode",
                      "contextMode": "Left-Most Path",
-                     "operator": "Enum Equals",
+                     "operator": "Enum Any Of",
                      "value": {
                         "type": "Enum",
                         "data": [
@@ -182,5 +180,9 @@
       }
    ],
    "messages": [],
-   "settings": []
+   "settings": [],
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-11-29T11:58:41.729Z"
 }

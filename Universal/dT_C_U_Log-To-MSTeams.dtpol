@@ -1,8 +1,405 @@
 {
-   "consoleVersion": "21.1.200.0",
-   "username": "localadmin",
-   "timestamp": "2022-04-25T06:15:03.718Z",
-   "contexts": [],
+   "contexts": [
+      {
+         "id": "12a98a98-5774-4ff3-9230-2a791c70a70a",
+         "key": "CONTEXT_SECURITY_STATE",
+         "name": "Security State",
+         "description": "Defines the security status of the remote device.",
+         "mode": "Left-Most Path",
+         "defaultState": "Unavailable",
+         "enabled": true,
+         "data": [
+            {
+               "state": "Protected",
+               "conditions": [
+                  {
+                     "id": "c9397664-58f9-43d3-a448-35638337a073",
+                     "categoryName": "deviceTRUST",
+                     "propertyName": "Connected",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Local",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Protected",
+                           "conditions": [
+                              {
+                                 "id": "7fa28a0b-1cd6-48d7-a655-170e28349ff7",
+                                 "categoryName": "OS",
+                                 "propertyName": "Name",
+                                 "propertyValue": 1,
+                                 "underlyingPropertyName": "TARGET_OS_NAME",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "macOS"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "9d71c585-6af3-457f-92ff-d2b6cd0533c4",
+                                 "categoryName": "Security Product",
+                                 "propertyName": "Category",
+                                 "propertyValue": 11,
+                                 "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_CATEGORY",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Firewall"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "7d52c436-f9c4-424b-98ed-68c147566777",
+                                 "categoryName": "Security Product",
+                                 "propertyName": "Status",
+                                 "propertyValue": 12,
+                                 "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_STATUS",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Active"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": true,
+                                 "isDelimitedArray": true
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Protected",
+                           "conditions": [
+                              {
+                                 "id": "3669143c-4a9e-4dd1-b361-ad7ae77fc9ca",
+                                 "categoryName": "OS",
+                                 "propertyName": "Name",
+                                 "propertyValue": 1,
+                                 "underlyingPropertyName": "TARGET_OS_NAME",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "IGEL"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "67e192f0-69f7-4a8f-b1e7-6c34921c1b69",
+                                 "categoryName": "IGEL",
+                                 "propertyName": "UMS Server",
+                                 "propertyValue": 2,
+                                 "underlyingPropertyName": "TARGET_IGEL_UMS_SERVER",
+                                 "operator": "String Equals (Wildcard)",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       "UMS_SERVER_IP:30001"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "c7af490e-4fb6-41a9-adc2-49cbe15c8b07",
+                                 "categoryName": "IGEL",
+                                 "propertyName": "UMS Cert Thumbprint SHA256",
+                                 "propertyValue": 5,
+                                 "underlyingPropertyName": "TARGET_IGEL_UMS_CERTIFICATE_THUMBPRINT_SHA256",
+                                 "operator": "String Equals (Wildcard)",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       "UMS_CERTIFICATE_THUMBPRINT_SHA256"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Protected",
+                           "conditions": [
+                              {
+                                 "id": "862548e0-5cfc-482e-b8d3-ead155b58e71",
+                                 "categoryName": "OS",
+                                 "propertyName": "Name",
+                                 "propertyValue": 1,
+                                 "underlyingPropertyName": "TARGET_OS_NAME",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "eLux"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "e74f5186-a349-4da7-90d9-9d05ffe7234f",
+                                 "categoryName": "eLux",
+                                 "propertyName": "Scout Name",
+                                 "propertyValue": 6,
+                                 "underlyingPropertyName": "TARGET_ELUX_SCOUT_NAME",
+                                 "operator": "String Equals (Wildcard)",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       "SCOUT_NAME"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "03a2cfae-58d3-47e7-af91-61489441c467",
+                                 "categoryName": "eLux",
+                                 "propertyName": "Scout Cert Thumbprint SHA256",
+                                 "propertyValue": 11,
+                                 "underlyingPropertyName": "TARGET_ELUX_SCOUT_CERTIFICATE_THUMBPRINT_SHA256",
+                                 "operator": "String Equals (Wildcard)",
+                                 "value": {
+                                    "type": "String",
+                                    "data": [
+                                       "SCOUT_CERTIFICATE_THUMBPRINT_SHA256"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "isArrayIndexed": false,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        },
+                        {
+                           "state": "Unprotected",
+                           "conditions": []
+                        }
+                     ]
+                  },
+                  {
+                     "id": "f7ab88d0-9aa9-4c75-82bc-e92e1a538822",
+                     "categoryName": "OS",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_OS_NAME",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Windows"
+                        ]
+                     },
+                     "target": "Remote",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false,
+                     "branches": [
+                        {
+                           "state": "Protected",
+                           "conditions": [
+                              {
+                                 "id": "ae911ee6-a9f7-4c91-9fae-e680c2c3a80f",
+                                 "categoryName": "Security Product",
+                                 "propertyName": "Category",
+                                 "propertyValue": 11,
+                                 "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_CATEGORY",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Firewall"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "941029eb-2437-4dc0-8114-21571bfd69f6",
+                                 "categoryName": "Security Product",
+                                 "propertyName": "Status",
+                                 "propertyValue": 12,
+                                 "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_STATUS",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Active"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": true,
+                                 "isDelimitedArray": true
+                              },
+                              {
+                                 "id": "a3b86701-e07c-44df-9728-9cda16591db6",
+                                 "categoryName": "Security Product",
+                                 "propertyName": "Category",
+                                 "propertyValue": 11,
+                                 "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_CATEGORY",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Antivirus"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": false,
+                                 "isDelimitedArray": false
+                              },
+                              {
+                                 "id": "07358148-06ef-41db-87f3-f2ee154ca504",
+                                 "categoryName": "Security Product",
+                                 "propertyName": "Status",
+                                 "propertyValue": 12,
+                                 "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_STATUS",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Active"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": true,
+                                 "isDelimitedArray": true,
+                                 "branches": [
+                                    {
+                                       "state": "Protected (AV Update Required)",
+                                       "conditions": []
+                                    }
+                                 ]
+                              },
+                              {
+                                 "id": "ca7463f0-afc5-47d1-b49a-0902275a5b0c",
+                                 "categoryName": "Security Product",
+                                 "propertyName": "Signature Status",
+                                 "propertyValue": 14,
+                                 "underlyingPropertyName": "TARGET_SECURITYPRODUCT_X_SIGNATURESTATUS",
+                                 "operator": "Enum Equals",
+                                 "value": {
+                                    "type": "Enum",
+                                    "data": [
+                                       "Up-To-Date"
+                                    ]
+                                 },
+                                 "target": "Remote",
+                                 "isArrayIndexed": true,
+                                 "sameAsParent": true,
+                                 "isDelimitedArray": false
+                              }
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "id": "99b77674-8b57-47c4-8402-8909e72f0ad8",
+                     "categoryName": "Windows Firewall",
+                     "propertyName": "Active Profile Disabled",
+                     "propertyValue": 2,
+                     "underlyingPropertyName": "TARGET_WINDOWSFIREWALL_ACTIVEPROFILES_DISABLED",
+                     "operator": "Enum None Of",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Domain",
+                           "Public",
+                           "Private"
+                        ]
+                     },
+                     "target": "Remote",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": true
+                  },
+                  {
+                     "id": "b7b6f616-2b09-44c6-af52-e1138635b967",
+                     "categoryName": "Windows Defender",
+                     "propertyName": "Status",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_WINDOWSDEFENDER_STATUS",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Active"
+                        ]
+                     },
+                     "target": "Remote",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "ac8e02c6-11b9-4c4a-bdad-715b0ee413ff",
+                     "categoryName": "Windows Defender",
+                     "propertyName": "Real-Time Protection",
+                     "propertyValue": 12,
+                     "underlyingPropertyName": "TARGET_WINDOWSDEFENDER_REALTIMEPROTECTION",
+                     "operator": "Boolean Equals",
+                     "value": {
+                        "type": "Boolean",
+                        "data": [
+                           true
+                        ]
+                     },
+                     "target": "Remote",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
+      }
+   ],
    "actions": [
       {
          "id": "0cd1d282-42ac-4961-99a8-99be4f84a981",
@@ -59,5 +456,8 @@
    ],
    "messages": [],
    "settings": [],
-   "usecases": []
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-11-29T12:00:33.951Z"
 }

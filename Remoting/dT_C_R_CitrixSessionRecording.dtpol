@@ -1,7 +1,4 @@
 {
-   "consoleVersion": "20.2.300.0",
-   "username": "SvenJansen",
-   "timestamp": "2021-05-07T07:35:23.543Z",
    "contexts": [
       {
          "id": "56eafabb-bb4d-42e1-a803-1f6ddf250a80",
@@ -28,8 +25,7 @@
                            true
                         ]
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false,
@@ -53,8 +49,7 @@
                            "Windows"
                         ]
                      },
-                     "target": "Device",
-                     "filter": "All Devices",
+                     "target": "Remote",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -72,8 +67,7 @@
                            "Domain"
                         ]
                      },
-                     "target": "Device",
-                     "filter": "All Devices",
+                     "target": "Remote",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -84,15 +78,14 @@
                      "propertyName": "ID",
                      "propertyValue": 3,
                      "underlyingPropertyName": "TARGET_DOMAIN_ID",
-                     "operator": "String Equals",
+                     "operator": "String Equals (Wildcard)",
                      "value": {
                         "type": "String",
                         "data": [
                            "DOMAIN_SID"
                         ]
                      },
-                     "target": "Device",
-                     "filter": "All Devices",
+                     "target": "Remote",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -100,7 +93,11 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       },
       {
          "id": "023a3639-77be-4ff6-a00d-0f77d090a9ee",
@@ -125,8 +122,7 @@
                         "type": "String",
                         "data": []
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -142,8 +138,7 @@
                         "type": "String",
                         "data": []
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -159,8 +154,7 @@
                         "type": "String",
                         "data": []
                      },
-                     "target": "Host",
-                     "filter": "Host",
+                     "target": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": false
@@ -168,7 +162,11 @@
                ]
             }
          ],
-         "protection": "Text"
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
       }
    ],
    "actions": [
@@ -264,5 +262,9 @@
       }
    ],
    "messages": [],
-   "settings": []
+   "settings": [],
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-11-29T11:58:54.891Z"
 }

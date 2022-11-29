@@ -1,7 +1,4 @@
 {
-   "consoleVersion": "21.1.200.0",
-   "username": "DEMO.DEVICETRUST.LOCAL\\admin",
-   "timestamp": "2022-04-25T08:55:54.223Z",
    "contexts": [
       {
          "id": "0ae24796-8227-4b62-8de0-267c08067e06",
@@ -34,7 +31,6 @@
                         ]
                      },
                      "target": "Local",
-                     "filter": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": true
@@ -79,7 +75,6 @@
                         ]
                      },
                      "target": "Local",
-                     "filter": "Local",
                      "isArrayIndexed": false,
                      "sameAsParent": false,
                      "isDelimitedArray": true
@@ -191,6 +186,7 @@
          "embeddedScriptTarget": "PowerShell",
          "powerShellExecutionPolicy": "NotSpecified",
          "bypassAppLockerPolicy": false,
+         "localDelayUntilPropertiesAvailable": false,
          "localPersistAcrossReconnects": false,
          "localHashProperties": false,
          "remoteWindowsProcess": {
@@ -203,8 +199,29 @@
             "powerShellExecutionPolicy": "Unrestricted",
             "bypassAppLockerPolicy": false,
             "hashProperties": false
+         },
+         "remoteIgelProcess": {
+            "enabled": false,
+            "runAs": "Current",
+            "timeout": 300,
+            "failureDetection": "Exit Code",
+            "embeddedScript": "#!/bin/bash\n echo REMOTE_CUSTOM_EXAMPLE=$(whoami)\n",
+            "embeddedScriptTarget": "Unknown",
+            "hashProperties": false
+         },
+         "remoteLinuxProcess": {
+            "enabled": false,
+            "runAs": "Current",
+            "timeout": 300,
+            "failureDetection": "Exit Code",
+            "embeddedScript": "#!/bin/bash\n echo REMOTE_CUSTOM_EXAMPLE=$(whoami)\n",
+            "embeddedScriptTarget": "Unknown",
+            "hashProperties": false
          }
       }
    ],
-   "usecases": []
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-11-29T11:59:27.437Z"
 }

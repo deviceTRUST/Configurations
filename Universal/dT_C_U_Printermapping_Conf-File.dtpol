@@ -1,7 +1,4 @@
 {
-   "consoleVersion": "20.2.300.0",
-   "username": "SvenJansen",
-   "timestamp": "2021-04-29T12:36:30.055Z",
    "contexts": [],
    "actions": [
       {
@@ -52,6 +49,7 @@
    "settings": [
       {
          "type": "CustomProperties",
+         "settingsEnabled": true,
          "enabled": true,
          "runAs": "System",
          "delayUntilPropertiesAvailable": true,
@@ -61,16 +59,51 @@
          "embeddedScript": "# Define the path of the printer mapping file. Content should be in the format \"computer printer\".\n$MappingFile = \"\\\\domain\\Fileserver\\printers.txt\"\n\n# Empty the printers to connect variable\n$PrintersToConnect = \"\"\n\n# Import content of the mapping file as csv and add custom headers.\n$MappingFileContent = Import-Csv -Delimiter \"`t\" -Header \"pc\",\"printer\" -Path $MappingFile\n\n# Get printer mappings for each computer. Multiple printers can be mapped.\n# The last printer entry will be used as default printer.\n($MappingFileContent | Group-Object pc | Where-Object { $_.Name -eq $env:HOST_REMOTECONTROL_REMOTE_NAME } | Select -ExpandProperty Group | Select printer).printer | ForEach-Object{\n    $PrintersToConnect = $PrintersToConnect + \",\" + $_\n    $PrinterStandard = $_\n}\n\n# Remove invalid characters from the beginning of the $PrintersToConnect list\nif ($PrintersToConnect.StartsWith(\",\")) {\n    $PrintersToConnect = $PrintersToConnect.TrimStart(\",\")\n}\n\n# Remove invalid characters from the end of the $PrintersToConnect list\nif ($PrintersToConnect.EndsWith(\",\")) {\n    $PrintersToConnect = $PrintersToConnect.TrimEnd(\",\")\n}\n\n# Call dtcmd to set the HOST_CUSTOM_PM_PRINTER variable\n&dtcmd SET \"/update:HOST_CUSTOM_PM_PRINTER=$PrintersToConnect\"\nwrite-output \"&dtcmd SET /update:HOST_CUSTOM_PM_PRINTER=$PrintersToConnect\"\n\n# Call dtcmd to set the HOST_CUSTOM_PM_DEFAULTPRINTER variable\n&dtcmd SET \"/update:HOST_CUSTOM_PM_DEFAULTPRINTER=$PrinterStandard\"\nwrite-output \"&dtcmd SET /update:HOST_CUSTOM_PM_DEFAULTPRINTER=$PrinterStandard\"",
          "embeddedScriptTarget": "PowerShell",
          "powerShellExecutionPolicy": "Unrestricted",
-         "bypassAppLockerPolicy": true
+         "bypassAppLockerPolicy": true,
+         "localDelayUntilPropertiesAvailable": true,
+         "localPersistAcrossReconnects": false,
+         "localHashProperties": false,
+         "remoteWindowsProcess": {
+            "enabled": false,
+            "runAs": "Current",
+            "timeout": 300,
+            "failureDetection": "Exit Code",
+            "embeddedScript": "# Example PowerShell to create a REMOTE_CUSTOM_EXAMPLE property\r\n$exampleValue=$env:USERNAME\r\nWrite-Host \"REMOTE_CUSTOM_EXAMPLE=$exampleValue\"",
+            "embeddedScriptTarget": "PowerShell",
+            "powerShellExecutionPolicy": "Unrestricted",
+            "bypassAppLockerPolicy": false,
+            "hashProperties": false
+         },
+         "remoteIgelProcess": {
+            "enabled": false,
+            "runAs": "Current",
+            "timeout": 300,
+            "failureDetection": "Exit Code",
+            "embeddedScript": "#!/bin/bash\n echo REMOTE_CUSTOM_EXAMPLE=$(whoami)\n",
+            "embeddedScriptTarget": "Unknown",
+            "hashProperties": false
+         },
+         "remoteLinuxProcess": {
+            "enabled": false,
+            "runAs": "Current",
+            "timeout": 300,
+            "failureDetection": "Exit Code",
+            "embeddedScript": "#!/bin/bash\n echo REMOTE_CUSTOM_EXAMPLE=$(whoami)\n",
+            "embeddedScriptTarget": "Unknown",
+            "hashProperties": false
+         }
       },
       {
          "type": "Printer",
          "enabled": true,
          "maxNumberOfRetries": 10,
          "retryIntervalInSeconds": 1,
-         "createDesktopPrinterIcon": true,
          "letPrintSpoolerManageNetworkPrinters": false,
          "letWindowsManageDefaultPrinter": false
       }
-   ]
+   ],
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-11-29T12:00:51.516Z"
 }

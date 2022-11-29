@@ -1,7 +1,4 @@
 {
-   "consoleVersion": "20.2.300.0",
-   "username": "SvenJansen",
-   "timestamp": "2021-04-29T12:38:34.015Z",
    "contexts": [],
    "actions": [
       {
@@ -64,5 +61,9 @@
       }
    ],
    "messages": [],
-   "settings": []
+   "settings": [],
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-11-29T12:00:46.092Z"
 }
