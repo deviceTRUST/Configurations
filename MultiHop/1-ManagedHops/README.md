@@ -38,10 +38,9 @@ This Configuration
 - Builds the Context "Remote Name", fetching the Remote Device's name from the Remote Properties
 - Displays and Action Center notification in the target Windows session
 
-<div style="width:60px ; height:60px">![Built Context](../../_assets/images/multi-hop/1-ManagedHops/04_Context.png)</div><div style="width:60px ; height:60px">![Run Actions](../../_assets/images/multi-hop/1-ManagedHops/05_Action.png)</div>
 
-|||
-|_|_|
+| Build Context | Run Actions |
+|---------------|-------------|
 |<img
   src="../../_assets/images/multi-hop/1-ManagedHops/04_Context.png"
   alt="Built Context"
