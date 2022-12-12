@@ -45,3 +45,6 @@ This Configuration
   alt="Built Context"
   title="Built Context"
   style="display: inline-block; margin: 0 auto; max-width: 100px">
+
+
+<img src="../../_assets/images/multi-hop/1-ManagedHops/04_Context.png" width="150" height="280">
