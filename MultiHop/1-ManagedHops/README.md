@@ -41,15 +41,7 @@ This Configuration
 
 | Build Context | Run Actions |
 |---------------|-------------|
-|<img
-  src="../../_assets/images/multi-hop/1-ManagedHops/04_Context.png"
-  alt="Built Context"
-  title="Built Context"
-  width="300">|<img
-  src="../../_assets/images/multi-hop/1-ManagedHops/05_Action.png"
-  alt="Run Actions"
-  title="Run Actions"
-  width="300">|
+|<img src="../../_assets/images/multi-hop/1-ManagedHops/04_Context.png" alt="Built Context" title="Built Context" width="300"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/05_Action.png" alt="Run Actions" title="Run Actions" width="300"> |
 
 
 
