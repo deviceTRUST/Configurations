@@ -22,4 +22,4 @@ This Configuration
 - Uses the "Property" sessting in the "Settings" menu to evaluate the "Name" property of the "Remote" client.
 
 ### Configuration 2 - Push Properties forward  
-### Configuration 3 - Build Context based on Properties & Run Actions
+### Configuration 3 - Build Context based on Properties & Run Actions-
