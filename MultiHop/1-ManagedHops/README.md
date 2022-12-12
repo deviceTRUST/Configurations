@@ -39,16 +39,6 @@ This Configuration
 - Displays and Action Center notification in the target Windows session
 
 
-| Build Context | Run Actions |
-|---------------|-------------|
-|<img src="../../_assets/images/multi-hop/1-ManagedHops/04_Context.png" alt="Built Context" title="Built Context" width="300"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/05_Action.png" alt="Run Actions" title="Run Actions" width="300"> |
-
-
-
-
-
-
-
-
-
-
+| Build Context | Run Actions | Pop Up | Event Viewer |
+|---------------|-------------|--------|--------------|
+|<img src="../../_assets/images/multi-hop/1-ManagedHops/04_Context.png" alt="Built Context" title="Built Context" width="300"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/05_Action.png" alt="Run Actions" title="Run Actions" width="300"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/06PopUp.png" alt="Pop Up" title="Pop Up" width="300"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/07_EventViewer.png" alt="Event Viewer" title="Event Viewer" width="300"> |
