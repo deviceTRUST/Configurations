@@ -29,7 +29,8 @@ The second configuration is applied to any hop along the chain that is not the f
 This Configuration
 - Uses the "Property\Property Options" setting in the "Settings" menu. There you'll find the "Multi-Hop" tab, where "Require connecting devices to forward their remote properties in a multi-hop scenario" needs to be checked.
 
-![Forward Properties](../../_assets/images/multi-hop/1-ManagedHops/03_ForwardProperties.png)
+<img src="../../_assets/images/multi-hop/1-ManagedHops/03_ForwardProperties.png" alt="Forward Propertiest" title="Forward Properties" width="400">
+
 ### Configuration 3 - Build Context based on Properties & Run Actions
 
 The third configuration is applied only to the last hop / target. It is utilized to build context and run actions. In the example use case, it gets the Remote Device's name from the Remote Properties and displays it as Action Center notification in the target session.
@@ -41,4 +42,4 @@ This Configuration
 
 | Build Context | Run Actions | Pop Up | Event Viewer |
 |---------------|-------------|--------|--------------|
-|<img src="../../_assets/images/multi-hop/1-ManagedHops/04_Context.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/05_Action.png" alt="Run Actions" title="Run Actions" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/06PopUp.png" alt="Pop Up" title="Pop Up" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/07_EventViewer.png" alt="Event Viewer" title="Event Viewer" width="200"> |
+|<img src="../../_assets/images/multi-hop/1-ManagedHops/04_Context.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/05_Action.png" alt="Run Actions" title="Run Actions" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/06_PopUp.png" alt="Pop Up" title="Pop Up" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/07_EventViewer.png" alt="Event Viewer" title="Event Viewer" width="200"> |
