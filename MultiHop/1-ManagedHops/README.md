@@ -1,4 +1,6 @@
 ![1 - Managed Hops](_assets/images/Multi-Hop-ManagedHops.png)
+![1 - Managed Hops](../_assets/images/Multi-Hop-ManagedHops.png)
+![1 - Managed Hops](../../_assets/images/Multi-Hop-ManagedHops.png)
 # 1. Managed Hops
 Contains the configuration as described in https://app.hubspot.com/knowledge/7075732/edit/93463466337
 
