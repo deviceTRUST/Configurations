@@ -1,3 +1,26 @@
-![dt-logo-full-aot-space-w1280](https://user-images.githubusercontent.com/83282694/116271495-5219b100-a780-11eb-9e1a-f929d2e3cbdc.png)
-# 3. Managed Hops with Hop Properties
-Contains the configuration as describen in ...
+# 3. Managed Hops with Properties
+This configuration can be applied to deviceTRUST Agents in a Multi-Hop scenario where a licensed deviceTRUST Agent is deployed on every hop along the chain. It does, thus, cater mainly for Multi-Hop scenarios in the internal networks of deviceTRUST customers. The "Managed Hops with Properties" scenario can be implemented with the deviceTRUST standard components. It gives full flexibility of the multi-hop path and the data to be evaluated.
+
+This scenario enables you to evaluate and use properties on every hop in a multi-hop scenario. As the possibilities of this setup are pretty vast, a very simple example is given here.
+
+![3 - Managed Hops with Properties](../../_assets/images/multi-hop/3-ManagedHopswithProperties/01_Architecture.png)
+
+Contains the configuration as described in https://app.hubspot.com/knowledge/7075732/edit/93463466337
+
+## Guide
+This configuration
+- Evaluates the user device's name, pushes it through to the target and shows a pop up there.
+- Evaluates the domain membership of the hops in-between. The connection to the target is only allowed if all hops are member of the correctz domain.
+
+| Machine            | Software                                            | Configuration                                                 |
+|--------------------|-----------------------------------------------------|---------------------------------------------------------------|
+| Client             | deviceTRUST Client Extension                        | None                                                          |
+| Hop 1              | deviceTRUST Client Extension <br> deviceTRUST Agent | 1 - Evaluate Remote Properties <br> Evaluate local properties |
+| Hop 2-N            | deviceTRUST Client Extension <br> deviceTRUST Agent | 2 - Push Properties forward <br> Evaluate local properties    |
+| Final Hop / Target | deviceTRUST Agent                                   | 3 - Build Context based on Properties <br> Run Actions        |
+
+### Configuration 1 - Evaluate Remote Properties & Evaluate local properties (dT_C_MH_3-ManagedHopswithProperties_1_Hop1.dtpol)
+
+### Configuration 2 - Push Properties forward & Evaluate local properties(dT_C_MH_3-ManagedHopswithProperties_2_Hop2-HopN.dtpol)
+
+### Configuration 3 - Build Context based on Properties & Run Actions (dT_C_MH_3-ManagedHopswithProperties_3_Target.dtpol)
