@@ -24,10 +24,18 @@ This Configuration
 ![Evaluate Remote Properties](../../_assets/images/multi-hop/1-ManagedHops/02_EvaluateRemotePropertiess.png)
 
 ### Configuration 2 - Push Properties forward
-The second configuration is applied to any hop along the chani that is not the first and not the last hop / target. It is utilized to push the evaluated client properties forward.
+The second configuration is applied to any hop along the chain that is not the first and not the last hop / target. It is utilized to push the evaluated client properties forward.
 
 This Configuration
 - Uses the "Property\Property Options" setting in the "Settings" menu. There you'll find the "Multi-Hop" tab, where "Require connecting devices to forward their remote properties in a multi-hop scenario" needs to be checked.
 
 ![Forward Properties](../../_assets/images/multi-hop/1-ManagedHops/03_ForwardProperties.png)
-### Configuration 3 - Build Context based on Properties & Run Actions-
+### Configuration 3 - Build Context based on Properties & Run Actions
+
+The third configuration is applied only to the last hop / target. It is utilized to build context and run actions. In the example use case, it gets the Remote Device's name from the Remote Properties and displays it as Action Center notification in the target session.
+
+This Configuration
+- Builds the Context "Remote Name", fetching the Remote Device's name from the Remote Properties
+- Displays and Action Center notification in the target Windows session
+
+![Built Context](../../_assets/images/multi-hop/1-ManagedHops/04_Context.png)![Run Actions](../../_assets/images/multi-hop/1-ManagedHops/05_Action.png)
