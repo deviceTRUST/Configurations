@@ -21,7 +21,7 @@ The first configuration is applied to the first hop in the chain. It is utilized
 This Configuration
 - Uses the "Property" setting in the "Settings" menu to evaluate the "Name" property of the "Remote" client.
 
-![Evaluate Remote Properties](../../_assets/images/multi-hop/1-ManagedHops/02_EvaluateRemotePropertiess.png)
+<img src="../../_assets/images/multi-hop/1-ManagedHops/02_EvaluateRemotePropertiess.png" alt="Evaluate Remote Properties" title="Evaluate Remote Properties" width="600">
 
 ### Configuration 2 - Push Properties forward
 The second configuration is applied to any hop along the chain that is not the first and not the last hop / target. It is utilized to push the evaluated client properties forward.
@@ -29,7 +29,7 @@ The second configuration is applied to any hop along the chain that is not the f
 This Configuration
 - Uses the "Property\Property Options" setting in the "Settings" menu. There you'll find the "Multi-Hop" tab, where "Require connecting devices to forward their remote properties in a multi-hop scenario" needs to be checked.
 
-<img src="../../_assets/images/multi-hop/1-ManagedHops/03_ForwardProperties.png" alt="Forward Propertiest" title="Forward Properties" width="400">
+<img src="../../_assets/images/multi-hop/1-ManagedHops/03_ForwardProperties.png" alt="Forward Properties" title="Forward Properties" width="600">
 
 ### Configuration 3 - Build Context based on Properties & Run Actions
 
