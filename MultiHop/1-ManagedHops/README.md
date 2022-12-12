@@ -39,3 +39,9 @@ This Configuration
 - Displays and Action Center notification in the target Windows session
 
 <div style="width:60px ; height:60px">![Built Context](../../_assets/images/multi-hop/1-ManagedHops/04_Context.png)</div><div style="width:60px ; height:60px">![Run Actions](../../_assets/images/multi-hop/1-ManagedHops/05_Action.png)</div>
+
+<img
+  src="../../_assets/images/multi-hop/1-ManagedHops/04_Context.png"
+  alt="Built Context"
+  title="Built Context"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
