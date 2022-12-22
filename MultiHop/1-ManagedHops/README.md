@@ -18,7 +18,7 @@ Contains the configuration as described in [our knowledge base article](https://
 The first configuration is applied to the first hop in the chain. It is utilized to evaluate properties from the remote client. You can either evaluate properties by creating a context or by adding the in the "Setting\Properties" configuration menu. The configuration in this repository uses the second method.
 
 This Configuration
-- Uses the "Property" setting in the "Settings" menu to evaluate the "Name" property of the "Remote" client.
+- Uses the "Properties" setting in the "Settings" menu to evaluate the name of the user's device.
 
 <img src="../../_assets/images/multi-hop/1-ManagedHops/02_EvaluateRemoteProperties.png" alt="Evaluate Remote Properties" title="Evaluate Remote Properties" width="600">
 
@@ -26,17 +26,16 @@ This Configuration
 The second configuration is applied to any hop along the chain that is not the first and not the last hop / target. It is utilized to push the evaluated client properties forward.
 
 This Configuration
-- Uses the "Property\Property Options" setting in the "Settings" menu. There you'll find the "Multi-Hop" tab, where "Require connecting devices to forward their remote properties in a multi-hop scenario" needs to be checked.
+- Uses the "Properties\Property Options" setting in the "Settings" menu. There you'll find the "Multi-Hop" tab, where "Require connecting devices to forward their remote properties in a multi-hop scenario" needs to be checked.
 
 <img src="../../_assets/images/multi-hop/1-ManagedHops/03_ForwardProperties.png" alt="Forward Properties" title="Forward Properties" width="600">
 
 ### Configuration 3 - Build Context based on Properties & Run Actions ([dtpol configuration file](./dT_C_MH_1-ManagedHops_3_Target.dtpol)) 
-
 The third configuration is applied only to the last hop / target. It is utilized to build context and run actions. In the example use case, it gets the Remote Device's name from the Remote Properties and displays it as Action Center notification in the target session.
 
 This Configuration
-- Builds the Context "Remote Name", fetching the Remote Device's name from the Remote Properties.
-- Displays and Action Center notification in the target Windows session.
+- Builds the Context "Remote Name", fetching the user's device's name from the Remote Properties.
+- Displays an Action Center notification in the target Windows session.
 
 | Build Context | Run Actions | Pop Up | Event Viewer |
 |---------------|-------------|--------|--------------|
