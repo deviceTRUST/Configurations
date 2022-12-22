@@ -1,7 +1,4 @@
 {
-   "consoleVersion": "21.1.312.0",
-   "username": "DEMO.DEVICETRUST.LOCAL\\admin",
-   "timestamp": "2022-12-22T11:22:22.284Z",
    "contexts": [],
    "actions": [],
    "messages": [],
@@ -14,7 +11,7 @@
             "persistToRegistry": true,
             "persistToEnvironment": true,
             "persistToCommandPrompt": true,
-            "forwardRemoteProperties": false,
+            "forwardRemoteProperties": true,
             "whoisOptions": {
                "enabledUsers": [],
                "disabledUsers": [],
@@ -139,5 +136,8 @@
          "queries": []
       }
    ],
-   "usecases": []
+   "usecases": [],
+   "consoleVersion": "21.1.310.0",
+   "username": "SvenJansen",
+   "timestamp": "2022-12-22T11:35:26.283Z"
 }

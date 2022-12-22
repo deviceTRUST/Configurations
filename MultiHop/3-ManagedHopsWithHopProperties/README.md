@@ -28,7 +28,7 @@ This Configuration
 
 | Evaluate the "LOCAL" domain membership | Evaluate the user's device's name. |
 |----------------------------------------|------------------------------------|
-|<img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/05_Context.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/06_action.png" alt="Run Actions" title="Run Actions" width="200"> |
+|<img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/08_Local_Domain.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/07_RemoteName.png" alt="Run Actions" title="Run Actions" width="200"> |
 
 ### Configuration 2 - Push Properties forward & Evaluate local properties(dT_C_MH_3-ManagedHopswithProperties_2_Hop2-HopN.dtpol)
 The second configuration is applied only to any hop along the connection chain. On every hop, the domain membership is evaluated. Also, the user's device's name is pushed forward.
@@ -40,7 +40,7 @@ This Configuration
 
 | Evaluate the "LOCAL" domain membership | Evaluate the "MULTI_HOP" domain membership of the previous hop(s). | Push forward the user's device's name |
 |----------------------------------------|--------------------------------------------------------------------|---------------------------------------|
-|<img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/05_Context.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/06_action.png" alt="Run Actions" title="Run Actions" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/02_DenyAccess.png" alt="Pop Up" title="Pop Up" width="200"> |
+|<img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/08_Local_Domain.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/09_Multi-Hop_Domain.png" alt="Run Actions" title="Run Actions" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/10_ForwardProperties.png" alt="Pop Up" title="Pop Up" width="200"> |
 
 ### Configuration 3 - Build Context based on Properties & Run Actions (dT_C_MH_3-ManagedHopswithProperties_3_Target.dtpol)
 The third configuration is applied only to the last hop / target. It is utilized to build context and run actions. In the example use case, it blocks the session if one hop along the chain is mot joined to the domain "demo". Also, the user's device's name is evaluated.
