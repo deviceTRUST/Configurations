@@ -17,7 +17,7 @@ Contains the configuration as described in [our knowledge base article](https://
 This configuration is applied only to the agent in this scenario. It is utilized to evaluate properties from very first remote client that is found along the chain. You can either evaluate properties by creating a context or by adding the in the "Setting\Properties" configuration menu. The configuration in this repository uses the second method.
 
 This Configuration
-- Uses the "Property" setting in the "Settings" menu to evaluate the "Name" property of the "Remote" client.
+- Uses the "Properties" setting in the "Settings" menu to evaluate the "Name" property of the "Remote" client.
 
 <img src="../../_assets/images/multi-hop/1-ManagedHops/02_EvaluateRemoteProperties.png" alt="Evaluate Remote Properties" title="Evaluate Remote Properties" width="600">
 
