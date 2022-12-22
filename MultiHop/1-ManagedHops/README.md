@@ -8,12 +8,12 @@ Read [our knowledge base article](https://app.hubspot.com/knowledge/7075732/edit
 ![1 - Managed Hops](../../_assets/images/multi-hop/1-ManagedHops/01_Architecture.png)
 
 ## Guide
-| Machine            | Software                                            | Configuration                                          |
-|--------------------|-----------------------------------------------------|--------------------------------------------------------|
-| Client             | deviceTRUST Client Extension                        | None                                                   |
-| Hop 1              | deviceTRUST Client Extension <br> deviceTRUST Agent | 1 - Evaluate Properties                                |
-| Hop 2-N            | deviceTRUST Client Extension <br> deviceTRUST Agent | 2 - Push Properties forward                            |
-| Final Hop / Target | deviceTRUST Agent                                   | 3 - Build Context based on Properties <br> Run Actions |
+| Machine            | Software                                            | Configuration                                       |
+|--------------------|-----------------------------------------------------|-----------------------------------------------------|
+| Client             | deviceTRUST Client Extension                        | None                                                |
+| Hop 1              | deviceTRUST Client Extension <br> deviceTRUST Agent | 1 - Evaluate Properties                             |
+| Hop 2-N            | deviceTRUST Client Extension <br> deviceTRUST Agent | 2 - Push Properties forward                         |
+| Final Hop / Target | deviceTRUST Agent                                   | 3 - Build Context based on Properties & Run Actions |
 
 ### Configuration 1 - Evaluate Properties ([dtpol configuration file](./dT_C_MH_1-ManagedHops_1_Hop1.dtpol)) 
 The first configuration is applied to the first hop in the chain. It is utilized to evaluate properties from the remote client. You can either evaluate properties by creating a context or by adding the in the "Setting\Properties" configuration menu. The configuration in this repository uses the second method.

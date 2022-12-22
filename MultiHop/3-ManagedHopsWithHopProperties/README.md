@@ -12,12 +12,12 @@ This configuration
 - Evaluates the user device's name, pushes it through to the target and shows a pop up there.
 - Evaluates the domain membership of the hops in-between. The connection to the target is only allowed if all hops are member of the correct domain.
 
-| Machine            | Software                                            | Configuration                                                 |
-|--------------------|-----------------------------------------------------|---------------------------------------------------------------|
-| Client             | deviceTRUST Client Extension                        | None                                                          |
-| Hop 1              | deviceTRUST Client Extension <br> deviceTRUST Agent | 1 - Evaluate Remote Properties <br> Evaluate local properties |
-| Hop 2-N            | deviceTRUST Client Extension <br> deviceTRUST Agent | 2 - Push Properties forward <br> Evaluate local properties    |
-| Final Hop / Target | deviceTRUST Agent                                   | 3 - Build Context based on Properties <br> Run Actions        |
+| Machine            | Software                                            | Configuration                                              |
+|--------------------|-----------------------------------------------------|------------------------------------------------------------|
+| Client             | deviceTRUST Client Extension                        | None                                                       |
+| Hop 1              | deviceTRUST Client Extension <br> deviceTRUST Agent | 1 - Evaluate Remote Properties & Evaluate local properties |
+| Hop 2-N            | deviceTRUST Client Extension <br> deviceTRUST Agent | 2 - Push Properties forward & Evaluate local properties    |
+| Final Hop / Target | deviceTRUST Agent                                   | 3 - Build Context based on Properties & Run Actions        |
 
 ### Configuration 1 - Evaluate Remote Properties & Evaluate local properties ([dtpol configuration file](./dT_C_MH_3-ManagedHopswithProperties_1_Hop1.dtpol)) 
 The first configuration is applied only to the first hop. It evaluates the domain membership of the first hop. Also, it evaluates the user's device's name.
