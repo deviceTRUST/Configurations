@@ -38,6 +38,6 @@ This Configuration
 - Builds the Context "Remote Name", fetching the user's device's name from the Remote Properties.
 - Displays an Action Center notification in the target Windows session.
 
-| Build Context | Run Actions | Pop Up | Event Viewer |
-|---------------|-------------|--------|--------------|
+| Build Context | Run Action | Pop Up | Event Viewer |
+|---------------|------------|--------|--------------|
 |<img src="../../_assets/images/multi-hop/1-ManagedHops/04_Context.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/05_Action.png" alt="Run Actions" title="Run Actions" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/06_PopUp.png" alt="Pop Up" title="Pop Up" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/07_Eventviewer.png" alt="Event Viewer" title="Event Viewer" width="200"> |
