@@ -2,7 +2,7 @@
 This configuration can be applied to deviceTRUST Agents in a Multi-Hop scenario where a licensed deviceTRUST Agent is deployed on every hop along the chain. It does, thus, cater mainly for Multi-Hop scenarios in the internal networks of deviceTRUST customers. 
 The "managed hops" scenario can be implemented with the deviceTRUST standard components. It gives full flexibility of the multi-hop path and the data to be evaluated.
 
-Contains the configuration as described in https://app.hubspot.com/knowledge/7075732/edit/93463466337
+Contains the configuration as described in ([our knowledge base article](https://app.hubspot.com/knowledge/7075732/edit/93463466337)) 
 
 ![1 - Managed Hops](../../_assets/images/multi-hop/1-ManagedHops/01_Architecture.png)
 
@@ -14,7 +14,7 @@ Contains the configuration as described in https://app.hubspot.com/knowledge/707
 | Hop 2-N            | deviceTRUST Client Extension <br> deviceTRUST Agent | 2 - Push Properties forward                            |
 | Final Hop / Target | deviceTRUST Agent                                   | 3 - Build Context based on Properties <br> Run Actions |
 
-### Configuration 1 - Evaluate Properties (dT_C_MH_1-ManagedHops_1_Hop1.dtpol)
+### Configuration 1 - Evaluate Properties ([dtpol configuration file](./dT_C_MH_1-ManagedHops_1_Hop1.dtpol)) 
 The first configuration is applied to the first hop in the chain. It is utilized to evaluate properties from the remote client. You can either evaluate properties by creating a context or by adding the in the "Setting\Properties" configuration menu. The configuration in this repository uses the second method.
 
 This Configuration
@@ -22,7 +22,7 @@ This Configuration
 
 <img src="../../_assets/images/multi-hop/1-ManagedHops/02_EvaluateRemoteProperties.png" alt="Evaluate Remote Properties" title="Evaluate Remote Properties" width="600">
 
-### Configuration 2 - Push Properties forward (dT_C_MH_1-ManagedHops_2_Hop2-HopN.dtpol)
+### Configuration 2 - Push Properties forward ([dtpol configuration file](./dT_C_MH_1-ManagedHops_2_Hop2-HopN.dtpol)) 
 The second configuration is applied to any hop along the chain that is not the first and not the last hop / target. It is utilized to push the evaluated client properties forward.
 
 This Configuration
@@ -30,7 +30,7 @@ This Configuration
 
 <img src="../../_assets/images/multi-hop/1-ManagedHops/03_ForwardProperties.png" alt="Forward Properties" title="Forward Properties" width="600">
 
-### Configuration 3 - Build Context based on Properties & Run Actions (dT_C_MH_1-ManagedHops_3_Target.dtpol)
+### Configuration 3 - Build Context based on Properties & Run Actions ([dtpol configuration file](./dT_C_MH_1-ManagedHops_3_Target.dtpol)) 
 
 The third configuration is applied only to the last hop / target. It is utilized to build context and run actions. In the example use case, it gets the Remote Device's name from the Remote Properties and displays it as Action Center notification in the target session.
 
