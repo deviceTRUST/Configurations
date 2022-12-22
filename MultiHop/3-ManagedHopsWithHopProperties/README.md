@@ -3,7 +3,7 @@ This configuration can be applied to deviceTRUST Agents in a Multi-Hop scenario 
 
 This scenario enables you to evaluate and use properties on every hop in a multi-hop scenario. As the possibilities of this setup are pretty vast, a very simple example is given here.
 
-![3 - Managed Hops with Properties](../../_assets/images/multi-hop/3-ManagedHopswithProperties/01_Architecture.png)
+![3 - Managed Hops with Properties](../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/01_Architecture.png)
 
 Contains the configuration as described in https://app.hubspot.com/knowledge/7075732/edit/93463466337
 
