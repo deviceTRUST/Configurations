@@ -5,7 +5,7 @@ It is intended to cater for scenarios in which one ore more hops are not in the 
 
 Read [our knowledge base article](https://app.hubspot.com/knowledge/7075732/edit/93463466337) for further information.
 
-![2 - Unmanaged Hops](../../_assets/images/multi-hop/2-UnmanagedHops/01_Architecture.png)
+![2 - Unmanaged Hops](../../_assets/images/multi-hop/2-UnmanagedHops/05_Architecture.png)
 
 ## Guide
 | Machine            | Software                     | Configuration                                                                                   |
@@ -21,6 +21,6 @@ This Configuration
 - Builds the Context "Remote Name", fetching the user's device's name from the Remote Properties.
 - Displays an Action Center notification in the target Windows session.
 
-| Build Context | Run Action | Pop Up | Event Viewer |
-|---------------|------------|--------|--------------|
-|<img src="../../_assets/images/multi-hop/2-UnmanagedHops/04_Context.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/2-UnmanagedHops/05_Action.png" alt="Run Actions" title="Run Actions" width="200"> | <img src="../../_assets/images/multi-hop/2-UnmanagedHops/06_PopUp.png" alt="Pop Up" title="Pop Up" width="200"> | <img src="../../_assets/images/multi-hop/2-UnmanagedHops/07_Eventviewer.png" alt="Event Viewer" title="Event Viewer" width="200"> |
+| Build Context | Run Action | Forward Properties | Pop Up | Event Viewer |
+|---------------|------------|--------------------|--------|--------------|
+|<img src="../../_assets/images/multi-hop/2-UnmanagedHops/01_Context.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/2-UnmanagedHops/02_Action.png" alt="Run Actions" title="Run Actions" width="200"> | <img src="../../_assets/images/multi-hop/2-UnmanagedHops/06_ForwardProperties.png" alt="Event Viewer" title="Event Viewer" width="200"> | <img src="../../_assets/images/multi-hop/2-UnmanagedHops/03_PopUp.png" alt="Pop Up" title="Pop Up" width="200"> | <img src="../../_assets/images/multi-hop/2-UnmanagedHops/04_Eventviewer.png" alt="Event Viewer" title="Event Viewer" width="200"> |
