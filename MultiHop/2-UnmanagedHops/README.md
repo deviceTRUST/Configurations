@@ -2,7 +2,7 @@
 This configuration can only be applied to deviceTRUST from version 21.1.314. It utilizes a on-to-one connection from the user's client to a target session by hopping over multiple deviceTRUST Client Extensions. It does only require a configured deviceTRUST Agend on the last top / target. This makes the configuration rather simple. 
 It is intended to cater for scenarios in which one ore more hops are not in the customer's hands and thus might not be licensed and configurable to run a deviceTRUST Agent.
 
-Contains the configuration as described in ([our knowledge base article](https://app.hubspot.com/knowledge/7075732/edit/93463466337)) 
+Contains the configuration as described in [our knowledge base article](https://app.hubspot.com/knowledge/7075732/edit/93463466337)
 
 ![2 - Unmanaged Hops](../../_assets/images/multi-hop/2-UnmanagedHops/01_Architecture.png)
 
@@ -20,3 +20,5 @@ This Configuration
 - Uses the "Property" setting in the "Settings" menu to evaluate the "Name" property of the "Remote" client.
 
 <img src="../../_assets/images/multi-hop/1-ManagedHops/02_EvaluateRemoteProperties.png" alt="Evaluate Remote Properties" title="Evaluate Remote Properties" width="600">
+
+The configuration will automatically be applied to the first deviceTRUST Client Extension found in the chain. No further configuration is required.

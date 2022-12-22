@@ -5,7 +5,7 @@ This scenario enables you to evaluate and use properties on every hop in a multi
 
 ![3 - Managed Hops with Properties](../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/01_Architecture.png)
 
-Contains the configuration as described in ([our knowledge base article](https://app.hubspot.com/knowledge/7075732/edit/93463466337)) 
+Contains the configuration as described in [our knowledge base article](https://app.hubspot.com/knowledge/7075732/edit/93463466337)
 
 ## Guide
 This configuration
@@ -23,10 +23,10 @@ This configuration
 The first configuration is applied only to the first hop. It evaluates the domain membership of the first hop. Also, it evaluates the user's device's name.
 
 This Configuration
-- Evaluates the "LOCAL" domain membership.
-- Evaluates the user's device's name.
+- Uses the "Properties\Local" setting in the "Settings" menu to evaluate the domain membership of the local hop.
+- Uses the "Properties\Remote" setting in the "Settings" menu to evaluate the user's device's name.
 
-| Evaluate the "LOCAL" domain membership | Evaluate the user's device's name. |
+| Evaluate the "Local" domain membership | Evaluate the user's device's name. |
 |----------------------------------------|------------------------------------|
 |<img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/08_Local_Domain.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/07_RemoteName.png" alt="Run Actions" title="Run Actions" width="200"> |
 
@@ -34,12 +34,12 @@ This Configuration
 The second configuration is applied only to any hop along the connection chain. On every hop, the domain membership is evaluated. Also, the user's device's name is pushed forward.
 
 This Configuration
-- Evaluates the "LOCAL" domain membership.
-- Evaluates the "MULTI_HOP" domain membership of the previous hop(s).
-- Pushes forward the user's device's name.
+- Uses the "Properties\Local" setting in the "Settings" menu to evaluate the domain membership of the local hop.
+- Uses the "Properties\MultiHop" setting in the "Settings" menu to evaluate the domain membership of the previous hop(s).
+- Forwards the user's device's name.
 
-| Evaluate the "LOCAL" domain membership | Evaluate the "MULTI_HOP" domain membership of the previous hop(s). | Push forward the user's device's name |
-|----------------------------------------|--------------------------------------------------------------------|---------------------------------------|
+| Evaluate the "Local" domain membership | Evaluate the "MultiHop" domain membership of the previous hop(s). | Forward the user's device's name |
+|----------------------------------------|-------------------------------------------------------------------|----------------------------------|
 |<img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/08_Local_Domain.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/09_Multi-Hop_Domain.png" alt="Run Actions" title="Run Actions" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/10_ForwardProperties.png" alt="Pop Up" title="Pop Up" width="200"> |
 
 ### Configuration 3 - Build Context based on Properties & Run Actions ([dtpol configuration file](./dT_C_MH_3-ManagedHopswithProperties_3_Target.dtpol)) 
@@ -47,7 +47,7 @@ The third configuration is applied only to the last hop / target. It is utilized
 
 This Configuration
 - Builds the Context "Domain Chain", evaulauting, if every hop is joined to the domain "demo".
-- Denies access to the session, if at least one hop is not a member of "demo".
+- Runs an Action on Logon and Reconnect, that denies access to the session, if at least one hop is not a member of the domain "demo".
 - Evaluates the user's device's name and outputs it to the logon event.
 
 | Build Context | Run Actions | Deny Access | Event Viewer - False | Event Viewer - True |
