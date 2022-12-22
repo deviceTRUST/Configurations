@@ -5,7 +5,7 @@ This scenario enables you to evaluate and use properties on every hop in a multi
 
 ![3 - Managed Hops with Properties](../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/01_Architecture.png)
 
-Contains the configuration as described in [our knowledge base article](https://app.hubspot.com/knowledge/7075732/edit/93463466337)
+Read [our knowledge base article](https://app.hubspot.com/knowledge/7075732/edit/93463466337) for further information.
 
 ## Guide
 This configuration

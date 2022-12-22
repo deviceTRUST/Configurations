@@ -1,8 +1,9 @@
 # 1 - Managed Hops
-This configuration can be applied to deviceTRUST Agents in a Multi-Hop scenario where a licensed deviceTRUST Agent is deployed on every hop along the chain. It does, thus, cater mainly for Multi-Hop scenarios in the internal networks of deviceTRUST customers. 
+This configuration can be applied to deviceTRUST Agents in a Multi-Hop scenario where a licensed deviceTRUST Agent is deployed on every hop along the chain. It does, thus, cater mainly for Multi-Hop scenarios in the networks of deviceTRUST customers. 
+
 The "managed hops" scenario can be implemented with the deviceTRUST standard components. It gives full flexibility of the multi-hop path and the data to be evaluated.
 
-Contains the configuration as described in [our knowledge base article](https://app.hubspot.com/knowledge/7075732/edit/93463466337)
+Read [our knowledge base article](https://app.hubspot.com/knowledge/7075732/edit/93463466337) for further information.
 
 ![1 - Managed Hops](../../_assets/images/multi-hop/1-ManagedHops/01_Architecture.png)
 
@@ -39,4 +40,4 @@ This Configuration
 
 | Build Context | Run Actions | Pop Up | Event Viewer |
 |---------------|-------------|--------|--------------|
-|<img src="../../_assets/images/multi-hop/1-ManagedHops/04_Context.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/05_Action.png" alt="Run Actions" title="Run Actions" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/06_PopUp.png" alt="Pop Up" title="Pop Up" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/07_EventViewer.png" alt="Event Viewer" title="Event Viewer" width="200"> |
+|<img src="../../_assets/images/multi-hop/1-ManagedHops/04_Context.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/05_Action.png" alt="Run Actions" title="Run Actions" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/06_PopUp.png" alt="Pop Up" title="Pop Up" width="200"> | <img src="../../_assets/images/multi-hop/1-ManagedHops/07_Eventviewer.png" alt="Event Viewer" title="Event Viewer" width="200"> |
