@@ -10,7 +10,7 @@ Contains the configuration as described in https://app.hubspot.com/knowledge/707
 ## Guide
 This configuration
 - Evaluates the user device's name, pushes it through to the target and shows a pop up there.
-- Evaluates the domain membership of the hops in-between. The connection to the target is only allowed if all hops are member of the correctz domain.
+- Evaluates the domain membership of the hops in-between. The connection to the target is only allowed if all hops are member of the correct domain.
 
 | Machine            | Software                                            | Configuration                                                 |
 |--------------------|-----------------------------------------------------|---------------------------------------------------------------|
@@ -24,3 +24,14 @@ This configuration
 ### Configuration 2 - Push Properties forward & Evaluate local properties(dT_C_MH_3-ManagedHopswithProperties_2_Hop2-HopN.dtpol)
 
 ### Configuration 3 - Build Context based on Properties & Run Actions (dT_C_MH_3-ManagedHopswithProperties_3_Target.dtpol)
+The third configuration is applied only to the last hop / target. It is utilized to build context and run actions. In the example use case, it blocks the session if one hop along the chain is mot joined to the domain "demo". Also, the user's device's name is evaluated.
+
+This Configuration
+- Builds the Context "Domain Chain", evaulauting, if every hop is joined to the domain "demo".
+- Denies access to the session, if at least one hop is not a member of "demo".
+- Evaluates the user's device's name and outputs it to the logon event.
+
+
+| Build Context | Run Actions | Deny Access | Event Viewer - False | Event Viewer - True |
+|---------------|-------------|-------------|----------------------|---------------------|
+|<img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/05_Context.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/05_Action.png" alt="Run Actions" title="Run Actions" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/02_DenyAccess.PNG" alt="Pop Up" title="Pop Up" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/03_eventviewer_true.png" alt="Event Viewer" title="Event Viewer" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/04_eventviewer_false.png" alt="Event Viewer" title="Event Viewer" width="200"> |
