@@ -1,7 +1,4 @@
 # 1 - Managed Hops
-```diff
-@@ Managed Hops (and bold)@@
-```
 This configuration can be applied to deviceTRUST Agents in a Multi-Hop scenario where a licensed deviceTRUST Agent is deployed on every hop along the chain. It does, thus, cater mainly for Multi-Hop scenarios in the internal networks of deviceTRUST customers. 
 The "managed hops" scenario can be implemented with the deviceTRUST standard components. It gives full flexibility of the multi-hop path and the data to be evaluated.
 
@@ -10,7 +7,6 @@ Contains the configuration as described in https://app.hubspot.com/knowledge/707
 ![1 - Managed Hops](../../_assets/images/multi-hop/1-ManagedHops/01_Architecture.png)
 
 ## Guide
-
 | Machine            | Software                                            | Configuration                                          |
 |--------------------|-----------------------------------------------------|--------------------------------------------------------|
 | Client             | deviceTRUST Client Extension                        | None                                                   |
