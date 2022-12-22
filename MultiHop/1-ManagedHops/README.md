@@ -1,9 +1,10 @@
-# 1. Managed Hops
-This configuration can be applied to deviceTRUST Agents in a Multi-Hop scenario where a licensed deviceTRUST Agent is deployed on every hop along the chain. It does, thus, cater mainly for Multi-Hop scenarios in the internal networks of deviceTRUST customers. The "managed hops" scenario can be implemented with the deviceTRUST standard components. It gives full flexibility of the multi-hop path and the data to be evaluated.
-
-![1 - Managed Hops](../../_assets/images/multi-hop/1-ManagedHops/01_Architecture.png)
+@@ # 1 - Managed Hops @@
+This configuration can be applied to deviceTRUST Agents in a Multi-Hop scenario where a licensed deviceTRUST Agent is deployed on every hop along the chain. It does, thus, cater mainly for Multi-Hop scenarios in the internal networks of deviceTRUST customers. 
+The "managed hops" scenario can be implemented with the deviceTRUST standard components. It gives full flexibility of the multi-hop path and the data to be evaluated.
 
 Contains the configuration as described in https://app.hubspot.com/knowledge/7075732/edit/93463466337
+
+![1 - Managed Hops](../../_assets/images/multi-hop/1-ManagedHops/01_Architecture.png)
 
 ## Guide
 
@@ -35,9 +36,8 @@ This Configuration
 The third configuration is applied only to the last hop / target. It is utilized to build context and run actions. In the example use case, it gets the Remote Device's name from the Remote Properties and displays it as Action Center notification in the target session.
 
 This Configuration
-- Builds the Context "Remote Name", fetching the Remote Device's name from the Remote Properties
-- Displays and Action Center notification in the target Windows session
-
+- Builds the Context "Remote Name", fetching the Remote Device's name from the Remote Properties.
+- Displays and Action Center notification in the target Windows session.
 
 | Build Context | Run Actions | Pop Up | Event Viewer |
 |---------------|-------------|--------|--------------|
