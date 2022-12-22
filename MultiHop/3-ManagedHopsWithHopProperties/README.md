@@ -20,8 +20,19 @@ This configuration
 | Final Hop / Target | deviceTRUST Agent                                   | 3 - Build Context based on Properties <br> Run Actions        |
 
 ### Configuration 1 - Evaluate Remote Properties & Evaluate local properties (dT_C_MH_3-ManagedHopswithProperties_1_Hop1.dtpol)
+The first configuration is applied only to the first hop. It evaluates the domain membership of the first hop. Also, it evaluates the user's device's name.
+
+This Configuration
+- Evaluates the "LOCAL" domain membership.
+- Evaluates the user's device's name.
 
 ### Configuration 2 - Push Properties forward & Evaluate local properties(dT_C_MH_3-ManagedHopswithProperties_2_Hop2-HopN.dtpol)
+The second configuration is applied only to any hop along the connection chain. On every hop, the domain membership is evaluated. Also, the user's device's name is pushed forward.
+
+This Configuration
+- Evaluates the "LOCAL" domain membership.
+- Evaluates the "MULTI_HOP" domain membership of the previous hop(s).
+- Pushes forward the user's device's name.
 
 ### Configuration 3 - Build Context based on Properties & Run Actions (dT_C_MH_3-ManagedHopswithProperties_3_Target.dtpol)
 The third configuration is applied only to the last hop / target. It is utilized to build context and run actions. In the example use case, it blocks the session if one hop along the chain is mot joined to the domain "demo". Also, the user's device's name is evaluated.
@@ -30,7 +41,6 @@ This Configuration
 - Builds the Context "Domain Chain", evaulauting, if every hop is joined to the domain "demo".
 - Denies access to the session, if at least one hop is not a member of "demo".
 - Evaluates the user's device's name and outputs it to the logon event.
-
 
 | Build Context | Run Actions | Deny Access | Event Viewer - False | Event Viewer - True |
 |---------------|-------------|-------------|----------------------|---------------------|

@@ -1,0 +1,113 @@
+{
+   "consoleVersion": "21.1.312.0",
+   "username": "DEMO.DEVICETRUST.LOCAL\\admin",
+   "timestamp": "2022-12-22T11:22:10.790Z",
+   "contexts": [
+      {
+         "id": "a15b470c-22e3-436b-a3e3-a0e7eb66d008",
+         "key": "CONTEXT_DOMAIN_CHAIN",
+         "name": "Domain Chain",
+         "description": "Enter context description",
+         "mode": "Left-Most Path",
+         "defaultState": "False",
+         "enabled": true,
+         "data": [
+            {
+               "state": "True",
+               "conditions": [
+                  {
+                     "id": "5c5aef5e-2ab1-4e8c-a736-b568ef3f0334",
+                     "categoryName": "Domain",
+                     "propertyName": "Join",
+                     "propertyValue": 4,
+                     "underlyingPropertyName": "TARGET_DOMAIN_JOIN",
+                     "operator": "Enum Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "Domain"
+                        ]
+                     },
+                     "target": "Multihop",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  },
+                  {
+                     "id": "8ab84df7-1feb-4b82-8b39-b5163bd2dddb",
+                     "categoryName": "Domain",
+                     "propertyName": "Name",
+                     "propertyValue": 1,
+                     "underlyingPropertyName": "TARGET_DOMAIN_NAME",
+                     "operator": "String Equals (Wildcard)",
+                     "value": {
+                        "type": "String",
+                        "data": [
+                           "demo"
+                        ]
+                     },
+                     "target": "Multihop",
+                     "isArrayIndexed": false,
+                     "sameAsParent": false,
+                     "isDelimitedArray": false
+                  }
+               ]
+            }
+         ],
+         "protection": "Text",
+         "persistToEventLog": true,
+         "persistToRegistry": true,
+         "persistToEnvironment": true,
+         "persistToCommandPrompt": true
+      }
+   ],
+   "actions": [
+      {
+         "id": "fc756946-f54e-4c38-a5ae-267bd6c9caa7",
+         "key": "ACTION_CONDITIONAL_ACCESS_DOMAIN_CHAIN",
+         "name": "Conditional Access - Domain Chain",
+         "description": "Enter action description",
+         "data": [
+            {
+               "type": "Trigger",
+               "triggers": [
+                  "Logon",
+                  "Reconnect"
+               ],
+               "filters": [
+                  {
+                     "contextKey": "CONTEXT_DOMAIN_CHAIN",
+                     "contextName": "Domain Chain",
+                     "contextMode": "Left-Most Path",
+                     "operator": "Enum Not Equals",
+                     "value": {
+                        "type": "Enum",
+                        "data": [
+                           "True"
+                        ]
+                     }
+                  }
+               ],
+               "tasks": [
+                  {
+                     "id": "83637217-f82f-4a79-99dc-91f6e17d3fa9",
+                     "type": "Deny Access",
+                     "description": "Access denied",
+                     "allowShellInteraction": false,
+                     "title": "Access denied",
+                     "message": "Not every hop in the chain is a mamber of \"demo\".",
+                     "triggerButtons": [],
+                     "persistence": "Context",
+                     "alwaysShowSignoutButton": false
+                  }
+               ]
+            }
+         ],
+         "enabled": true,
+         "priority": "Medium"
+      }
+   ],
+   "messages": [],
+   "settings": [],
+   "usecases": []
+}

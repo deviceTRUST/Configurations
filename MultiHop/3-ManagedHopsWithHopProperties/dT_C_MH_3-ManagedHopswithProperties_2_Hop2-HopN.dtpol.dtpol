@@ -1,0 +1,143 @@
+{
+   "consoleVersion": "21.1.312.0",
+   "username": "DEMO.DEVICETRUST.LOCAL\\admin",
+   "timestamp": "2022-12-22T11:22:22.284Z",
+   "contexts": [],
+   "actions": [],
+   "messages": [],
+   "settings": [
+      {
+         "type": "Properties",
+         "enabled": true,
+         "options": {
+            "persistToEventLog": true,
+            "persistToRegistry": true,
+            "persistToEnvironment": true,
+            "persistToCommandPrompt": true,
+            "forwardRemoteProperties": false,
+            "whoisOptions": {
+               "enabledUsers": [],
+               "disabledUsers": [],
+               "doNotManageInternalUsers": false,
+               "preferPhysicalAdapter": false
+            },
+            "locationOptions": {
+               "enabledUsers": [],
+               "disabledUsers": [],
+               "doNotManageInternalUsers": false,
+               "osPositionOptions": {
+                  "source": "Satellite, Wi-Fi, Cellular",
+                  "timeout": 5,
+                  "interval": 60
+               }
+            },
+            "securityProductOptions": {
+               "cacheEnabled": true,
+               "cacheTimeoutMinutes": 30,
+               "cacheExpiryHours": 240,
+               "suppressAntispywareTimeoutSeconds": 30,
+               "suppressAntivirusTimeoutSeconds": 30,
+               "suppressFirewallTimeoutSeconds": 0
+            }
+         },
+         "categories": [
+            {
+               "enabled": true,
+               "categoryId": "Domain",
+               "target": "Local",
+               "properties": [
+                  {
+                     "id": "TARGET_DOMAIN_DNS",
+                     "name": "DNS",
+                     "value": 2,
+                     "enabled": false,
+                     "persistToEventLog": false,
+                     "persistToRegistry": false,
+                     "persistToEnvironment": false,
+                     "persistToCommandPrompt": false
+                  },
+                  {
+                     "id": "TARGET_DOMAIN_ID",
+                     "name": "ID",
+                     "value": 3,
+                     "enabled": false,
+                     "persistToEventLog": false,
+                     "persistToRegistry": false,
+                     "persistToEnvironment": false,
+                     "persistToCommandPrompt": false
+                  },
+                  {
+                     "id": "TARGET_DOMAIN_JOIN",
+                     "name": "Join",
+                     "value": 4,
+                     "enabled": true,
+                     "persistToEventLog": true,
+                     "persistToRegistry": true,
+                     "persistToEnvironment": true,
+                     "persistToCommandPrompt": true
+                  },
+                  {
+                     "id": "TARGET_DOMAIN_NAME",
+                     "name": "Name",
+                     "value": 1,
+                     "enabled": true,
+                     "persistToEventLog": true,
+                     "persistToRegistry": true,
+                     "persistToEnvironment": true,
+                     "persistToCommandPrompt": true
+                  }
+               ]
+            },
+            {
+               "enabled": true,
+               "categoryId": "Domain",
+               "target": "Multihop",
+               "properties": [
+                  {
+                     "id": "TARGET_DOMAIN_DNS",
+                     "name": "DNS",
+                     "value": 2,
+                     "enabled": false,
+                     "persistToEventLog": false,
+                     "persistToRegistry": false,
+                     "persistToEnvironment": false,
+                     "persistToCommandPrompt": false
+                  },
+                  {
+                     "id": "TARGET_DOMAIN_ID",
+                     "name": "ID",
+                     "value": 3,
+                     "enabled": false,
+                     "persistToEventLog": false,
+                     "persistToRegistry": false,
+                     "persistToEnvironment": false,
+                     "persistToCommandPrompt": false
+                  },
+                  {
+                     "id": "TARGET_DOMAIN_JOIN",
+                     "name": "Join",
+                     "value": 4,
+                     "enabled": true,
+                     "persistToEventLog": true,
+                     "persistToRegistry": true,
+                     "persistToEnvironment": true,
+                     "persistToCommandPrompt": true
+                  },
+                  {
+                     "id": "TARGET_DOMAIN_NAME",
+                     "name": "Name",
+                     "value": 1,
+                     "enabled": true,
+                     "persistToEventLog": true,
+                     "persistToRegistry": true,
+                     "persistToEnvironment": true,
+                     "persistToCommandPrompt": true
+                  }
+               ]
+            }
+         ],
+         "queries": []
+      }
+   ],
+   "usecases": []
+}
