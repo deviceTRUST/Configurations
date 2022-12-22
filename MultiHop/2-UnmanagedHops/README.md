@@ -13,7 +13,7 @@ Contains the configuration as described in https://app.hubspot.com/knowledge/707
 | Hop 1-N            | deviceTRUST Client Extension | None - Automatically connect to the next deviceTRUST Client Extension until Agent is found |
 | Final Hop / Target | deviceTRUST Agent            | 1 - Build Context based on Properties <br> Run Actions                    |
 
-### Configuration 1 - Build Context based on Properties & Run Actions (dT_C_MH_1-UnmanagedHops_1_Hop1.dtpol)
+### Configuration 1 - Build Context based on Properties & Run Actions (dT_C_MH_1-UnmanagedHops_1_Hop1.dtpol) [Config](./dT_C_MH_1-UnmanagedHops_1_Hop1.dtpol)
 This configuration is applied only to the agent in this scenario. It is utilized to evaluate properties from very first remote client that is found along the chain. You can either evaluate properties by creating a context or by adding the in the "Setting\Properties" configuration menu. The configuration in this repository uses the second method.
 
 This Configuration
