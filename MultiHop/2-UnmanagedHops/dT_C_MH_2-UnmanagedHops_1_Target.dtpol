@@ -1,48 +1,151 @@
 {
-   "contexts": [],
-   "actions": [],
-   "messages": [],
-   "settings": [
-      {
-         "type": "Properties",
-         "enabled": true,
-         "options": {
-            "persistToEventLog": true,
-            "persistToRegistry": true,
-            "persistToEnvironment": true,
-            "persistToCommandPrompt": true,
-            "forwardRemoteProperties": true,
-            "whoisOptions": {
-               "enabledUsers": [],
-               "disabledUsers": [],
-               "doNotManageInternalUsers": false,
-               "preferPhysicalAdapter": false
+  "consoleVersion": "21.1.312.0",
+  "username": "DEMO.DEVICETRUST.LOCAL\\admin",
+  "timestamp": "2022-12-22T13:32:54.681Z",
+  "contexts": [
+    {
+      "id": "2350adb9-1d15-402f-bbc8-3af70ca4fb73",
+      "key": "CONTEXT_REMOTE_NAME",
+      "name": "Remote Name",
+      "description": "Enter context description",
+      "mode": "Left-Most Path",
+      "defaultState": "Unavailable",
+      "enabled": true,
+      "data": [
+        {
+          "state": "%REMOTE_NAME%",
+          "conditions": [
+            {
+              "id": "706b0e1a-ead1-4af5-ada6-194bf27cb5f9",
+              "categoryName": "deviceTRUST",
+              "propertyName": "Connected",
+              "propertyValue": 2,
+              "underlyingPropertyName": "TARGET_DEVICETRUST_CONNECTED",
+              "operator": "Boolean Equals",
+              "value": {
+                "type": "Boolean",
+                "data": [
+                  true
+                ]
+              },
+              "target": "Local",
+              "branches": [
+                {
+                  "state": "Not found",
+                  "conditions": []
+                }
+              ]
             },
-            "locationOptions": {
-               "enabledUsers": [],
-               "disabledUsers": [],
-               "doNotManageInternalUsers": false,
-               "osPositionOptions": {
-                  "source": "Satellite, Wi-Fi, Cellular",
-                  "timeout": 5,
-                  "interval": 60
-               }
-            },
-            "securityProductOptions": {
-               "cacheEnabled": true,
-               "cacheTimeoutMinutes": 30,
-               "cacheExpiryHours": 240,
-               "suppressAntispywareTimeoutSeconds": 30,
-               "suppressAntivirusTimeoutSeconds": 30,
-               "suppressFirewallTimeoutSeconds": 0
+            {
+              "id": "7647fb70-32d9-481b-9f72-6fa699d031ae",
+              "categoryName": "Name",
+              "propertyName": "Name",
+              "propertyValue": 1,
+              "underlyingPropertyName": "TARGET_NAME",
+              "operator": "Available",
+              "value": {
+                "type": "String",
+                "data": []
+              },
+              "target": "Remote",
+              "isArrayIndexed": false,
+              "sameAsParent": false,
+              "isDelimitedArray": false
             }
-         },
-         "categories": [],
-         "queries": []
-      }
-   ],
-   "usecases": [],
-   "consoleVersion": "21.1.310.0",
-   "username": "SvenJansen",
-   "timestamp": "2022-11-29T11:42:39.932Z"
+          ]
+        }
+      ],
+      "protection": "Text",
+      "persistToEventLog": true,
+      "persistToRegistry": true,
+      "persistToEnvironment": true,
+      "persistToCommandPrompt": true
+    }
+  ],
+  "actions": [
+    {
+      "id": "92ae49e6-b104-443c-9c76-76b50e08ac88",
+      "key": "ACTION_DISPLAY_REMOTE_NAME",
+      "name": "Display Remote Name",
+      "description": "Enter action description",
+      "data": [
+        {
+          "type": "Trigger",
+          "triggers": [
+            "Logon",
+            "Reconnect"
+          ],
+          "filters": [
+            {
+              "contextKey": "CONTEXT_REMOTE_NAME",
+              "contextName": "Remote Name",
+              "contextMode": "Left-Most Path",
+              "operator": "Enum None Of",
+              "value": {
+                "type": "Enum",
+                "data": [
+                  "Unavailable",
+                  "Not found"
+                ]
+              }
+            }
+          ],
+          "tasks": [
+            {
+              "id": "dd113300-c405-4e64-8cc5-cd468d1a0940",
+              "type": "Popup Message",
+              "description": "You are accessing from %CONTEXT_REMOTE_NAME%",
+              "toast": false,
+              "message": "You are accessing from %CONTEXT_REMOTE_NAME%",
+              "title": "Welcome to your session!",
+              "triggerButtons": []
+            }
+          ]
+        }
+      ],
+      "enabled": true,
+      "priority": "Medium"
+    }
+  ],
+  "messages": [],
+  "settings": [
+    {
+      "type": "Properties",
+      "enabled": true,
+      "options": {
+        "persistToEventLog": true,
+        "persistToRegistry": true,
+        "persistToEnvironment": true,
+        "persistToCommandPrompt": true,
+        "forwardRemoteProperties": true,
+        "whoisOptions": {
+          "enabledUsers": [],
+          "disabledUsers": [],
+          "doNotManageInternalUsers": false,
+          "preferPhysicalAdapter": false
+        },
+        "locationOptions": {
+          "enabledUsers": [],
+          "disabledUsers": [],
+          "doNotManageInternalUsers": false,
+          "osPositionOptions": {
+            "source": "Satellite, Wi-Fi, Cellular",
+            "timeout": 5,
+            "interval": 60
+          }
+        },
+        "securityProductOptions": {
+          "cacheEnabled": true,
+          "cacheTimeoutMinutes": 30,
+          "cacheExpiryHours": 240,
+          "suppressAntispywareTimeoutSeconds": 30,
+          "suppressAntivirusTimeoutSeconds": 30,
+          "suppressFirewallTimeoutSeconds": 0
+        }
+      },
+      "categories": [],
+      "queries": []
+    }
+  ],
+  "usecases": []
 }
