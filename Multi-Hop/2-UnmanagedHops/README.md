@@ -1,8 +1,8 @@
 # 2 - Unmanaged Hops
 
-This configuration can only be applied to deviceTRUST from version 21.1.314. It utilizes a on-to-one connection from the user's client to a target session by hopping over multiple deviceTRUST Client Extensions. It does only require a configured deviceTRUST Agent on the last top / target. This makes the configuration rather simple.
+This configuration utilizes a one-to-one connection from the user's client to a target session by hopping over multiple deviceTRUST Client Extensions. It does only require a configured deviceTRUST Agent on the target. It is intended to cater for scenarios in which one ore more hops are not in the customer's hands and thus might not be licensed and configurable to run a deviceTRUST Agent.
 
-It is intended to cater for scenarios in which one ore more hops are not in the customer's hands and thus might not be licensed and configurable to run a deviceTRUST Agent.
+The configuration can be used with deviceTRUST from version 21.1.314.
 
 Read [our knowledge base article](https://app.hubspot.com/knowledge/7075732/edit/93463466337) for further information.
 
@@ -18,7 +18,7 @@ Read [our knowledge base article](https://app.hubspot.com/knowledge/7075732/edit
 
 ### Configuration 1 - Build Context based on Properties & Run Actions ([dtpol configuration file](./dT_C_MH_2-UnmanagedHops_1_Target.dtpol))
 
-This configuration is applied only to the deviceTRUST Agent. It is utilized to evaluate properties from the very first remote client that is found along the chain. You can either evaluate properties by creating a context or by adding the in the "Setting\Properties" configuration menu. The configuration in this repository uses the first method.
+This configuration is applied only to the deviceTRUST Agent n the target. It is utilized to evaluate properties from the very first remote client that is found along the chain. You can either evaluate properties by creating a context or by adding the in the "Setting\Properties" configuration menu. The configuration in this repository uses the first method.
 
 This Configuration
 

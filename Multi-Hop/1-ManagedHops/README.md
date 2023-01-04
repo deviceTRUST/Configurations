@@ -1,6 +1,6 @@
 # 1 - Managed Hops
 
-This configuration can be applied to deviceTRUST Agents in a Multi-Hop scenario where a licensed deviceTRUST Agent is deployed on every hop along the chain. It does, thus, cater mainly for Multi-Hop scenarios in the networks of deviceTRUST customers.
+This configuration can be applied to deviceTRUST Agents in a Multi-Hop scenario where a licensed deviceTRUST Agent is deployed and configured on every hop along the chain. It does, thus, cater mainly for Multi-Hop scenarios in the networks of deviceTRUST customers.
 
 The "Managed Hops" scenario can be implemented with the deviceTRUST standard components. It gives full flexibility of the Multi-Hop path and the data to be evaluated.
 
@@ -14,7 +14,7 @@ Read [our knowledge base article](https://app.hubspot.com/knowledge/7075732/edit
 |---------|-----------------------------------------------------|---------------------------------|
 | Client  | deviceTRUST Client Extension                        | None                            |
 | Hop 1   | deviceTRUST Client Extension <br> deviceTRUST Agent | 1 - Evaluate Properties         |
-| Hop 2-N | deviceTRUST Client Extension <br> deviceTRUST Agent | 2 - Forward Properties     |
+| Hop 2-N | deviceTRUST Client Extension <br> deviceTRUST Agent | 2 - Forward Properties          |
 | Target  | deviceTRUST Agent                                   | 3 - Build Context & Run Actions |
 
 ### Configuration 1 - Evaluate Properties ([dtpol configuration file](./dT_C_MH_1-ManagedHops_1_Hop1.dtpol))
