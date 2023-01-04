@@ -12,12 +12,12 @@ This configuration
 - Evaluates the user's device's name, forwards it to the target and shows a pop up there.
 - Evaluates the domain membership of the hops in-between. The connection to the target is only allowed if all hops are member of the correct domain ("demo").
 
-| Machine            | Software                                            | Configuration                                                                          |
-|--------------------|-----------------------------------------------------|----------------------------------------------------------------------------------------|
-| Client             | deviceTRUST Client Extension                        | None                                                                                   |
-| Hop 1              | deviceTRUST Client Extension <br> deviceTRUST Agent | 1 - Evaluate Remote Properties & Evaluate Local properties                             |
-| Hop 2-N            | deviceTRUST Client Extension <br> deviceTRUST Agent | 2 - Forward Properties, Evaluate Multi-Hop properties & Evaluate Local properties |
-| Final Hop / Target | deviceTRUST Agent                                   | 3 - Build Context & Run Actions                                                        |
+| Machine | Software                                            | Configuration                                                                          |
+|---------|-----------------------------------------------------|----------------------------------------------------------------------------------------|
+| Client  | deviceTRUST Client Extension                        | None                                                                                   |
+| Hop 1   | deviceTRUST Client Extension <br> deviceTRUST Agent | 1 - Evaluate Remote Properties & Evaluate Local properties                             |
+| Hop 2-N | deviceTRUST Client Extension <br> deviceTRUST Agent | 2 - Forward Properties, Evaluate Multi-Hop properties & Evaluate Local properties |
+| Target  | deviceTRUST Agent                                   | 3 - Build Context & Run Actions                                                        |
 
 ### Configuration 1 - Evaluate Remote Properties & Evaluate local properties ([dtpol configuration file](./dT_C_MH_3-ManagedHopswithProperties_1_Hop1.dtpol)) 
 The first configuration is applied only to the first hop. It evaluates the domain membership of the first hop. Also, it evaluates the user's device's name.
@@ -43,7 +43,7 @@ This Configuration
 |<img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/08_Local_Domain.png" alt="Built Context" title="Built Context" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/09_Multi-Hop_Domain.png" alt="Run Actions" title="Run Actions" width="200"> | <img src="../../_assets/images/multi-hop/3-ManagedHopsWithHopProperties/10_ForwardProperties.png" alt="Pop Up" title="Pop Up" width="200"> |
 
 ### Configuration 3 - Build Context based on Properties & Run Actions ([dtpol configuration file](./dT_C_MH_3-ManagedHopswithProperties_3_Target.dtpol)) 
-The third configuration is applied only to the last hop / target. It is utilized to build context and run actions. In the example use case, it blocks the session if one hop along the chain is mot joined to the domain "demo". Also, the user's device's name is evaluated.
+The third configuration is applied only to the target. It is utilized to build context and run actions. In the example use case, it blocks the session if one hop along the chain is mot joined to the domain "demo". Also, the user's device's name is evaluated.
 
 This Configuration
 - Builds the Context "Domain Chain", evaulauting, if every hop is joined to the domain "demo".
