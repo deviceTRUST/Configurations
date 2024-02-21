@@ -209,6 +209,15 @@
             "embeddedScriptTarget": "Unknown",
             "hashProperties": false
          },
+         "remoteNoTouchProcess": {
+            "enabled": false,
+            "runAs": "Current",
+            "timeout": 300,
+            "failureDetection": "Exit Code",
+            "embeddedScript": "#!/bin/bash\necho REMOTE_CUSTOM_EXAMPLE=$(whoami)\n",
+            "embeddedScriptTarget": "Unknown",
+            "hashProperties": false
+         },
          "remoteLinuxProcess": {
             "enabled": false,
             "runAs": "Current",
@@ -221,7 +230,7 @@
       }
    ],
    "usecases": [],
-   "consoleVersion": "21.1.310.0",
+   "consoleVersion": "23.1.202.0",
    "username": "SvenJansen",
-   "timestamp": "2022-11-29T11:59:27.437Z"
+   "timestamp": "2024-02-21T13:22:03.055Z"
 }

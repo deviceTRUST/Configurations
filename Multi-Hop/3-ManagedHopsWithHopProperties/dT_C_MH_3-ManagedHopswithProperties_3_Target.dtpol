@@ -1,7 +1,4 @@
 {
-   "consoleVersion": "21.1.312.0",
-   "username": "DEMO.DEVICETRUST.LOCAL\\admin",
-   "timestamp": "2022-12-22T11:22:10.790Z",
    "contexts": [
       {
          "id": "a15b470c-22e3-436b-a3e3-a0e7eb66d008",
@@ -109,5 +106,8 @@
    ],
    "messages": [],
    "settings": [],
-   "usecases": []
+   "usecases": [],
+   "consoleVersion": "23.1.202.0",
+   "username": "SvenJansen",
+   "timestamp": "2024-02-21T13:20:51.086Z"
 }

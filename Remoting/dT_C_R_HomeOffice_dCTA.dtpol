@@ -3045,13 +3045,15 @@
          "trustedDeviceDeniedMessage": "To allow access to your session, please upgrade to the latest deviceTRUST client from https://devicetrust.com/download.%NEWLINE%For more details contact your IT help desk.",
          "untrustedDeviceDeniedTitle": "Access Denied",
          "untrustedDeviceDeniedMessage": "To allow access to your session, please install the deviceTRUST client from https://devicetrust.com/download.%NEWLINE%For more details contact your IT help desk.",
+         "mobileConnectRemoteNotificiationMessage": "Connected to %LOCAL_NAME% at %TIME%",
+         "requestOneTimePasscodeMessage": "You are connecting from a remote iOS device.%NEWLINE%Launch the deviceTRUST app and enter the following code:",
          "signoutButton": "%MESSAGE_SYSTEM_MESSAGE_BUTTON_SIGN_OUT%",
          "lockButton": "%MESSAGE_SYSTEM_MESSAGE_BUTTON_LOCK%",
          "disconnectButton": "%MESSAGE_SYSTEM_MESSAGE_BUTTON_DISCONNECT%"
       }
    ],
    "usecases": [],
-   "consoleVersion": "21.1.310.0",
+   "consoleVersion": "23.1.202.0",
    "username": "SvenJansen",
-   "timestamp": "2022-11-29T11:59:17.932Z"
+   "timestamp": "2024-02-21T13:21:52.390Z"
 }
